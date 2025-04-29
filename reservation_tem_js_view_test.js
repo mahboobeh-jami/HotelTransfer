@@ -7454,6 +7454,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             // added jami
                              if (document.querySelector(".hotel_transfer_type") && document.querySelector(".hotel_transfer_type").value  == 1) {
                               
+                                console.log("test transfer11111111111111111")
                                 // if (document.querySelector(".hotel_transfer_to")){
                                 //     console.log(document.querySelector(".hotel_transfer_to"));
                                 // }
@@ -7461,17 +7462,16 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 //     console.log(document.querySelector(".hotel_transfer_from"));
                                 // }
 
-                                let rooms_hotel_transfer = document.querySelector(".hotel_transfer_type").querySelector(".hotel_rooms");
-                                let id_hotel_transfer = document.querySelector(".hotel_transfer_type").querySelector(".hotelid_transfer_type");
+                                // let rooms_hotel_transfer = document.querySelector(".hotel_transfer_type").querySelector(".hotel_rooms");
+                                // let id_hotel_transfer = document.querySelector(".hotel_transfer_type").querySelector(".hotelid_transfer_type");
 
-                                $.post('/Test_Standard_Transfer_Form_New.bc?debug=true',{
-                                    rooms: rooms_hotel_transfer,
-                                    hotelid: id_hotel_transfer
-                                }, function (response) {
-                                    $(".services-info-content").html(response);
-                                });
-                                document.querySelector(".services-info-content").setAttribute("data-load", 1);
-                                // show_extra_service_content(element);
+                                // $.post('/Test_Standard_Transfer_Form_New.bc?debug=true',{
+                                //     rooms: rooms_hotel_transfer,
+                                //     hotelid: id_hotel_transfer
+                                // }, function (response) {
+                                //     $(".services-info-content").html(response);
+                                // });
+                                // document.querySelector(".services-info-content").setAttribute("data-load", 1);
 
 
                             }

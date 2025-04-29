@@ -449,7 +449,11 @@
                                         <input type="hidden" value='@value' class="hotel_extra_service_transfer_from"/>
                                     </face>
 
-
+                                    <face filter="Field = 'transfer_type'">
+                                        <!-- added jami -->
+                                        <input type="hidden" value='@value' class="hotel_transfer_type"/>
+                                        <input type="hidden" value='[##cms.form.hotelid##]' class="hotelid_transfer_type"/>
+                                    </face>
 
                                     <face filter="field in ('hotelImage')">
                                         <div class="img-content">@child</div>
