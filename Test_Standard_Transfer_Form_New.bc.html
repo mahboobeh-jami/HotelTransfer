@@ -1,0 +1,50 @@
+<basis core="group" name="Delay_1">
+
+    <basis core="external.fly.ws" source="cmsDbService5" procedurename="dbsource" name="db">
+        <member name="transferForm" method="hotel" query='{
+            "name": "db",
+            "mid": "20",
+            "member": [{
+            "type": "list",
+            "name": "q",
+            "lid":"1",
+            "request": "transfer_form",
+            "schemaid": "251",
+            "dmnid": "[##cms.cms.domainid##]",
+            "ws": "70",
+            "rooms":[##cms.json.header|cms.form.rooms##],
+            <!-- "trackingNo": "[##cms.cookie.trackingid##]",
+            "hotelid": "[##cms.form.hotelid##]", -->
+    }]}'  />
+    </basis>
+
+
+
+
+    <basis core="inlinesource" name="db">
+        <member name="transformformTree" format="json"
+        postsql="
+    
+        
+        SELECT 
+    Id,
+    ParentId,
+    CASE 
+        WHEN TRIM(Field) IS NULL THEN 
+            (SELECT Field 
+             FROM [db.transformformTree] 
+             WHERE ParentId = a.ParentId AND Field IS NOT NULL 
+             LIMIT 1)
+        ELSE 
+            Field
+    END AS Field,
+    Value,
+    Type,
+    Path
+    FROM [db.transformformTree] AS a
+    
+    "
+        
+        >{"root":[##db.transformform.result##]}</member>
+    </basis>    
+</basis>
