@@ -1,55 +1,52 @@
-
-const sidInput = document.querySelector('input[name=sid]');
-const sid = sidInput?.value || '2';
 const module_type = parseInt(document.querySelector(".main-container").getAttribute("data-schemaid"));
 switch (module_type) {
     case 291:
         module = "oneway";
-        module_fa = "پرواز";
+        module_ar = "رحلة";
         break;
     case 290:
         module = "roundtrip";
-        module_fa = "پرواز";
+        module_ar = "رحلة";
         break;
     case 292:
         module = "multicity";
-        module_fa = "پرواز";
+        module_ar = "رحلة";
         break;
     case 251:
         module = "hotel";
-        module_fa = "هتل";
+        module_ar = "الفندق";
         break;
     case 290251:
         module = "flightHotel";
-        module_fa = "پرواز + هتل";
+        module_ar = "رحلة + الفندق";
         break;
     case 249:
         module = "tour";
-        module_fa = "تور";
+        module_ar = "جولة";
         break;
     case 500:
         module = "cip";
-        module_fa = "cip";
+        module_ar = "cip";
         break;
     case 139:
         module = "insurance";
-        module_fa = "بیمه";
+        module_ar = "التأمين";
         break;
     case 250:
         module = "visa";
-        module_fa = "ویزا";
+        module_ar = "فيزا";
         break;
     case 401:
         module = "train_oneway";
-        module_fa = "قطار";
+        module_ar = "يدرب";
         break;
     case 402:
         module = "train_roundtrip";
-        module_fa = "قطار";
+        module_ar = "يدرب";
         break;
     case 501:
         module = "TouristPanel";
-        module_fa = "توریست پنل";
+        module_ar = "لوحة سياحية";
         break;
 };
 if (document.querySelector(".main-container").getAttribute("data-schemaid") == 251) {
@@ -65,15 +62,15 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
         for (var j = 1; j < child_count_age_splited.length; j++) {
             if (child_count_age_splited[j] > 2 && child_count_age_splited[j] <= 6) {
                 child_age_wob = child_age_wob += child_count_age_splited[j] + ',';
-                $(".without-bed").empty().html('(' + child_age_wob.slice(0, -1) + ' سال)');
+                $(".without-bed").empty().html('(' + child_age_wob.slice(0, -1) + ' سنة)');
 
             } else if (child_count_age_splited[j] > 6 && child_count_age_splited[j] <= 12) {
                 child_age_wb = child_age_wb += child_count_age_splited[j] + ',';
-                $(".with-bed").empty().html('(' + child_age_wb.slice(0, -1) + ' سال)');
+                $(".with-bed").empty().html('(' + child_age_wb.slice(0, -1) + ' سنة)');
 
             } else if (child_count_age_splited[j] >= 1 && child_count_age_splited[j] <= 2) {
                 infant_age = infant_age += child_count_age_splited[j] + ',';
-                $(".is-infant").empty().html('(' + infant_age.slice(0, -1) + ' سال)');
+                $(".is-infant").empty().html('(' + infant_age.slice(0, -1) + ' سنة)');
             }
         }
     }
@@ -151,6 +148,7 @@ if (document.querySelector(".message-box-nodata")) {
     if (document.querySelector(".passenger-notices-content")) {
         document.querySelector(".passenger-notices-content").classList.add("unvisible");
     }
+  
 };
 
 
@@ -234,10 +232,10 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
     };
 } else if (document.querySelector(".main-container").getAttribute("data-schemaid") == 290) {
     for (var i = 0; i < document.querySelector(".departureRoutesInfo").getElementsByClassName("route-title").length; i++) {
-        document.querySelector(".departureRoutesInfo").getElementsByClassName("route-title")[i].innerHTML = 'پرواز رفت'
+        document.querySelector(".departureRoutesInfo").getElementsByClassName("route-title")[i].innerHTML = 'المغادرة'
     };
     for (var i = 0; i < document.querySelector(".returninfoRoutesInfo").getElementsByClassName("route-title").length; i++) {
-        document.querySelector(".returninfoRoutesInfo").getElementsByClassName("route-title")[i].innerHTML = 'پرواز برگشت'
+        document.querySelector(".returninfoRoutesInfo").getElementsByClassName("route-title")[i].innerHTML = 'العوده'
     };
     let rout_dep_length = document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item").length;
     let rout_des_length = document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item").length;
@@ -298,14 +296,14 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
     }
 } else if (document.querySelector(".main-container").getAttribute("data-schemaid") == 290251) {
     for (var i = 0; i < document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item").length; i++) {
-        document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".route-title").innerHTML = 'پرواز رفت';
+        document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".route-title").innerHTML = 'المغادرة';
         document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".endCityDetail").innerHTML = document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".CityEnd").innerText;
         document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".startCityDetail").innerHTML = document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".CityStart").innerText;
         document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".classNameDetail").innerHTML = document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".ClassName").innerText;
         document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".routeCodeDetail").innerHTML = document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".RouteCode").innerText;
     };
     for (var i = 0; i < document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item").length; i++) {
-        document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".route-title").innerHTML = 'پرواز برگشت';
+        document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".route-title").innerHTML = 'العوده';
         document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".endCityDetail").innerHTML = document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".CityEnd").innerText;
         document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".startCityDetail").innerHTML = document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".CityStart").innerText;
         document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".classNameDetail").innerHTML = document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item")[i].querySelector(".ClassName").innerText;
@@ -348,10 +346,10 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
     };
 } else if (document.querySelector(".main-container").getAttribute("data-schemaid") == 402) {
     for (var i = 0; i < document.querySelector(".departureRoutesInfo").getElementsByClassName("route-title").length; i++) {
-        document.querySelector(".departureRoutesInfo").getElementsByClassName("route-title")[i].innerHTML = 'قطار رفت'
+        document.querySelector(".departureRoutesInfo").getElementsByClassName("route-title")[i].innerHTML = 'يدرب المغادرة'
     };
     for (var i = 0; i < document.querySelector(".returninfoRoutesInfo").getElementsByClassName("route-title").length; i++) {
-        document.querySelector(".returninfoRoutesInfo").getElementsByClassName("route-title")[i].innerHTML = 'قطار برگشت'
+        document.querySelector(".returninfoRoutesInfo").getElementsByClassName("route-title")[i].innerHTML = 'يدرب العوده'
     };
     let rout_dep_length = document.querySelector(".departureRoutesInfo").getElementsByClassName("details-item").length;
     let rout_des_length = document.querySelector(".returninfoRoutesInfo").getElementsByClassName("details-item").length;
@@ -408,22 +406,22 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
 for (var i = 0; i < document.getElementsByClassName('reSearch-form').length; i++) {
     if (document.getElementsByClassName('reSearch-form')[i].getAttribute("data-engine") == 1) {
         document.getElementsByClassName('reSearch-form')[i].setAttribute("action",
-            `/${module}_engine_.bc?lid=1`);
+            `/${module}_engine__ar.bc`);
         if ($(window).width() <= 750) {
             document.getElementsByClassName('reSearch-form')[i].setAttribute("action",
-                `/M_${module}_Engine_Search.bc?lid=1`);
+                `/M_${module}_Engine_Search_ar.bc`);
         }
     } else {
 
         if ($(window).width() <= 750) {
             document.getElementsByClassName('reSearch-form')[i].setAttribute("action",
-                `/M_${module}_Search.bc?lid=1`);
+                `/M_${module}_Search_ar.bc`);
         }
         if (document.getElementsByClassName('reSearch-form')[i].getAttribute("data-tem") == '') {
             document.getElementsByClassName('reSearch-form')[i].setAttribute("action",
-                `/tem3_${module}_search.bc?lid=1`);
+                `/tem3_${module}_search_AR.bc`);
         } else {
-            document.getElementsByClassName('reSearch-form')[i].setAttribute("action", `/${document.getElementsByClassName('reSearch-form')[i].getAttribute("data-tem")}_${module}_Search.bc?lid=1`);
+            document.getElementsByClassName('reSearch-form')[i].setAttribute("action", `/${document.getElementsByClassName('reSearch-form')[i].getAttribute("data-tem")}_${module}_Search_AR.bc`);
         }
     }
 
@@ -495,20 +493,20 @@ function toggle_details_content(element, type) {
     if (type == 'section-rule') {
         if (element.getAttribute("data-type-description") == 'object') {
             document.querySelector(`#${type}`).querySelector(".text-dep").classList.remove("max-height");
-            document.querySelector(`#${type}`).querySelector(".text-dep").innerHTML = `<p class="title">برای مشاهده قوانین پرواز رفت <span class="clicked font-weight cursor-pointer"  onclick="show_flight_rule(this,'dep')">کلیک</span> کنید</p><p dir="auto" class="response"></p>`;
+            document.querySelector(`#${type}`).querySelector(".text-dep").innerHTML = `<p class="title">لمعرفة قوانين الحقائب للمغادرة<span class="clicked font-weight cursor-pointer"  onclick="show_flight_rule(this,'dep')">اضغط هنا</span></p><p dir="auto" class="response"></p>`;
             if (document.querySelector(`#${type}`).querySelector(".text-des")) {
                 document.querySelector(`#${type}`).querySelector(".text-des").classList.remove("max-height");
-                document.querySelector(`#${type}`).querySelector(".text-des").innerHTML = `<p class="title">برای مشاهده قوانین پرواز برگشت <span class="clicked font-weight cursor-pointer"  onclick="show_flight_rule(this,'des')">کلیک</span> کنید</p><p dir="auto" class="response"></p>`;
+                document.querySelector(`#${type}`).querySelector(".text-des").innerHTML = `<p class="title">لمعرفة قوانين الحقائب للعودة <span class="clicked font-weight cursor-pointer"  onclick="show_flight_rule(this,'des')">اضغط هنا</span></p><p dir="auto" class="response"></p>`;
             }
         }
 
     } else if (type == 'section-bar') {
         if (element.getAttribute("data-type-description") == 'object') {
             document.querySelector(`#${type}`).querySelector(".text-dep").classList.remove("max-height");
-            document.querySelector(`#${type}`).querySelector(".text-dep").innerHTML = `<p class="title">برای مشاهده قوانین بار رفت <span class="clicked font-weight cursor-pointer"  onclick="show_flight_bar(this,'dep')">کلیک</span> کنید</p><p dir="auto" class="response"></p>`;
+            document.querySelector(`#${type}`).querySelector(".text-dep").innerHTML = `<p class="title">لمعرفة قوانين الحقائب للمغادرة<span class="clicked font-weight cursor-pointer"  onclick="show_flight_bar(this,'dep')">اضغط هنا</span></p><p dir="auto" class="response"></p>`;
             if (document.querySelector(`#${type}`).querySelector(".text-des")) {
                 document.querySelector(`#${type}`).querySelector(".text-des").classList.remove("max-height");
-                document.querySelector(`#${type}`).querySelector(".text-des").innerHTML = `<p class="title">برای مشاهده قوانین بار برگشت <span class="clicked font-weight cursor-pointer"  onclick="show_flight_bar(this,'des')">کلیک</span> کنید</p><p dir="auto" class="response"></p>`;
+                document.querySelector(`#${type}`).querySelector(".text-des").innerHTML = `<p class="title">لمعرفة قوانين الحقائب للعودة <span class="clicked font-weight cursor-pointer"  onclick="show_flight_bar(this,'des')">اضغط هنا</span></p><p dir="auto" class="response"></p>`;
             }
         }
 
@@ -529,7 +527,7 @@ function show_flight_bar(element, type) {
     element.closest(".section-item").querySelector(".loading-container").classList.remove("unvisible");
     let obj_stringify = document.querySelector("#section-bar").getAttribute(`data-description-${type}`);
     obj_stringify = obj_stringify.replace(/\\/g, '');
-    $.post(`/Client_Baggage_Rule.bc?lid=1`, {
+    $.post(`/Client_Baggage_Rule.bc`, {
         id: obj_stringify
     }, function (response) {
         element.closest(".section-item").querySelector(".loading-container").classList.add("unvisible");
@@ -549,7 +547,7 @@ function show_flight_rule(element) {
     delete obj["bar_info"];
     let obj_stringify = JSON.stringify(obj);
     obj_stringify = obj_stringify.replace(/\\/g, '');
-    $.post(`/Client_Flight_Rule.bc?lid=1`, {
+    $.post(`/Client_Flight_Rule.bc`, {
         id: obj_stringify
     }, function (response) {
         element.closest(".section-item").querySelector(".loading-container").classList.add("unvisible");
@@ -564,7 +562,7 @@ function check_invoice(element, type) {
     };
     if (type == 'preInvoice') {
         element.closest(".invoice-container").querySelector(".invoice-content").insertAdjacentHTML('beforeend',
-            `<div class="dot-waiting">در حال صدور پیش قرارداد، لطفا منتظر بمانید</div>`);
+            `<div class="dot-waiting">إصدار العقد المسبق، يرجى الإنتظار</div>`);
         element.closest(".invoice-container").querySelector(".invoice-content").classList.add("not-active");
         document.querySelector("input[name=bank_id]").value = -1;
         if (element.getAttribute("data-clicked") == 0) {
@@ -584,7 +582,7 @@ function check_invoice(element, type) {
                 document.querySelector("input[name=bank_id]").value = element.querySelector(".bankwid").value;
                 if (element.querySelector(".bankwid").value == -1) {
                     element.closest(".invoice-container").insertAdjacentHTML('beforeend',
-                        `<div class="dot-waiting">در حال صدور پیش قرارداد، لطفا منتظر بمانید</div>`);
+                        `<div class="dot-waiting">إصدار العقد المسبق، يرجى الإنتظار</div>`);
                     document.querySelector(".invoice-form").submit();
                 } else if (element.querySelector(".bankwid").value == 97) {
                     element.setAttribute("data-clicked", "0");
@@ -594,30 +592,30 @@ function check_invoice(element, type) {
                         <div class="bg-get-bank-info-container"></div>
                         <div class="main-get-bank-info-container">
                         <div class="get-bank-info-closed"><i class="fa fa-times" onclick="close_bank_info(this)"></i></div>
-                            <p class="font_14">کاربر گرامی, جهت استفاده از درگاه سیبانک لطفا تلفن همراه و کد ملی خود را وارد نمایید.</p>
-                            <p class="font_13 get-bank-warning"> لازم به ذکر است که تلفن همراه وارد شده باید متعلق به کد ملی ذکر شده باشد
+                            <p class="font_14">عزيزي المستخدم، لاستخدام بوابة Sibank، يرجى إدخال هاتفك المحمول والرمز الوطني.</p>
+                            <p class="font_13 get-bank-warning"> تجدر الإشارة إلى أن الهاتف المحمول الذي تم إدخاله يجب أن ينتمي إلى الرمز الوطني المذكور
                             </p>
                             <div class="package-info-item">
-                                <label> تلفن همراه</label>
+                                <label> الهاتف الخلوي</label>
                                 <div class="package-number-items">
                                     <div class="inner-item"><input type="text" class="mobileSiBank siBank-info"
                                             onkeyup="this.value=this.value.replace(/[^0-9]/g, '');"></div>
                                 </div>
                             </div>
                             <div class="package-info-item">
-                                <label> کد ملی</label>
+                                <label> رقم الهویة الوطنية</label>
                                 <div class="package-number-items">
                                     <div class="inner-item"><input type="text" class="nationalCodeSiBank siBank-info"
                                             onkeyup="this.value=this.value.replace(/[^0-9]/g, '');"></div>
                                 </div>
                             </div>
-                            <button type="button" class="btn-item next-btn" onclick="siBank_isSubmited(this,element)">ثبت و ارسال</button>
+                            <button type="button" class="btn-item next-btn" onclick="siBank_isSubmited(this,element)">سجل وأرسل</button>
                         </div>
                     </div>`);
                 }
                 else {
                     element.closest(".invoice-container").insertAdjacentHTML('beforeend',
-                        `<div class="dot-waiting">در حال اتصال به درگاه بانک، لطفا منتظر بمانید</div>`);
+                        `<div class="dot-waiting">جارٍ الاتصال بمنفذ البنك، يرجى الانتظار</div>`);
                     document.querySelector(".invoice-form").submit();
 
                 }
@@ -625,7 +623,7 @@ function check_invoice(element, type) {
                 document.querySelector("input[name=paytype]").value = "credit";
                 document.querySelector("input[name=clear]").value = 6;
                 element.closest(".invoice-container").insertAdjacentHTML('beforeend',
-                    `<div class="dot-waiting">در حال صدور قرارداد، لطفا منتظر بمانید</div>`);
+                    `<div class="dot-waiting">جاري إصدار العقد، الرجاء الإنتظار</div>`);
                 document.querySelector(".invoice-form").submit();
             }
 
@@ -651,7 +649,7 @@ function siBank_isSubmited(element, item) {
         document.querySelector(".invoice-form").insertAdjacentHTML('beforeend', `<input type="hidden" value="${element.closest(".get-bank-info-container").querySelector(".mobileSiBank").value}" name="mobileSiBank"/><input type="hidden" value="${element.closest(".get-bank-info-container").querySelector(".nationalCodeSiBank").value}" name="nationalCodeSiBank"/>`)
         element.closest(".invoice-container").querySelector(".get-bank-info-container").classList.remove("get-bank-info-container-toggle");
         element.closest(".invoice-container").insertAdjacentHTML('beforeend',
-            `<div class="dot-waiting">در حال اتصال به درگاه بانک، لطفا منتظر بمانید</div>`);
+            `<div class="dot-waiting">جارٍ الاتصال بمنفذ البنك، يرجى الانتظار</div>`);
         document.querySelector(".invoice-form").submit();
         item.setAttribute("data-clicked", "0");
         item.classList.remove("not-active");
@@ -690,20 +688,21 @@ function check_price(commission, totalcom, firstpay, Credit_payment) {
 
     };
 
+
     if (document.querySelector(".commission-section").getAttribute("data-output") != 0) {
         document.querySelector(".commission-section").style.display = "flex";
         document.querySelector(".commission-section").querySelector(".commission-price").innerText = new Intl.NumberFormat('en-US').format(document.querySelector(".commission-section").getAttribute("data-output"));
-        document.querySelector(".total-section").insertAdjacentHTML('beforeend', `<div class="font_14 title">مبلغ اولیه</div><div>
+        document.querySelector(".total-section").insertAdjacentHTML('beforeend', `<div class="font_14 title">المبلغ الأولي</div><div>
                                            <span class="font-weight font_13 total-price">${new Intl.NumberFormat('en-US').format(document.querySelector(".total-section").getAttribute("data-output"))}</span> 
                                            <span class="unit-content">${document.querySelector(".moneytype-value").getAttribute("data-output")}</span></div>
                                    `);
     }
     if (document.querySelector(".firstpay-section").getAttribute("data-output") !== document.querySelector(".totalcom-section").getAttribute("data-output")) {
-        document.querySelector(".totalcom-section").insertAdjacentHTML('beforeend', `<div class="font_14 title">مبلغ قابل پرداخت</div><div>
+        document.querySelector(".totalcom-section").insertAdjacentHTML('beforeend', `<div class="font_14 title">المبلغ المستحق</div><div>
                                            <span class="font-weight font_17 totalcom-price" data-value="${new Intl.NumberFormat('en-US').format(document.querySelector(".totalcom-section").getAttribute("data-output"))}">${new Intl.NumberFormat('en-US').format(document.querySelector(".totalcom-section").getAttribute("data-output"))}</span> 
                                            <span class="unit-content">${document.querySelector(".moneytype-value").getAttribute("data-output")}</span></div>
                                    `);
-        document.querySelector(".firstpay-section").querySelector(".title").innerHTML = "پرداخت مرحله اول";
+        document.querySelector(".firstpay-section").querySelector(".title").innerHTML = "الدفع بالمرحلة الأولى";
 
     };
     for (var i = 0; i < document.getElementsByClassName("passenger-info-content").length; i++) {
@@ -719,8 +718,6 @@ function check_price(commission, totalcom, firstpay, Credit_payment) {
 const schema = JSON.parse(document.querySelector(".passenger-form-value").getAttribute("data-output"));
 const data_day = new Array();
 const data_month = new Array();
-const data_day_service = new Array();
-const data_month_service = new Array();
 const data_year_birthdate = new Array();
 const data_year_passport = new Array();
 const data_area = new Array();
@@ -1959,9 +1956,9 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
         }
         var title = schema[i].title;
         var type_element = 0;
-        if (title.indexOf("بزرگسال") > -1) {
+        if (title.indexOf("بالغ") > -1) {
             type_element = 2;
-        } else if (title.indexOf("کودک") > -1) {
+        } else if (title.indexOf("طفل") > -1) {
             type_element = 1;
         }
         var element = document.createElement("div");
@@ -1970,7 +1967,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
         var element_title = document.createElement("div");
         element_title.className = "title flex-justify font_14";
         element_title.innerHTML =
-            `<input class="passenger-type" type="hidden" value=${type_element} name="_root.passengerinfo__${i}.passengerinfo.type"/><div class="type-passenger font-weight">${title}</div><div class="prev-passengers" data-open="0" data-index="${i}" onclick="show_passengersList(this)"><svg data-v-2919ee3e="" aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" name="user-clock" color="inherit" type="regular" class="mr-icon-svg svg-inline--fa fa-user-clock"><path data-v-2919ee3e="" fill="" d="M496 224c-79.63 0-144 64.38-144 144s64.38 144 144 144s144-64.38 144-144S575.6 224 496 224zM544 384h-54.25C484.4 384 480 379.6 480 374.3V304c0-8.836 7.164-16 16-16c8.838 0 16 7.164 16 16v48h32c8.838 0 16 7.164 16 15.1S552.8 384 544 384zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48zM395 512H32c-17.67 0-32-14.33-32-32c0-97.2 78.8-176 176-176h96c19.87 0 38.89 3.441 56.7 9.508c-4.963 15.24-7.787 31.41-8.383 48.17C305.4 355.5 289.1 352 272 352h-96c-65.16 0-119.1 48.95-127 112h299.6C360.9 482.8 376.6 499.1 395 512z" class=""></path></svg>انتخاب مسافران سابق</div>`;
+            `<input class="passenger-type" type="hidden" value=${type_element} name="_root.passengerinfo__${i}.passengerinfo.type"/><div class="type-passenger font-weight">${title}</div><div class="prev-passengers" data-open="0" data-index="${i}" onclick="show_passengersList(this)"><svg data-v-2919ee3e="" aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" name="user-clock" color="inherit" type="regular" class="mr-icon-svg svg-inline--fa fa-user-clock"><path data-v-2919ee3e="" fill="" d="M496 224c-79.63 0-144 64.38-144 144s64.38 144 144 144s144-64.38 144-144S575.6 224 496 224zM544 384h-54.25C484.4 384 480 379.6 480 374.3V304c0-8.836 7.164-16 16-16c8.838 0 16 7.164 16 16v48h32c8.838 0 16 7.164 16 15.1S552.8 384 544 384zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48zM395 512H32c-17.67 0-32-14.33-32-32c0-97.2 78.8-176 176-176h96c19.87 0 38.89 3.441 56.7 9.508c-4.963 15.24-7.787 31.41-8.383 48.17C305.4 355.5 289.1 352 272 352h-96c-65.16 0-119.1 48.95-127 112h299.6C360.9 482.8 376.6 499.1 395 512z" class=""></path></svg>قائمة المسافرين السابقين</div>`;
         element.appendChild(element_title);
         var element_children = document.createElement("div");
         element_children.className = "passenger-info-items";
@@ -1999,7 +1996,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
             } else if (type == 140) {
                 var element_child_title = schema[i].form[j].question;
                 var class140 = "gender"
-                if (element_child_title == 'نوع ویزا') {
+                if (element_child_title == 'نوع التأشيرة') {
                     class140 = "visatype"
                 }
                 var element_child = document.createElement("div");
@@ -2054,34 +2051,28 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                 element_children.appendChild(element_child);
             } else {
                 var element_child_title = schema[i].form[j].question;
-                if (element_child_title == 'نام') {
-                    if (module_type !== 401 && module_type !== 402) {
-                        element_child_title = 'نام به انگلیسی';
-                    }
+                if (element_child_title == 'الاسم') {
+                    element_child_title = 'الاسم الأول باللغة الإنجليزية';
 
-
-                } else if (element_child_title == 'نام خانوادگی') {
-
-                    if (module_type !== 401 && module_type !== 402) {
-                        element_child_title = 'نام خانوادگی به انگلیسی';
-                    }
-                } else if (element_child_title == 'شماره پاسپورت') {
-                    element_child_title = 'شماره گذرنامه';
-                } else if (element_child_title == 'انقضا پاسپورت') {
-                    element_child_title = 'انقضا گذرنامه';
-                } else if (element_child_title == 'کشور صادرکننده پاسپورت') {
-                    element_child_title = 'کشور صادرکننده گذرنامه';
-                } else if (element_child_title == 'تاریخ تولد') {
-                    element_child_title = `${internal == 'internal' ? 'تاریخ تولد' : 'تاریخ تولد میلادی'}`;
+                } else if (element_child_title == 'اللقب') {
+                    element_child_title = 'اللقب باللغة الإنجليزية';
+                } else if (element_child_title == 'رقم جواز السفر ') {
+                    element_child_title = 'رقم جواز السفر';
+                } else if (element_child_title == 'انتهاء صلاحية جواز السفر') {
+                    element_child_title = 'انتهاء صلاحية جواز السفر';
+                } else if (element_child_title == 'بلد إصدار جواز السفر') {
+                    element_child_title = 'بلد إصدار جواز السفر';
+                } else if (element_child_title == 'تاریخ الولادة') {
+                    element_child_title = `${internal == 'internal' ? 'تاریخ الولادة' : 'تاريخ الميلاد'}`;
                 };
 
 
-                if (element_child_title == 'تاریخ تولد میلادی' || element_child_title == 'تاریخ تولد') {
+                if (element_child_title == 'تاريخ الميلاد' || element_child_title == 'تاریخ الولادة') {
                     var element_child = document.createElement("div");
                     element_child.className = "package-info-item";
                     var label = document.createElement("label");
                     label.innerHTML = element_child_title;
-                    label.setAttribute("data-label", "تاریخ تولد");
+                    label.setAttribute("data-label", "تاریخ الولادة");
                     element_child.appendChild(label);
                     var insurance_birthday_splited = "";
                     if (insurance_birthday[i]) {
@@ -2090,7 +2081,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     };
                     var string = `<div class="passenger-date-items${internal == 'internal' ? ' internal' : ''}"><div class="passenger-date-item has-select"
                        >
-                       <div class="inner-item"><input maxlength="2" type="text" ${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? 'readonly=true' : ''} onclick="${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? `` : `toggle_date(this,'day')`}" placeholder="روز" class="day necessary" data-id="${insurance_birthday_splited[2] ? insurance_birthday_splited[2] : ''}" value="${insurance_birthday_splited[2] ? insurance_birthday_splited[2] : ''}" oninput="autoComplete_search(event,this,'day')" onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);"/></div>
+                       <div class="inner-item"><input maxlength="2" type="text" ${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? 'readonly=true' : ''} onclick="${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? `` : `toggle_date(this,'day')`}" placeholder="يوم" class="day necessary" data-id="${insurance_birthday_splited[2] ? insurance_birthday_splited[2] : ''}" value="${insurance_birthday_splited[2] ? insurance_birthday_splited[2] : ''}" oninput="autoComplete_search(event,this,'day')" onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);"/></div>
                        <ul class="drop-item">
                            <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="1">1</li>
                <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="2">2</li>
@@ -2129,145 +2120,236 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                    </div>
                    <div class="passenger-date-item has-select"
                       >
-                      <div class="inner-item"><input maxlength="2" type="text" ${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? 'readonly=true' : ''} onclick="${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? `` : `toggle_date(this,'month')`}"   placeholder="ماه" class="month necessary" data-id="${insurance_birthday_splited[1] ? insurance_birthday_splited[1] : ''}" value="${insurance_birthday_splited[1] ? insurance_birthday_splited[1] : ''}" oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" /></div>
+                      <div class="inner-item"><input maxlength="2" type="text" ${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? 'readonly=true' : ''} onclick="${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? `` : `toggle_date(this,'month')`}"   placeholder="شهر" class="month necessary" data-id="${insurance_birthday_splited[1] ? insurance_birthday_splited[1] : ''}" value="${insurance_birthday_splited[1] ? insurance_birthday_splited[1] : ''}" oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" /></div>
                       <ul class="drop-item">
-               <li onclick="select_date_val(this)" class="li-item" data-id="01" data-switch="${internal == 'internal' ? 'January' : 'فروردین'}" data-default="${internal == 'internal' ? 'فروردین' : 'January'}" data-value="${internal == 'internal' ? 'فروردین' : 'January'}" >
-               ${internal == 'internal' ? 'فروردین' : 'January'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="01" data-switch="January" data-default="January" data-value="January" >
+               January
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="02" data-switch="${internal == 'internal' ? 'February' : 'اردیبهشت'}" data-default="${internal == 'internal' ? 'اردیبهشت' : 'February'}" data-value="${internal == 'internal' ? 'اردیبهشت' : 'February'}">
-               ${internal == 'internal' ? 'اردیبهشت' : 'February'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="02" data-switch="February" data-default="February" data-value="February">
+               February
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="03" data-switch="${internal == 'internal' ? 'March' : 'خرداد'}" data-default="${internal == 'internal' ? 'خرداد' : 'March'}" data-value="${internal == 'internal' ? 'خرداد' : 'March'}">${internal == 'internal' ? 'خرداد' : 'March'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="03" data-switch="March" data-default="March" data-value="March">March
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="04" data-switch="${internal == 'internal' ? 'April' : 'تیر'}" data-default="${internal == 'internal' ? 'تیر' : 'April'}" data-value="${internal == 'internal' ? 'تیر' : 'April'}">${internal == 'internal' ? 'تیر' : 'April'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="04" data-switch="April" data-default="April" data-value="April">April
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="05" data-switch="${internal == 'internal' ? 'May' : 'مرداد'}" data-default="${internal == 'internal' ? 'مرداد' : 'May'}" data-value="${internal == 'internal' ? 'مرداد' : 'May'}">${internal == 'internal' ? 'مرداد' : 'May'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="05" data-switch="May" data-default="May" data-value="May">May
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="06" data-switch="${internal == 'internal' ? 'June' : 'شهریور'}" data-default="${internal == 'internal' ? 'شهریور' : 'June'}" data-value="${internal == 'internal' ? 'شهریور' : 'June'}">${internal == 'internal' ? 'شهریور' : 'June'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="06" data-switch="June" data-default="June" data-value="June">June
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="07" data-switch="${internal == 'internal' ? 'July' : 'مهر'}" data-default="${internal == 'internal' ? 'مهر' : 'July'}" data-value="${internal == 'internal' ? 'مهر' : 'July'}">${internal == 'internal' ? 'مهر' : 'July'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="07" data-switch="July" data-default="July" data-value="July">July
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="08" data-switch="${internal == 'internal' ? 'August' : 'آبان'}" data-default="${internal == 'internal' ? 'آبان' : 'August'}" data-value="${internal == 'internal' ? 'آبان' : 'August'}">
-               ${internal == 'internal' ? 'آبان' : 'August'}</li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="09" data-switch="${internal == 'internal' ? 'September' : 'آذر'}" data-default="${internal == 'internal' ? 'آذر' : 'September'}" data-value="${internal == 'internal' ? 'آذر' : 'September'}">
-               ${internal == 'internal' ? 'آذر' : 'September'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="08" data-switch="August" data-default="August" data-value="August">
+               August</li>
+               <li onclick="select_date_val(this)" class="li-item" data-id="09" data-switch="September" data-default="September" data-value="September">
+               September
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="10" data-switch="${internal == 'internal' ? 'October' : 'دی'}" data-default="${internal == 'internal' ? 'دی' : 'October'}" data-value="${internal == 'internal' ? 'دی' : 'October'}">
-               ${internal == 'internal' ? 'دی' : 'October'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="10" data-switch="October" data-default="October" data-value="October">
+               October
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="11" data-switch="${internal == 'internal' ? 'November' : 'بهمن'}" data-default="${internal == 'internal' ? 'بهمن' : 'November'}" data-value="${internal == 'internal' ? 'بهمن' : 'November'}">
-               ${internal == 'internal' ? 'بهمن' : 'November'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="11" data-switch="November" data-default="November" data-value="November">
+               November
                </li>
-               <li onclick="select_date_val(this)" class="li-item" data-id="12" data-switch="${internal == 'internal' ? 'December' : 'اسفند'}" data-default="${internal == 'internal' ? 'اسفند' : 'December'}" data-value="${internal == 'internal' ? 'اسفند' : 'December'}">
-               ${internal == 'internal' ? 'اسفند' : 'December'}
+               <li onclick="select_date_val(this)" class="li-item" data-id="12" data-switch="December" data-default="December" data-value="December">
+               December
                </li>
                </ul>
                    </div>
                    <div class="passenger-date-item has-select"
                        >
-                       <div class="inner-item"><input maxlength="4" type="text" ${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? 'readonly=true' : ''} onclick="${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? `` : `toggle_date(this,'year-birthdate')`}" placeholder="سال" class="year necessary" data-id="${insurance_birthday_splited[0] ? insurance_birthday_splited[0] : ''}" value="${insurance_birthday_splited[0] ? insurance_birthday_splited[0] : ''}" oninput="autoComplete_search(event,this,'year-birthdate')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);"/></div>
+                       <div class="inner-item"><input maxlength="4" type="text" ${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? 'readonly=true' : ''} onclick="${document.querySelector(".main-container").getAttribute("data-schemaid") == 139 ? `` : `toggle_date(this,'year-birthdate')`}" placeholder="سنة" class="year necessary" data-id="${insurance_birthday_splited[0] ? insurance_birthday_splited[0] : ''}" value="${insurance_birthday_splited[0] ? insurance_birthday_splited[0] : ''}" oninput="autoComplete_search(event,this,'year-birthdate')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);"/></div>
                        <ul class="drop-item">
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2025' : '1404'}" data-default="${internal == 'internal' ? '1404' : '2025'}" data-id="${internal == 'internal' ? '1404' : '2025'}" data-value="${internal == 'internal' ? '1404' : '2025'}">${internal == 'internal' ? '1404' : '2025'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2024' : '1403'}" data-default="${internal == 'internal' ? '1403' : '2024'}" data-id="${internal == 'internal' ? '1403' : '2024'}" data-value="${internal == 'internal' ? '1403' : '2024'}">${internal == 'internal' ? '1403' : '2024'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2023' : '1402'}" data-default="${internal == 'internal' ? '1402' : '2023'}" data-id="${internal == 'internal' ? '1402' : '2023'}" data-value="${internal == 'internal' ? '1402' : '2023'}">${internal == 'internal' ? '1402' : '2023'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2022' : '1401'}" data-default="${internal == 'internal' ? '1401' : '2022'}" data-id="${internal == 'internal' ? '1401' : '2022'}" data-value="${internal == 'internal' ? '1401' : '2022'}">${internal == 'internal' ? '1401' : '2022'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2021' : '1400'}" data-default="${internal == 'internal' ? '1400' : '2021'}" data-id="${internal == 'internal' ? '1400' : '2021'}" data-value="${internal == 'internal' ? '1400' : '2021'}">${internal == 'internal' ? '1400' : '2021'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2020' : '1399'}" data-default="${internal == 'internal' ? '1399' : '2020'}" data-id="${internal == 'internal' ? '1399' : '2020'}" data-value="${internal == 'internal' ? '1399' : '2020'}">${internal == 'internal' ? '1399' : '2020'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2019' : '1398'}" data-default="${internal == 'internal' ? '1398' : '2019'}" data-id="${internal == 'internal' ? '1398' : '2019'}" data-value="${internal == 'internal' ? '1398' : '2019'}">${internal == 'internal' ? '1398' : '2019'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2018' : '1397'}" data-default="${internal == 'internal' ? '1397' : '2018'}" data-id="${internal == 'internal' ? '1397' : '2018'}" data-value="${internal == 'internal' ? '1397' : '2018'}">${internal == 'internal' ? '1397' : '2018'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2017' : '1396'}" data-default="${internal == 'internal' ? '1396' : '2017'}" data-id="${internal == 'internal' ? '1396' : '2017'}" data-value="${internal == 'internal' ? '1396' : '2017'}">${internal == 'internal' ? '1396' : '2017'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2016' : '1395'}" data-default="${internal == 'internal' ? '1395' : '2016'}" data-id="${internal == 'internal' ? '1395' : '2016'}" data-value="${internal == 'internal' ? '1395' : '2016'}">${internal == 'internal' ? '1395' : '2016'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2015' : '1394'}" data-default="${internal == 'internal' ? '1394' : '2015'}" data-id="${internal == 'internal' ? '1394' : '2015'}" data-value="${internal == 'internal' ? '1394' : '2015'}">${internal == 'internal' ? '1394' : '2015'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2014' : '1393'}" data-default="${internal == 'internal' ? '1393' : '2014'}" data-id="${internal == 'internal' ? '1393' : '2014'}" data-value="${internal == 'internal' ? '1393' : '2014'}">${internal == 'internal' ? '1393' : '2014'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2013' : '1392'}" data-default="${internal == 'internal' ? '1392' : '2013'}" data-id="${internal == 'internal' ? '1392' : '2013'}" data-value="${internal == 'internal' ? '1392' : '2013'}">${internal == 'internal' ? '1392' : '2013'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2012' : '1391'}" data-default="${internal == 'internal' ? '1391' : '2012'}" data-id="${internal == 'internal' ? '1391' : '2012'}" data-value="${internal == 'internal' ? '1391' : '2012'}">${internal == 'internal' ? '1391' : '2012'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2011' : '1390'}" data-default="${internal == 'internal' ? '1390' : '2011'}" data-id="${internal == 'internal' ? '1390' : '2011'}" data-value="${internal == 'internal' ? '1390' : '2011'}">${internal == 'internal' ? '1390' : '2011'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2010' : '1389'}" data-default="${internal == 'internal' ? '1389' : '2010'}" data-id="${internal == 'internal' ? '1389' : '2010'}" data-value="${internal == 'internal' ? '1389' : '2010'}">${internal == 'internal' ? '1389' : '2010'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2009' : '1388'}" data-default="${internal == 'internal' ? '1388' : '2009'}" data-id="${internal == 'internal' ? '1388' : '2009'}" data-value="${internal == 'internal' ? '1388' : '2009'}">${internal == 'internal' ? '1388' : '2009'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2008' : '1387'}" data-default="${internal == 'internal' ? '1387' : '2008'}" data-id="${internal == 'internal' ? '1387' : '2008'}" data-value="${internal == 'internal' ? '1387' : '2008'}">${internal == 'internal' ? '1387' : '2008'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2007' : '1386'}" data-default="${internal == 'internal' ? '1386' : '2007'}" data-id="${internal == 'internal' ? '1386' : '2007'}" data-value="${internal == 'internal' ? '1386' : '2007'}">${internal == 'internal' ? '1386' : '2007'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2006' : '1385'}" data-default="${internal == 'internal' ? '1385' : '2006'}" data-id="${internal == 'internal' ? '1385' : '2006'}" data-value="${internal == 'internal' ? '1385' : '2006'}">${internal == 'internal' ? '1385' : '2006'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2005' : '1384'}" data-default="${internal == 'internal' ? '1384' : '2005'}" data-id="${internal == 'internal' ? '1384' : '2005'}" data-value="${internal == 'internal' ? '1384' : '2005'}">${internal == 'internal' ? '1384' : '2005'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2004' : '1383'}" data-default="${internal == 'internal' ? '1383' : '2004'}" data-id="${internal == 'internal' ? '1383' : '2004'}" data-value="${internal == 'internal' ? '1383' : '2004'}">${internal == 'internal' ? '1383' : '2004'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2003' : '1382'}" data-default="${internal == 'internal' ? '1382' : '2003'}" data-id="${internal == 'internal' ? '1382' : '2003'}" data-value="${internal == 'internal' ? '1382' : '2003'}">${internal == 'internal' ? '1382' : '2003'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2002' : '1381'}" data-default="${internal == 'internal' ? '1381' : '2002'}" data-id="${internal == 'internal' ? '1381' : '2002'}" data-value="${internal == 'internal' ? '1381' : '2002'}">${internal == 'internal' ? '1381' : '2002'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2001' : '1380'}" data-default="${internal == 'internal' ? '1380' : '2001'}" data-id="${internal == 'internal' ? '1380' : '2001'}" data-value="${internal == 'internal' ? '1380' : '2001'}">${internal == 'internal' ? '1380' : '2001'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2000' : '1379'}" data-default="${internal == 'internal' ? '1379' : '2000'}" data-id="${internal == 'internal' ? '1379' : '2000'}" data-value="${internal == 'internal' ? '1379' : '2000'}">${internal == 'internal' ? '1379' : '2000'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1999' : '1378'}" data-default="${internal == 'internal' ? '1378' : '1999'}" data-id="${internal == 'internal' ? '1378' : '1999'}" data-value="${internal == 'internal' ? '1378' : '1999'}">${internal == 'internal' ? '1378' : '1999'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1998' : '1377'}" data-default="${internal == 'internal' ? '1377' : '1998'}" data-id="${internal == 'internal' ? '1377' : '1998'}" data-value="${internal == 'internal' ? '1377' : '1998'}">${internal == 'internal' ? '1377' : '1998'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1997' : '1376'}" data-default="${internal == 'internal' ? '1376' : '1997'}" data-id="${internal == 'internal' ? '1376' : '1997'}" data-value="${internal == 'internal' ? '1376' : '1997'}">${internal == 'internal' ? '1376' : '1997'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1996' : '1375'}" data-default="${internal == 'internal' ? '1375' : '1996'}" data-id="${internal == 'internal' ? '1375' : '1996'}" data-value="${internal == 'internal' ? '1375' : '1996'}">${internal == 'internal' ? '1375' : '1996'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1995' : '1374'}" data-default="${internal == 'internal' ? '1374' : '1995'}" data-id="${internal == 'internal' ? '1374' : '1995'}" data-value="${internal == 'internal' ? '1374' : '1995'}">${internal == 'internal' ? '1374' : '1995'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1994' : '1373'}" data-default="${internal == 'internal' ? '1373' : '1994'}" data-id="${internal == 'internal' ? '1373' : '1994'}" data-value="${internal == 'internal' ? '1373' : '1994'}">${internal == 'internal' ? '1373' : '1994'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1993' : '1372'}" data-default="${internal == 'internal' ? '1372' : '1993'}" data-id="${internal == 'internal' ? '1372' : '1993'}" data-value="${internal == 'internal' ? '1372' : '1993'}">${internal == 'internal' ? '1372' : '1993'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1992' : '1371'}" data-default="${internal == 'internal' ? '1371' : '1992'}" data-id="${internal == 'internal' ? '1371' : '1992'}" data-value="${internal == 'internal' ? '1371' : '1992'}">${internal == 'internal' ? '1371' : '1992'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1991' : '1370'}" data-default="${internal == 'internal' ? '1370' : '1991'}" data-id="${internal == 'internal' ? '1370' : '1991'}" data-value="${internal == 'internal' ? '1370' : '1991'}">${internal == 'internal' ? '1370' : '1991'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1990' : '1369'}" data-default="${internal == 'internal' ? '1369' : '1990'}" data-id="${internal == 'internal' ? '1369' : '1990'}" data-value="${internal == 'internal' ? '1369' : '1990'}">${internal == 'internal' ? '1369' : '1990'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1989' : '1368'}" data-default="${internal == 'internal' ? '1368' : '1989'}" data-id="${internal == 'internal' ? '1368' : '1989'}" data-value="${internal == 'internal' ? '1368' : '1989'}">${internal == 'internal' ? '1368' : '1989'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1988' : '1367'}" data-default="${internal == 'internal' ? '1367' : '1988'}" data-id="${internal == 'internal' ? '1367' : '1988'}" data-value="${internal == 'internal' ? '1367' : '1988'}">${internal == 'internal' ? '1367' : '1988'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1987' : '1366'}" data-default="${internal == 'internal' ? '1366' : '1987'}" data-id="${internal == 'internal' ? '1366' : '1987'}" data-value="${internal == 'internal' ? '1366' : '1987'}">${internal == 'internal' ? '1366' : '1987'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1986' : '1365'}" data-default="${internal == 'internal' ? '1365' : '1986'}" data-id="${internal == 'internal' ? '1365' : '1986'}" data-value="${internal == 'internal' ? '1365' : '1986'}">${internal == 'internal' ? '1365' : '1986'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1985' : '1364'}" data-default="${internal == 'internal' ? '1364' : '1985'}" data-id="${internal == 'internal' ? '1364' : '1985'}" data-value="${internal == 'internal' ? '1364' : '1985'}">${internal == 'internal' ? '1364' : '1985'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1984' : '1363'}" data-default="${internal == 'internal' ? '1363' : '1984'}" data-id="${internal == 'internal' ? '1363' : '1984'}" data-value="${internal == 'internal' ? '1363' : '1984'}">${internal == 'internal' ? '1363' : '1984'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1983' : '1362'}" data-default="${internal == 'internal' ? '1362' : '1983'}" data-id="${internal == 'internal' ? '1362' : '1983'}" data-value="${internal == 'internal' ? '1362' : '1983'}">${internal == 'internal' ? '1362' : '1983'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1982' : '1361'}" data-default="${internal == 'internal' ? '1361' : '1982'}" data-id="${internal == 'internal' ? '1361' : '1982'}" data-value="${internal == 'internal' ? '1361' : '1982'}">${internal == 'internal' ? '1361' : '1982'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1981' : '1360'}" data-default="${internal == 'internal' ? '1360' : '1981'}" data-id="${internal == 'internal' ? '1360' : '1981'}" data-value="${internal == 'internal' ? '1360' : '1981'}">${internal == 'internal' ? '1360' : '1981'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1980' : '1359'}" data-default="${internal == 'internal' ? '1359' : '1980'}" data-id="${internal == 'internal' ? '1359' : '1980'}" data-value="${internal == 'internal' ? '1359' : '1980'}">${internal == 'internal' ? '1359' : '1980'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1979' : '1358'}" data-default="${internal == 'internal' ? '1358' : '1979'}" data-id="${internal == 'internal' ? '1358' : '1979'}" data-value="${internal == 'internal' ? '1358' : '1979'}">${internal == 'internal' ? '1358' : '1979'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1978' : '1357'}" data-default="${internal == 'internal' ? '1357' : '1978'}" data-id="${internal == 'internal' ? '1357' : '1978'}" data-value="${internal == 'internal' ? '1357' : '1978'}">${internal == 'internal' ? '1357' : '1978'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1977' : '1356'}" data-default="${internal == 'internal' ? '1356' : '1977'}" data-id="${internal == 'internal' ? '1356' : '1977'}" data-value="${internal == 'internal' ? '1356' : '1977'}">${internal == 'internal' ? '1356' : '1977'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1976' : '1355'}" data-default="${internal == 'internal' ? '1355' : '1976'}" data-id="${internal == 'internal' ? '1355' : '1976'}" data-value="${internal == 'internal' ? '1355' : '1976'}">${internal == 'internal' ? '1355' : '1976'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1975' : '1354'}" data-default="${internal == 'internal' ? '1354' : '1975'}" data-id="${internal == 'internal' ? '1354' : '1975'}" data-value="${internal == 'internal' ? '1354' : '1975'}">${internal == 'internal' ? '1354' : '1975'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1974' : '1353'}" data-default="${internal == 'internal' ? '1353' : '1974'}" data-id="${internal == 'internal' ? '1353' : '1974'}" data-value="${internal == 'internal' ? '1353' : '1974'}">${internal == 'internal' ? '1353' : '1974'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1973' : '1352'}" data-default="${internal == 'internal' ? '1352' : '1973'}" data-id="${internal == 'internal' ? '1352' : '1973'}" data-value="${internal == 'internal' ? '1352' : '1973'}">${internal == 'internal' ? '1352' : '1973'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1972' : '1351'}" data-default="${internal == 'internal' ? '1351' : '1972'}" data-id="${internal == 'internal' ? '1351' : '1972'}" data-value="${internal == 'internal' ? '1351' : '1972'}">${internal == 'internal' ? '1351' : '1972'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1971' : '1350'}" data-default="${internal == 'internal' ? '1350' : '1971'}" data-id="${internal == 'internal' ? '1350' : '1971'}" data-value="${internal == 'internal' ? '1350' : '1971'}">${internal == 'internal' ? '1350' : '1971'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1970' : '1349'}" data-default="${internal == 'internal' ? '1349' : '1970'}" data-id="${internal == 'internal' ? '1349' : '1970'}" data-value="${internal == 'internal' ? '1349' : '1970'}">${internal == 'internal' ? '1349' : '1970'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1969' : '1348'}" data-default="${internal == 'internal' ? '1348' : '1969'}" data-id="${internal == 'internal' ? '1348' : '1969'}" data-value="${internal == 'internal' ? '1348' : '1969'}">${internal == 'internal' ? '1348' : '1969'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1968' : '1347'}" data-default="${internal == 'internal' ? '1347' : '1968'}" data-id="${internal == 'internal' ? '1347' : '1968'}" data-value="${internal == 'internal' ? '1347' : '1968'}">${internal == 'internal' ? '1347' : '1968'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1967' : '1346'}" data-default="${internal == 'internal' ? '1346' : '1967'}" data-id="${internal == 'internal' ? '1346' : '1967'}" data-value="${internal == 'internal' ? '1346' : '1967'}">${internal == 'internal' ? '1346' : '1967'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1966' : '1345'}" data-default="${internal == 'internal' ? '1345' : '1966'}" data-id="${internal == 'internal' ? '1345' : '1966'}" data-value="${internal == 'internal' ? '1345' : '1966'}">${internal == 'internal' ? '1345' : '1966'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1965' : '1344'}" data-default="${internal == 'internal' ? '1344' : '1965'}" data-id="${internal == 'internal' ? '1344' : '1965'}" data-value="${internal == 'internal' ? '1344' : '1965'}">${internal == 'internal' ? '1344' : '1965'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1964' : '1343'}" data-default="${internal == 'internal' ? '1343' : '1964'}" data-id="${internal == 'internal' ? '1343' : '1964'}" data-value="${internal == 'internal' ? '1343' : '1964'}">${internal == 'internal' ? '1343' : '1964'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1963' : '1342'}" data-default="${internal == 'internal' ? '1342' : '1963'}" data-id="${internal == 'internal' ? '1342' : '1963'}" data-value="${internal == 'internal' ? '1342' : '1963'}">${internal == 'internal' ? '1342' : '1963'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1962' : '1341'}" data-default="${internal == 'internal' ? '1341' : '1962'}" data-id="${internal == 'internal' ? '1341' : '1962'}" data-value="${internal == 'internal' ? '1341' : '1962'}">${internal == 'internal' ? '1341' : '1962'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1961' : '1340'}" data-default="${internal == 'internal' ? '1340' : '1961'}" data-id="${internal == 'internal' ? '1340' : '1961'}" data-value="${internal == 'internal' ? '1340' : '1961'}">${internal == 'internal' ? '1340' : '1961'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1960' : '1339'}" data-default="${internal == 'internal' ? '1339' : '1960'}" data-id="${internal == 'internal' ? '1339' : '1960'}" data-value="${internal == 'internal' ? '1339' : '1960'}">${internal == 'internal' ? '1339' : '1960'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1959' : '1338'}" data-default="${internal == 'internal' ? '1338' : '1959'}" data-id="${internal == 'internal' ? '1338' : '1959'}" data-value="${internal == 'internal' ? '1338' : '1959'}">${internal == 'internal' ? '1338' : '1959'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1958' : '1337'}" data-default="${internal == 'internal' ? '1337' : '1958'}" data-id="${internal == 'internal' ? '1337' : '1958'}" data-value="${internal == 'internal' ? '1337' : '1958'}">${internal == 'internal' ? '1337' : '1958'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1957' : '1336'}" data-default="${internal == 'internal' ? '1336' : '1957'}" data-id="${internal == 'internal' ? '1336' : '1957'}" data-value="${internal == 'internal' ? '1336' : '1957'}">${internal == 'internal' ? '1336' : '1957'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1956' : '1335'}" data-default="${internal == 'internal' ? '1335' : '1956'}" data-id="${internal == 'internal' ? '1335' : '1956'}" data-value="${internal == 'internal' ? '1335' : '1956'}">${internal == 'internal' ? '1335' : '1956'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1955' : '1334'}" data-default="${internal == 'internal' ? '1334' : '1955'}" data-id="${internal == 'internal' ? '1334' : '1955'}" data-value="${internal == 'internal' ? '1334' : '1955'}">${internal == 'internal' ? '1334' : '1955'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1954' : '1333'}" data-default="${internal == 'internal' ? '1333' : '1954'}" data-id="${internal == 'internal' ? '1333' : '1954'}" data-value="${internal == 'internal' ? '1333' : '1954'}">${internal == 'internal' ? '1333' : '1954'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1953' : '1332'}" data-default="${internal == 'internal' ? '1332' : '1953'}" data-id="${internal == 'internal' ? '1332' : '1953'}" data-value="${internal == 'internal' ? '1332' : '1953'}">${internal == 'internal' ? '1332' : '1953'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1952' : '1331'}" data-default="${internal == 'internal' ? '1331' : '1952'}" data-id="${internal == 'internal' ? '1331' : '1952'}" data-value="${internal == 'internal' ? '1331' : '1952'}">${internal == 'internal' ? '1331' : '1952'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1951' : '1330'}" data-default="${internal == 'internal' ? '1330' : '1951'}" data-id="${internal == 'internal' ? '1330' : '1951'}" data-value="${internal == 'internal' ? '1330' : '1951'}">${internal == 'internal' ? '1330' : '1951'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1950' : '1329'}" data-default="${internal == 'internal' ? '1329' : '1950'}" data-id="${internal == 'internal' ? '1329' : '1950'}" data-value="${internal == 'internal' ? '1329' : '1950'}">${internal == 'internal' ? '1329' : '1950'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1949' : '1328'}" data-default="${internal == 'internal' ? '1328' : '1949'}" data-id="${internal == 'internal' ? '1328' : '1949'}" data-value="${internal == 'internal' ? '1328' : '1949'}">${internal == 'internal' ? '1328' : '1949'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1948' : '1327'}" data-default="${internal == 'internal' ? '1327' : '1948'}" data-id="${internal == 'internal' ? '1327' : '1948'}" data-value="${internal == 'internal' ? '1327' : '1948'}">${internal == 'internal' ? '1327' : '1948'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1947' : '1326'}" data-default="${internal == 'internal' ? '1326' : '1947'}" data-id="${internal == 'internal' ? '1326' : '1947'}" data-value="${internal == 'internal' ? '1326' : '1947'}">${internal == 'internal' ? '1326' : '1947'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1946' : '1325'}" data-default="${internal == 'internal' ? '1325' : '1946'}" data-id="${internal == 'internal' ? '1325' : '1946'}" data-value="${internal == 'internal' ? '1325' : '1946'}">${internal == 'internal' ? '1325' : '1946'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1945' : '1324'}" data-default="${internal == 'internal' ? '1324' : '1945'}" data-id="${internal == 'internal' ? '1324' : '1945'}" data-value="${internal == 'internal' ? '1324' : '1945'}">${internal == 'internal' ? '1324' : '1945'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1944' : '1323'}" data-default="${internal == 'internal' ? '1323' : '1944'}" data-id="${internal == 'internal' ? '1323' : '1944'}" data-value="${internal == 'internal' ? '1323' : '1944'}">${internal == 'internal' ? '1323' : '1944'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1943' : '1322'}" data-default="${internal == 'internal' ? '1322' : '1943'}" data-id="${internal == 'internal' ? '1322' : '1943'}" data-value="${internal == 'internal' ? '1322' : '1943'}">${internal == 'internal' ? '1322' : '1943'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1942' : '1321'}" data-default="${internal == 'internal' ? '1321' : '1942'}" data-id="${internal == 'internal' ? '1321' : '1942'}" data-value="${internal == 'internal' ? '1321' : '1942'}">${internal == 'internal' ? '1321' : '1942'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1941' : '1320'}" data-default="${internal == 'internal' ? '1320' : '1941'}" data-id="${internal == 'internal' ? '1320' : '1941'}" data-value="${internal == 'internal' ? '1320' : '1941'}">${internal == 'internal' ? '1320' : '1941'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1940' : '1319'}" data-default="${internal == 'internal' ? '1319' : '1940'}" data-id="${internal == 'internal' ? '1319' : '1940'}" data-value="${internal == 'internal' ? '1319' : '1940'}">${internal == 'internal' ? '1319' : '1940'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1939' : '1318'}" data-default="${internal == 'internal' ? '1318' : '1939'}" data-id="${internal == 'internal' ? '1318' : '1939'}" data-value="${internal == 'internal' ? '1318' : '1939'}">${internal == 'internal' ? '1318' : '1939'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1938' : '1317'}" data-default="${internal == 'internal' ? '1317' : '1938'}" data-id="${internal == 'internal' ? '1317' : '1938'}" data-value="${internal == 'internal' ? '1317' : '1938'}">${internal == 'internal' ? '1317' : '1938'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1937' : '1316'}" data-default="${internal == 'internal' ? '1316' : '1937'}" data-id="${internal == 'internal' ? '1316' : '1937'}" data-value="${internal == 'internal' ? '1316' : '1937'}">${internal == 'internal' ? '1316' : '1937'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1936' : '1315'}" data-default="${internal == 'internal' ? '1315' : '1936'}" data-id="${internal == 'internal' ? '1315' : '1936'}" data-value="${internal == 'internal' ? '1315' : '1936'}">${internal == 'internal' ? '1315' : '1936'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1935' : '1314'}" data-default="${internal == 'internal' ? '1314' : '1935'}" data-id="${internal == 'internal' ? '1314' : '1935'}" data-value="${internal == 'internal' ? '1314' : '1935'}">${internal == 'internal' ? '1314' : '1935'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1934' : '1313'}" data-default="${internal == 'internal' ? '1313' : '1934'}" data-id="${internal == 'internal' ? '1313' : '1934'}" data-value="${internal == 'internal' ? '1313' : '1934'}">${internal == 'internal' ? '1313' : '1934'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1933' : '1312'}" data-default="${internal == 'internal' ? '1312' : '1933'}" data-id="${internal == 'internal' ? '1312' : '1933'}" data-value="${internal == 'internal' ? '1312' : '1933'}">${internal == 'internal' ? '1312' : '1933'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1932' : '1311'}" data-default="${internal == 'internal' ? '1311' : '1932'}" data-id="${internal == 'internal' ? '1311' : '1932'}" data-value="${internal == 'internal' ? '1311' : '1932'}">${internal == 'internal' ? '1311' : '1932'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1931' : '1310'}" data-default="${internal == 'internal' ? '1310' : '1931'}" data-id="${internal == 'internal' ? '1310' : '1931'}" data-value="${internal == 'internal' ? '1310' : '1931'}">${internal == 'internal' ? '1310' : '1931'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1930' : '1309'}" data-default="${internal == 'internal' ? '1309' : '1930'}" data-id="${internal == 'internal' ? '1309' : '1930'}" data-value="${internal == 'internal' ? '1309' : '1930'}">${internal == 'internal' ? '1309' : '1930'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1929' : '1308'}" data-default="${internal == 'internal' ? '1308' : '1929'}" data-id="${internal == 'internal' ? '1308' : '1929'}" data-value="${internal == 'internal' ? '1308' : '1929'}">${internal == 'internal' ? '1308' : '1929'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1928' : '1307'}" data-default="${internal == 'internal' ? '1307' : '1928'}" data-id="${internal == 'internal' ? '1307' : '1928'}" data-value="${internal == 'internal' ? '1307' : '1928'}">${internal == 'internal' ? '1307' : '1928'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1927' : '1306'}" data-default="${internal == 'internal' ? '1306' : '1927'}" data-id="${internal == 'internal' ? '1306' : '1927'}" data-value="${internal == 'internal' ? '1306' : '1927'}">${internal == 'internal' ? '1306' : '1927'}</li>
-
-                   </ul></div><input type="hidden" value="${insurance_birthday[i] ? insurance_birthday[i] : ''}" `;
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2024" data-default="2024" data-id="2024" data-value="2024">2024</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2023" data-default="2023" data-id="2023" data-value="2023">2023</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2022" data-default="2022" data-id="2022" data-value="2022">2022</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2021" data-default="2021" data-id="2021" data-value="2021">2021</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2020" data-default="2020" data-id="2020" data-value="2020">2020</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2019" data-default="2019" data-id="2019" data-value="2019">2019</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2018" data-default="2018" data-id="2018" data-value="2018">2018</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2017" data-default="2017" data-id="2017" data-value="2017">2017</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2016" data-default="2016" data-id="2016" data-value="2016">2016</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2015" data-default="2015" data-id="2015" data-value="2015">2015</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2014" data-default="2014" data-id="2014" data-value="2014">2014</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2013" data-default="2013" data-id="2013" data-value="2013">2013</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2012" data-default="2012" data-id="2012" data-value="2012">2012</li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2011" data-default="2011" data-id="2011" data-value="2011">2011
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2010" data-default="2010" data-id="2010" data-value="2010">2010
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2009" data-default="2009" data-id="2009" data-value="2009">2009
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2008" data-default="2008" data-id="2008" data-value="2008">2008
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2007" data-default="2007" data-id="2007" data-value="2007">2007
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2006" data-default="2006" data-id="2006" data-value="2006">2006
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2005" data-default="2005" data-id="2005" data-value="2005">2005
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2004" data-default="2004" data-id="2004" data-value="2004">2004
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2003" data-default="2003" data-id="2003" data-value="2003">2003
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2002" data-default="2002" data-id="2002" data-value="2002">2002
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2001" data-default="2001" data-id="2001" data-value="2001">2001
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="2000" data-default="2000" data-id="2000" data-value="2000">2000
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1999" data-default="1999" data-id="1999" data-value="1999">1999
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1998" data-default="1998" data-id="1998" data-value="1998">1998
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1997" data-default="1997" data-id="1997" data-value="1997">1997
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1996" data-default="1996" data-id="1996" data-value="1996">1996
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1995" data-default="1995" data-id="1995" data-value="1995">1995
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1994" data-default="1994" data-id="1994" data-value="1994">1994
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1993" data-default="1993" data-id="1993" data-value="1993">1993
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1992" data-default="1992" data-id="1992" data-value="1992">1992
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1991" data-default="1991" data-id="1991" data-value="1991">1991
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1990" data-default="1990" data-id="1990" data-value="1990">1990
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1989" data-default="1989" data-id="1989" data-value="1989">1989
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1988" data-default="1988" data-id="1988" data-value="1988">1988
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1987" data-default="1987" data-id="1987" data-value="1987">1987
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1986" data-default="1986" data-id="1986" data-value="1986">1986
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1985" data-default="1985" data-id="1985" data-value="1985">1985
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1984" data-default="1984" data-id="1984" data-value="1984">1984
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1983" data-default="1983" data-id="1983" data-value="1983">1983
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1982" data-default="1982" data-id="1982" data-value="1982">1982
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1981" data-default="1981" data-id="1981" data-value="1981">1981
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1980" data-default="1980" data-id="1980" data-value="1980">1980
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1979" data-default="1979" data-id="1979" data-value="1979">1979
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1978" data-default="1978" data-id="1978" data-value="1978"> 1978
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1977" data-default="1977" data-id="1977" data-value="1977">1977
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1976" data-default="1976" data-id="1976" data-value="1976">1976
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1975" data-default="1975" data-id="1975" data-value="1975">1975
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1974" data-default="1974" data-id="1974" data-value="1974">1974
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1973" data-default="1973" data-id="1973" data-value="1973">1973
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1972" data-default="1972" data-id="1972" data-value="1972"> 1972
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1971" data-default="1971" data-id="1971" data-value="1971">1971
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1970" data-default="1970" data-id="1970" data-value="1970">1970
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1969" data-default="1969" data-id="1969" data-value="1969">1969
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1968" data-default="1968" data-id="1968" data-value="1968">1968
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1967" data-default="1967" data-id="1967" data-value="1967">1967
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1966" data-default="1966" data-id="1966" data-value="1966">1966
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1965" data-default="1965" data-id="1965" data-value="1965"> 1965
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1964" data-default="1964" data-id="1964" data-value="1964">1964
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1963" data-default="1963" data-id="1963" data-value="1963">1963
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1962" data-default="1962" data-id="1962" data-value="1962">1962
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1961" data-default="1961" data-id="1961" data-value="1961">1961
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1960" data-default="1960" data-id="1960" data-value="1960">1960
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1959" data-default="1959" data-id="1959" data-value="1959">1959
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1958" data-default="1958" data-id="1958" data-value="1958">1958
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1957" data-default="1957" data-id="1957" data-value="1957">1957
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1956" data-default="1956" data-id="1956" data-value="1956">1956
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1955" data-default="1955" data-id="1955" data-value="1955">1955
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1954" data-default="1954" data-id="1954" data-value="1954">1954
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1953" data-default="1953" data-id="1953" data-value="1953">1953
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1952" data-default="1952" data-id="1952" data-value="1952">1952
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1951" data-default="1951" data-id="1951" data-value="1951">1951
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1950" data-default="1950" data-id="1950" data-value="1950">1950
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="$1949" data-default="1949" data-id="1949" data-value="1949">1949
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1948" data-default="1948" data-id="1948" data-value="1948">1948
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1947" data-default="1947" data-id="1947" data-value="1947">1947
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1946" data-default="1946" data-id="1946" data-value="1946">1946
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1945" data-default="1945" data-id="1945" data-value="1945">1945
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1944" data-default="1944" data-id="1944" data-value="1944">1944
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1943" data-default="1943" data-id="1943" data-value="1943">1943
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1942" data-default="1942" data-id="1942" data-value="1942">1942
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="$1941" data-default="1941" data-id="1941" data-value="1941">1941
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1940" data-default="1940" data-id="1940" data-value="1940">1940
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1939" data-default="1939" data-id="1939" data-value="1939">1939
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1938" data-default="1938" data-id="1938" data-value="1938">1938
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1937" data-default="1937" data-id="1937" data-value="1937">1937
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1936" data-default="1936" data-id="1936" data-value="1936">1936
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1935" data-default="1935" data-id="1935" data-value="1935">1935
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1934" data-default="1934" data-id="1934" data-value="1934">1934
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1933" data-default="1933" data-id="1933" data-value="1933">1933
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1932" data-default="1932" data-id="1932" data-value="1932">1932
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1931" data-default="1931" data-id="1931" data-value="1931">1931
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1930" data-default="1930" data-id="1930" data-value="1930">1930
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1929" data-default="1929" data-id="1929" data-value="1929">1929
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1928" data-default="1928" data-id="1928" data-value="1928">1928
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1927" data-default="1927" data-id="1927" data-value="1927">1927
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1926" data-default="1926" data-id="1926" data-value="1926"> 1926
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1925" data-default="1925" data-id="1925" data-value="1925"> 1925
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1924" data-default="1924" data-id="1924" data-value="1924">1924
+                       </li>
+                       <li onclick="select_date_val(this)" class="li-item" data-switch="1923" data-default="1923" data-id="1923" data-value="1923">1923
+                       </li>
+                   </div><input type="hidden" value="${insurance_birthday[i] ? insurance_birthday[i] : ''}" `;
                     for (var y = 0; y < schema[i].form[j].attrs.length; y++) {
                         if (schema[i].form[j].attrs[y].attr.name !== 'id' && schema[i].form[j].attrs[y].attr
                             .name !== 'placeholder' && schema[i].form[j].attrs[y].attr.name !== 'type') {
@@ -2279,7 +2361,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
-                } else if (element_child_title == 'انقضا گذرنامه') {
+                } else if (element_child_title == 'انتهاء صلاحية جواز السفر') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item ${internal}`;
                     var label = document.createElement("label");
@@ -2287,9 +2369,11 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     label.setAttribute("data-label", element_child_title);
                     element_child.appendChild(label);
 
+
+
                     var string = `<div class="passenger-date-items${internal == 'internal' ? ' internal' : ''}"> <div class="passenger-date-item has-select"
                                                           >
-                                                          <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'day')" placeholder="روز" class="day${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                          <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'day')" placeholder="يوم" class="day${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                            <ul class="drop-item">
                                                                <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="1">1</li>
    <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="2">2</li>
@@ -2327,87 +2411,87 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                                                        </div>
                                                        <div class="passenger-date-item has-select"
                                                          >
-                                                         <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'month')" placeholder="ماه" class="month${internal == 'internal' ? '' : ' necessary'}"   oninput="autoComplete_search(event,this,'month')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" data-id=""/></div>
+                                                         <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'month')" placeholder="شهر" class="month${internal == 'internal' ? '' : ' necessary'}"   oninput="autoComplete_search(event,this,'month')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" data-id=""/></div>
                                                          <ul class="drop-item">
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="01" data-switch="${internal == 'internal' ? 'January' : 'فروردین'}" data-default="${internal == 'internal' ? 'فروردین' : 'January'}" data-value="${internal == 'internal' ? 'فروردین' : 'January'}" >
-                                                         ${internal == 'internal' ? 'فروردین' : 'January'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="01" data-switch="January" data-default="January" data-value="January" >
+                                                         January
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="02" data-switch="${internal == 'internal' ? 'February' : 'اردیبهشت'}" data-default="${internal == 'internal' ? 'اردیبهشت' : 'February'}" data-value="${internal == 'internal' ? 'اردیبهشت' : 'February'}">
-                                                         ${internal == 'internal' ? 'اردیبهشت' : 'February'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="02" data-switch="February" data-default="February" data-value="February">
+                                                         February
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="03" data-switch="${internal == 'internal' ? 'March' : 'خرداد'}" data-default="${internal == 'internal' ? 'خرداد' : 'March'}" data-value="${internal == 'internal' ? 'خرداد' : 'March'}">${internal == 'internal' ? 'خرداد' : 'March'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="03" data-switch="March" data-default="March" data-value="March">March
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="04" data-switch="${internal == 'internal' ? 'April' : 'تیر'}" data-default="${internal == 'internal' ? 'تیر' : 'April'}" data-value="${internal == 'internal' ? 'تیر' : 'April'}">${internal == 'internal' ? 'تیر' : 'April'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="04" data-switch="April" data-default="April" data-value="April">April
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="05" data-switch="${internal == 'internal' ? 'May' : 'مرداد'}" data-default="${internal == 'internal' ? 'مرداد' : 'May'}" data-value="${internal == 'internal' ? 'مرداد' : 'May'}">${internal == 'internal' ? 'مرداد' : 'May'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="05" data-switch="May" data-default="May" data-value="May">May
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="06" data-switch="${internal == 'internal' ? 'June' : 'شهریور'}" data-default="${internal == 'internal' ? 'شهریور' : 'June'}" data-value="${internal == 'internal' ? 'شهریور' : 'June'}">${internal == 'internal' ? 'شهریور' : 'June'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="06" data-switch="June" data-default="June" data-value="June">June
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="07" data-switch="${internal == 'internal' ? 'July' : 'مهر'}" data-default="${internal == 'internal' ? 'مهر' : 'July'}" data-value="${internal == 'internal' ? 'مهر' : 'July'}">${internal == 'internal' ? 'مهر' : 'July'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="07" data-switch="July" data-default="July" data-value="July">July
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="08" data-switch="${internal == 'internal' ? 'August' : 'آبان'}" data-default="${internal == 'internal' ? 'آبان' : 'August'}" data-value="${internal == 'internal' ? 'آبان' : 'August'}">
-                                                         ${internal == 'internal' ? 'آبان' : 'August'}</li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="09" data-switch="${internal == 'internal' ? 'September' : 'آذر'}" data-default="${internal == 'internal' ? 'آذر' : 'September'}" data-value="${internal == 'internal' ? 'آذر' : 'September'}">
-                                                         ${internal == 'internal' ? 'آذر' : 'September'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="08" data-switch="August" data-default="August" data-value="August">
+                                                         August</li>
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="09" data-switch="September" data-default="September" data-value="September">
+                                                         September
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="10" data-switch="${internal == 'internal' ? 'October' : 'دی'}" data-default="${internal == 'internal' ? 'دی' : 'October'}" data-value="${internal == 'internal' ? 'دی' : 'October'}">
-                                                         ${internal == 'internal' ? 'دی' : 'October'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="10" data-switch="October" data-default="October" data-value="October">
+                                                         October
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="11" data-switch="${internal == 'internal' ? 'November' : 'بهمن'}" data-default="${internal == 'internal' ? 'بهمن' : 'November'}" data-value="${internal == 'internal' ? 'بهمن' : 'November'}">
-                                                         ${internal == 'internal' ? 'بهمن' : 'November'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="11" data-switch="November" data-default="November" data-value="November">
+                                                         November
                                                          </li>
-                                                         <li onclick="select_date_val(this)" class="li-item" data-id="12" data-switch="${internal == 'internal' ? 'December' : 'اسفند'}" data-default="${internal == 'internal' ? 'اسفند' : 'December'}" data-value="${internal == 'internal' ? 'اسفند' : 'December'}">
-                                                         ${internal == 'internal' ? 'اسفند' : 'December'}
+                                                         <li onclick="select_date_val(this)" class="li-item" data-id="12" data-switch="December" data-default="December" data-value="December">
+                                                         December
                                                          </li>
                                                          </ul>
                                                        </div>
                                                        <div class="passenger-date-item has-select"
                                                           >
-                                                          <div class="inner-item"><input maxlength="4" type="text"  onclick="toggle_date(this,'year-passport')"  placeholder="سال" class="year${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'year-passport')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                          <div class="inner-item"><input maxlength="4" type="text"  onclick="toggle_date(this,'year-passport')"  placeholder="سنة" class="year${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'year-passport')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                           <ul class="drop-item">
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2024' : '1402'}" data-default="${internal == 'internal' ? '1402' : '2024'}" data-id="${internal == 'internal' ? '1402' : '2024'}" data-value="${internal == 'internal' ? '1402' : '2024'}">${internal == 'internal' ? '1402' : '2024'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2024" data-default="2024" data-id="2024" data-value="2024">2024
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2025' : '1403'}" data-default="${internal == 'internal' ? '1403' : '2025'}" data-id="${internal == 'internal' ? '1403' : '2025'}" data-value="${internal == 'internal' ? '1403' : '2025'}">${internal == 'internal' ? '1403' : '2025'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2025" data-default="2025" data-id="2025" data-value="2025">2025
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2026' : '1404'}" data-default="${internal == 'internal' ? '1404' : '2026'}" data-id="${internal == 'internal' ? '1404' : '2026'}" data-value="${internal == 'internal' ? '1404' : '2026'}">${internal == 'internal' ? '1404' : '2026'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2026" data-default="2026" data-id="2026" data-value="2026">2026
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2027' : '1405'}" data-default="${internal == 'internal' ? '1405' : '2027'}" data-id="${internal == 'internal' ? '1405' : '2027'}" data-value="${internal == 'internal' ? '1405' : '2027'}">${internal == 'internal' ? '1405' : '2027'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2027" data-default="2027" data-id="2027" data-value="2027">2027
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2028' : '1406'}" data-default="${internal == 'internal' ? '1406' : '2028'}" data-id="${internal == 'internal' ? '1406' : '2028'}" data-value="${internal == 'internal' ? '1406' : '2028'}">${internal == 'internal' ? '1406' : '2028'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2028" data-default="2028" data-id="2028" data-value="2028">2028
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2029' : '1407'}" data-default="${internal == 'internal' ? '1407' : '2029'}" data-id="${internal == 'internal' ? '1407' : '2029'}" data-value="${internal == 'internal' ? '1407' : '2029'}">${internal == 'internal' ? '1407' : '2029'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2029" data-default="2029" data-id="2029" data-value="2029">2029
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2030' : '1408'}" data-default="${internal == 'internal' ? '1408' : '2030'}" data-id="${internal == 'internal' ? '1408' : '2030'}" data-value="${internal == 'internal' ? '1408' : '2030'}">${internal == 'internal' ? '1408' : '2030'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2030" data-default="2030" data-id="2030" data-value="2030">2030
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2031' : '1409'}" data-default="${internal == 'internal' ? '1409' : '2031'}" data-id="${internal == 'internal' ? '1409' : '2031'}" data-value="${internal == 'internal' ? '1409' : '2031'}">${internal == 'internal' ? '1409' : '2031'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2031" data-default="2031" data-id="2031" data-value="2031">2031
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2032' : '1410'}" data-default="${internal == 'internal' ? '1410' : '2032'}" data-id="${internal == 'internal' ? '1410' : '2032'}" data-value="${internal == 'internal' ? '1410' : '2032'}">${internal == 'internal' ? '1410' : '2032'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2032" data-default="2032" data-id="2032" data-value="2032">2032
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2033' : '1411'}" data-default="${internal == 'internal' ? '1411' : '2033'}" data-id="${internal == 'internal' ? '1411' : '2033'}" data-value="${internal == 'internal' ? '1411' : '2033'}">${internal == 'internal' ? '1411' : '2033'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2033" data-default="2033" data-id="2033" data-value="2033">2033
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2034' : '1412'}" data-default="${internal == 'internal' ? '1412' : '2034'}" data-id="${internal == 'internal' ? '1412' : '2034'}" data-value="${internal == 'internal' ? '1412' : '2034'}">${internal == 'internal' ? '1412' : '2034'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2034" data-default="2034" data-id="2034" data-value="2034">2034
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2035' : '1413'}" data-default="${internal == 'internal' ? '1413' : '2035'}" data-id="${internal == 'internal' ? '1413' : '2035'}" data-value="${internal == 'internal' ? '1413' : '2035'}">${internal == 'internal' ? '1413' : '2035'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2035" data-default="2035" data-id="2035" data-value="2035">2035
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2036' : '1414'}" data-default="${internal == 'internal' ? '1414' : '2036'}" data-id="${internal == 'internal' ? '1414' : '2036'}" data-value="${internal == 'internal' ? '1414' : '2036'}">${internal == 'internal' ? '1414' : '2036'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2036" data-default="2036" data-id="2036" data-value="2036">2036
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2037' : '1415'}" data-default="${internal == 'internal' ? '1415' : '2037'}" data-id="${internal == 'internal' ? '1415' : '2037'}" data-value="${internal == 'internal' ? '1415' : '2037'}">${internal == 'internal' ? '1415' : '2037'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2037" data-default="2037" data-id="2037" data-value="2037">2037
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2038' : '1416'}" data-default="${internal == 'internal' ? '1416' : '2038'}" data-id="${internal == 'internal' ? '1416' : '2038'}" data-value="${internal == 'internal' ? '1416' : '2038'}">${internal == 'internal' ? '1416' : '2038'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="$2038" data-default="2038" data-id="2038" data-value="2038">2038
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2039' : '1417'}" data-default="${internal == 'internal' ? '1417' : '2039'}" data-id="${internal == 'internal' ? '1417' : '2039'}" data-value="${internal == 'internal' ? '1417' : '2039'}">${internal == 'internal' ? '1417' : '2039'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2039" data-default="2039" data-id="2039" data-value="2039">2039
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2040' : '1418'}" data-default="${internal == 'internal' ? '1418' : '2040'}" data-id="${internal == 'internal' ? '1418' : '2040'}" data-value="${internal == 'internal' ? '1418' : '2040'}">${internal == 'internal' ? '1418' : '2040'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2040" data-default="2040" data-id="2040" data-value="2040">2040
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2041' : '1419'}" data-default="${internal == 'internal' ? '1419' : '2041'}" data-id="${internal == 'internal' ? '1419' : '2041'}" data-value="${internal == 'internal' ? '1419' : '2041'}">${internal == 'internal' ? '1419' : '2041'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2041" data-default="2041" data-id="2041" data-value="2041">2041
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2042' : '1420'}" data-default="${internal == 'internal' ? '1420' : '2042'}" data-id="${internal == 'internal' ? '1420' : '2042'}" data-value="${internal == 'internal' ? '1420' : '2042'}">${internal == 'internal' ? '1420' : '2042'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2042" data-default="2042" data-id="2042" data-value="2042">2042
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2043' : '1421'}" data-default="${internal == 'internal' ? '1421' : '2043'}" data-id="${internal == 'internal' ? '1421' : '2043'}" data-value="${internal == 'internal' ? '1421' : '2043'}">${internal == 'internal' ? '1421' : '2043'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2043" data-default="2043" data-id="2043" data-value="2043">2043
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2044' : '1422'}" data-default="${internal == 'internal' ? '1422' : '2044'}" data-id="${internal == 'internal' ? '1422' : '2044'}" data-value="${internal == 'internal' ? '1422' : '2044'}">${internal == 'internal' ? '1422' : '2044'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="$2044" data-default="2044" data-id="2044" data-value="2044">2044
                                                           </li>
-                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2045' : '1423'}" data-default="${internal == 'internal' ? '1423' : '2045'}" data-id="${internal == 'internal' ? '1423' : '2045'}" data-value="${internal == 'internal' ? '1423' : '2045'}">${internal == 'internal' ? '1423' : '2045'}
+                                                          <li onclick="select_date_val(this)" class="li-item" data-switch="2045" data-default="2045" data-id="2045" data-value="2045">2045
                                                           </li>
                                                           </ul>
                                                        </div><input type="hidden" value="${internal == 'internal' ? '-' : ''}" class="datepicker passexpiredate"`;
@@ -2421,7 +2505,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     string += `/></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
-                } else if (element_child_title == 'ملیت') {
+                } else if (element_child_title == 'الجنسية') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item has-select-input`;
                     var label = document.createElement("label");
@@ -2442,218 +2526,212 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     };
                     string += `/></div><input type="hidden" value="1002236" name="${input_name}" class="area-id issuecountry"/><ul class="drop-item wide">
                                <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
    <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
    <li
-       onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-       data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-       data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-       data-id="1002138">آنتیگوا و باربودا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+       data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+       data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+       data-id="1002138">أنتيغوا وبربودا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-       میکرونزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-       کوچک
-       حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
        onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
        onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
        onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-       (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-       فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-       کوک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-       شمالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+       onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند
+       (مالفيناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر
+       فيجي</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر
+       كوك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا
+       الشمالية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
        فوتونا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-       (آمریکا)</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-       (بریتانیا)</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+       (أمريكا)</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+       (بريطانيا)</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
        onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
        onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-       گرنادین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و غرينادين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
        onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
        onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-       دمکراتیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، الجمهورية الديمقراطية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
        onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li>
-             <li
-           onclick="select_area_val(this)" class="li-item" data-value="لوکزامبورگ" data-id="1002065">لوکزامبورگ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
        onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
        onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+       onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
    </ul></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
-                } else if (element_child_title == 'کشور محل اقامت') {
+                } else if (element_child_title == 'بلد الإقامة') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item has-select-input ${internal}`;
                     var label = document.createElement("label");
@@ -2674,217 +2752,213 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     };
                     string += `/></div><input type="hidden" value="1002236" name="${input_name}" class="countryofresistance area-id"/><ul class="drop-item wide">
                                <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
    <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
    <li
-       onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-       data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-       data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-       data-id="1002138">آنتیگوا و باربودا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+       data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+       data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+       data-id="1002138">أنتيغوا وبربودا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-       میکرونزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-       کوچک
-       حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
        onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
        onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
        onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-       (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-       فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-       کوک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-       شمالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+       onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند (مالفيناس)</li><li 
+       onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر فيجي</li><li 
+       onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر كوك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا الشمالية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
        فوتونا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-       (آمریکا)</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-       (بریتانیا)</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+       (أمريكا)</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+       (بريطانيا)</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
        onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
        onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-       گرنادین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و
+       غرينادين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
        onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
        onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-       دمکراتیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، جمهورية
+       الديمقراطية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
        onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
        onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
        onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+       onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
    </ul></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
 
-                } else if (element_child_title == 'کشور صادرکننده گذرنامه') {
+                } else if (element_child_title == 'بلد إصدار جواز السفر') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item has-select-input unvisible ${internal}`;
                     var label = document.createElement("label");
@@ -2905,217 +2979,215 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     };
                     string += `/></div><input type="hidden" value="1002236" name="${input_name}" class="area-id passportissuecountry"/><ul class="drop-item wide">
                                <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
    <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-   <li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+   <li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
    <li
-       onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-       data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-       data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-       data-id="1002138">آنتیگوا و باربودا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+       data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+       data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+       data-id="1002138">أنتيغوا وبربودا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-       میکرونزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-       کوچک
-       حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
        onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
        onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
        onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-       (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-       فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-       کوک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-       شمالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+       onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند
+       (مالفيناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر
+       فيجي</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر
+       كوك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا
+       الشمالية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
        فوتونا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-       (آمریکا)</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-       (بریتانیا)</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+       (أمريكا)</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+       (بريطانيا)</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
        onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
        onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-       گرنادین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و
+       غرينادين</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
        onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
        onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-       دمکراتیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، جمهورية
+       الديمقراطية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
        onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
        onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
        onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
        onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-       onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+       onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
    </ul></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
 
-                } else if (element_child_title == 'ایمیل') {
+                } else if (element_child_title == 'البرید الإلکتروني') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item unvisible passenger-email`;
                     var label = document.createElement("label");
@@ -3133,7 +3205,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
-                } else if (element_child_title == 'شماره گذرنامه') {
+                } else if (element_child_title == 'رقم جواز السفر') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item ${internal}`;
                     var label = document.createElement("label");
@@ -3162,27 +3234,17 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     label.innerHTML = element_child_title;
                     element_child.appendChild(label);
                     var string = `<div class="inner-item"><input `;
-                    if (element_child_title == 'نام به انگلیسی') {
-                        label.setAttribute("data-label", "نام");
-                        let keydownAttr = module_type == 401 || module_type == 402
-                            ? ''
-                            : `onkeydown="english_key(event,this)"`;
-
-                        string += `${keydownAttr} onkeyup="upperCase_key(event,this)"`;
-
-
+                    console.log("ok1")
+                    if (element_child_title == 'الاسم الأول باللغة الإنجليزية') {
+                        label.setAttribute("data-label", "الاسم");
+                        string += `onkeydown="english_key(event,this)" onkeyup="upperCase_key(event,this)"`;
                     }
-                    if (element_child_title == 'نام خانوادگی به انگلیسی') {
-                        label.setAttribute("data-label", "نام خانوادگی");
-                        let keydownAttr = module_type == 401 || module_type == 402
-                            ? ''
-                            : `onkeydown="english_key(event,this)"`;
-
-                        string += `${keydownAttr} onkeyup="upperCase_key(event,this)"`;
-
+                    if (element_child_title == 'اللقب باللغة الإنجليزية') {
+                        label.setAttribute("data-label", "اللقب");
+                        string += `onkeydown="english_key(event,this)" onkeyup="upperCase_key(event,this)"`;
                     }
 
-                    if (element_child_title == 'کد ملی') {
+                    if (element_child_title == 'رقم الهویة الوطنية') {
                         label.setAttribute("data-label", element_child_title);
                         string +=
                             `onkeyup="this.value=this.value.replace(/[^0-9]/g, '');" onkeydown="persian_key(event,this)"`;
@@ -3207,15 +3269,14 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
         if (document.querySelector(".main-container").getAttribute("data-schemaid") == 290 || document.querySelector(".main-container").getAttribute("data-schemaid") == 291 || document.querySelector(".main-container").getAttribute("data-schemaid") == 292) {
             //<!------START CHECK EXTERA SERVICES------->// 
             if (document.querySelector(".extra_service")) {
-                if (element.querySelector(".passenger-type").value !== '0') {
-                    var element_child = document.createElement("div");
-                    element_child.className = "package-info-item section_extra_service";
-                    var string =
-                        `<div class="extra_service_container"><label data-label="بار اضافه">بار اضافه </label><input onchange="load_extra_service(this,'flight')" class="extra_service_checkbox" type="checkbox" value="-"/><span class="mini-loading unvisible"><i class="fas fa-spinner fa-spin"></i></span></div><div class="extra_services"></div>`
-                    element_child.innerHTML += string;
-                    element_children.appendChild(element_child);
+                if(element.querySelector(".passenger-type").value !== '0'){
+                var element_child = document.createElement("div");
+                element_child.className = "package-info-item section_extra_service";
+                var string =
+                    `<div class="extra_service_container"><label data-label="خدمات الشحن">خدمات الشحن </label><input onchange="load_extra_service(this,'flight')" class="extra_service_checkbox" type="checkbox" value="-"/><span class="mini-loading unvisible"><i class="fas fa-spinner fa-spin"></i></span></div><div class="extra_services"></div>`
+                element_child.innerHTML += string;
+                element_children.appendChild(element_child);
                 }
-
             }
             //<!------END CHECK EXTERA SERVICES------->// 
         };
@@ -3262,16 +3323,16 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
         };
         switch (i) {
             case 0:
-                room = "اول";
+                room = "1";
                 break;
             case 1:
-                room = "دوم";
+                room = "2";
                 break;
             case 2:
-                room = "سوم";
+                room = "3";
                 break;
             case 3:
-                room = "چهارم";
+                room = "4";
                 break;
         };
 
@@ -3280,7 +3341,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
         element.setAttribute("data-index", i);
         var element_title = document.createElement("div");
         element_title.className = "title font_14 font-weight room-title";
-        element_title.innerHTML = `<span>اتاق ${room}</span>`;
+        element_title.innerHTML = `<span>غرفة ${room}</span>`;
         element.appendChild(element_title);
         for (var s = 0; s < schema[i].room.length; s++) {
             var element_room = document.createElement("div");
@@ -3289,7 +3350,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
             var element_title = document.createElement("div");
             element_title.className = "title flex-justify font_14";
             element_title.innerHTML =
-                `<div class="type-passenger font-weight">${schema[i].room[s].title}</div><div class="prev-passengers" data-open="0" data-index-room="${i}" data-index="${s}" onclick="show_passengersList(this)"><svg data-v-2919ee3e="" aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" name="user-clock" color="inherit" type="regular" class="mr-icon-svg svg-inline--fa fa-user-clock"><path data-v-2919ee3e="" fill="" d="M496 224c-79.63 0-144 64.38-144 144s64.38 144 144 144s144-64.38 144-144S575.6 224 496 224zM544 384h-54.25C484.4 384 480 379.6 480 374.3V304c0-8.836 7.164-16 16-16c8.838 0 16 7.164 16 16v48h32c8.838 0 16 7.164 16 15.1S552.8 384 544 384zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48zM395 512H32c-17.67 0-32-14.33-32-32c0-97.2 78.8-176 176-176h96c19.87 0 38.89 3.441 56.7 9.508c-4.963 15.24-7.787 31.41-8.383 48.17C305.4 355.5 289.1 352 272 352h-96c-65.16 0-119.1 48.95-127 112h299.6C360.9 482.8 376.6 499.1 395 512z" class=""></path></svg>انتخاب مسافران سابق</div>`;
+                `<div class="type-passenger font-weight">${schema[i].room[s].title}</div><div class="prev-passengers" data-open="0" data-index-room="${i}" data-index="${s}" onclick="show_passengersList(this)"><svg data-v-2919ee3e="" aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" name="user-clock" color="inherit" type="regular" class="mr-icon-svg svg-inline--fa fa-user-clock"><path data-v-2919ee3e="" fill="" d="M496 224c-79.63 0-144 64.38-144 144s64.38 144 144 144s144-64.38 144-144S575.6 224 496 224zM544 384h-54.25C484.4 384 480 379.6 480 374.3V304c0-8.836 7.164-16 16-16c8.838 0 16 7.164 16 16v48h32c8.838 0 16 7.164 16 15.1S552.8 384 544 384zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48zM395 512H32c-17.67 0-32-14.33-32-32c0-97.2 78.8-176 176-176h96c19.87 0 38.89 3.441 56.7 9.508c-4.963 15.24-7.787 31.41-8.383 48.17C305.4 355.5 289.1 352 272 352h-96c-65.16 0-119.1 48.95-127 112h299.6C360.9 482.8 376.6 499.1 395 512z" class=""></path></svg>قائمة المسافرين السابقين</div>`;
             element_room.appendChild(element_title);
             var element_children = document.createElement("div");
             element_children.className = "passenger-info-items";
@@ -3342,43 +3403,31 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                     element_children.appendChild(element_child);
                 } else {
                     var element_child_title = schema[i].room[s].form[j].question;
-                    if (element_child_title == 'نام') {
-                        if (document.querySelector(".main-container").getAttribute("data-schemaid") == 249) {
-                            if (document.querySelector("input[name=factor_type]").value == 4) {
-                                element_child_title = 'نام به انگلیسی';
-                            }
-                        } else {
-                            element_child_title = 'نام به انگلیسی';
-                        }
+                    if (element_child_title == 'الاسم') {
+                        element_child_title = 'الاسم الأول باللغة الإنجليزية';
 
-                    } else if (element_child_title == 'نام خانوادگی') {
-                        if (document.querySelector(".main-container").getAttribute("data-schemaid") == 249) {
-                            if (document.querySelector("input[name=factor_type]").value == 4) {
-                                element_child_title = 'نام خانوادگی به انگلیسی';
-                            }
-                        } else {
-                            element_child_title = 'نام خانوادگی به انگلیسی';
-                        }
-                    } else if (element_child_title == 'شماره پاسپورت') {
-                        element_child_title = 'شماره گذرنامه';
-                    } else if (element_child_title == 'انقضا پاسپورت') {
-                        element_child_title = 'انقضا گذرنامه';
-                    } else if (element_child_title == 'کشور صادرکننده پاسپورت') {
-                        element_child_title = 'کشور صادرکننده گذرنامه';
-                    } else if (element_child_title == 'تاریخ تولد') {
-                        element_child_title = `${internal == 'internal' ? 'تاریخ تولد' : 'تاریخ تولد میلادی'}`;
+                    } else if (element_child_title == 'اللقب') {
+                        element_child_title = 'اللقب باللغة الإنجليزية';
+                    } else if (element_child_title == 'رقم جواز السفر ') {
+                        element_child_title = 'رقم جواز السفر';
+                    } else if (element_child_title == 'انتهاء صلاحية جواز السفر') {
+                        element_child_title = 'انتهاء صلاحية جواز السفر';
+                    } else if (element_child_title == 'بلد إصدار جواز السفر') {
+                        element_child_title = 'بلد إصدار جواز السفر';
+                    } else if (element_child_title == 'تاریخ الولادة') {
+                        element_child_title = `${internal == 'internal' ? 'تاریخ الولادة' : 'تاريخ الميلاد'}`;
                     };
 
-                    if (element_child_title == 'تاریخ تولد میلادی' || element_child_title == 'تاریخ تولد') {
+                    if (element_child_title == 'تاريخ الميلاد' || element_child_title == 'تاریخ الولادة') {
                         var element_child = document.createElement("div");
                         element_child.className = "package-info-item";
                         var label = document.createElement("label");
                         label.innerHTML = element_child_title;
-                        label.setAttribute("data-label", "تاریخ تولد");
+                        label.setAttribute("data-label", "تاریخ الولادة");
                         element_child.appendChild(label);
                         var string = `<div class="passenger-date-items${internal == 'internal' ? ' internal' : ''}"><div class="passenger-date-item has-select"
                                                                >
-                                                               <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'day')" placeholder="روز" class="day necessary" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                               <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'day')" placeholder="يوم" class="day necessary" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                                <ul class="drop-item">
                                                                    <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="1">1</li>
        <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="2">2</li>
@@ -3417,145 +3466,236 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                                                            </div>
                                                            <div class="passenger-date-item has-select"
                                                               >
-                                                              <div class="inner-item"><input type="text"  maxlength="2" onclick="toggle_date(this,'month')"  placeholder="ماه" class="month necessary" oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);"  data-id=""/></div>
+                                                              <div class="inner-item"><input type="text"  maxlength="2" onclick="toggle_date(this,'month')"  placeholder="شهر" class="month necessary" oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);"  data-id=""/></div>
                                                               <ul class="drop-item">
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="01" data-switch="${internal == 'internal' ? 'January' : 'فروردین'}" data-default="${internal == 'internal' ? 'فروردین' : 'January'}" data-value="${internal == 'internal' ? 'فروردین' : 'January'}" >
-                                                              ${internal == 'internal' ? 'فروردین' : 'January'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="01" data-switch="January" data-default="January" data-value="January" >
+                                                              January
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="02" data-switch="${internal == 'internal' ? 'February' : 'اردیبهشت'}" data-default="${internal == 'internal' ? 'اردیبهشت' : 'February'}" data-value="${internal == 'internal' ? 'اردیبهشت' : 'February'}">
-                                                              ${internal == 'internal' ? 'اردیبهشت' : 'February'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="02" data-switch="February" data-default="February" data-value="February">
+                                                              February
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="03" data-switch="${internal == 'internal' ? 'March' : 'خرداد'}" data-default="${internal == 'internal' ? 'خرداد' : 'March'}" data-value="${internal == 'internal' ? 'خرداد' : 'March'}">${internal == 'internal' ? 'خرداد' : 'March'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="03" data-switch="March" data-default="March" data-value="March">March
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="04" data-switch="${internal == 'internal' ? 'April' : 'تیر'}" data-default="${internal == 'internal' ? 'تیر' : 'April'}" data-value="${internal == 'internal' ? 'تیر' : 'April'}">${internal == 'internal' ? 'تیر' : 'April'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="04" data-switch="April" data-default="April" data-value="April">April
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="05" data-switch="${internal == 'internal' ? 'May' : 'مرداد'}" data-default="${internal == 'internal' ? 'مرداد' : 'May'}" data-value="${internal == 'internal' ? 'مرداد' : 'May'}">${internal == 'internal' ? 'مرداد' : 'May'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="05" data-switch="May" data-default="May" data-value="May">May
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="06" data-switch="${internal == 'internal' ? 'June' : 'شهریور'}" data-default="${internal == 'internal' ? 'شهریور' : 'June'}" data-value="${internal == 'internal' ? 'شهریور' : 'June'}">${internal == 'internal' ? 'شهریور' : 'June'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="06" data-switch="June" data-default="June" data-value="June">June
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="07" data-switch="${internal == 'internal' ? 'July' : 'مهر'}" data-default="${internal == 'internal' ? 'مهر' : 'July'}" data-value="${internal == 'internal' ? 'مهر' : 'July'}">${internal == 'internal' ? 'مهر' : 'July'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="07" data-switch="July" data-default="July" data-value="July">July
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="08" data-switch="${internal == 'internal' ? 'August' : 'آبان'}" data-default="${internal == 'internal' ? 'آبان' : 'August'}" data-value="${internal == 'internal' ? 'آبان' : 'August'}">
-                                                              ${internal == 'internal' ? 'آبان' : 'August'}</li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="09" data-switch="${internal == 'internal' ? 'September' : 'آذر'}" data-default="${internal == 'internal' ? 'آذر' : 'September'}" data-value="${internal == 'internal' ? 'آذر' : 'September'}">
-                                                              ${internal == 'internal' ? 'آذر' : 'September'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="08" data-switch="August" data-default="August" data-value="August">
+                                                              August</li>
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="09" data-switch="September" data-default="September" data-value="September">
+                                                              September
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="10" data-switch="${internal == 'internal' ? 'October' : 'دی'}" data-default="${internal == 'internal' ? 'دی' : 'October'}" data-value="${internal == 'internal' ? 'دی' : 'October'}">
-                                                              ${internal == 'internal' ? 'دی' : 'October'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="10" data-switch="October" data-default="October" data-value="October">
+                                                              October
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="11" data-switch="${internal == 'internal' ? 'November' : 'بهمن'}" data-default="${internal == 'internal' ? 'بهمن' : 'November'}" data-value="${internal == 'internal' ? 'بهمن' : 'November'}">
-                                                              ${internal == 'internal' ? 'بهمن' : 'November'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="11" data-switch="November" data-default="November" data-value="November">
+                                                              November
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-id="12" data-switch="${internal == 'internal' ? 'December' : 'اسفند'}" data-default="${internal == 'internal' ? 'اسفند' : 'December'}" data-value="${internal == 'internal' ? 'اسفند' : 'December'}">
-                                                              ${internal == 'internal' ? 'اسفند' : 'December'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-id="12" data-switch="December" data-default="December" data-value="December">
+                                                              December
                                                               </li>
                                                               </ul>
                                                            </div>
                                                            <div class="passenger-date-item has-select"
                                                                >
-                                                               <div class="inner-item"><input type="text" maxlength="4" onclick="toggle_date(this,'year-birthdate')" placeholder="سال" class="year necessary" oninput="autoComplete_search(event,this,'year-birthdate')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                               <div class="inner-item"><input type="text" maxlength="4" onclick="toggle_date(this,'year-birthdate')" placeholder="سنة" class="year necessary" oninput="autoComplete_search(event,this,'year-birthdate')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                                <ul class="drop-item">
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2025' : '1404'}" data-default="${internal == 'internal' ? '1404' : '2025'}" data-id="${internal == 'internal' ? '1404' : '2025'}" data-value="${internal == 'internal' ? '1404' : '2025'}">${internal == 'internal' ? '1404' : '2025'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2024' : '1403'}" data-default="${internal == 'internal' ? '1403' : '2024'}" data-id="${internal == 'internal' ? '1403' : '2024'}" data-value="${internal == 'internal' ? '1403' : '2024'}">${internal == 'internal' ? '1403' : '2024'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2023' : '1402'}" data-default="${internal == 'internal' ? '1402' : '2023'}" data-id="${internal == 'internal' ? '1402' : '2023'}" data-value="${internal == 'internal' ? '1402' : '2023'}">${internal == 'internal' ? '1402' : '2023'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2022' : '1401'}" data-default="${internal == 'internal' ? '1401' : '2022'}" data-id="${internal == 'internal' ? '1401' : '2022'}" data-value="${internal == 'internal' ? '1401' : '2022'}">${internal == 'internal' ? '1401' : '2022'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2021' : '1400'}" data-default="${internal == 'internal' ? '1400' : '2021'}" data-id="${internal == 'internal' ? '1400' : '2021'}" data-value="${internal == 'internal' ? '1400' : '2021'}">${internal == 'internal' ? '1400' : '2021'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2020' : '1399'}" data-default="${internal == 'internal' ? '1399' : '2020'}" data-id="${internal == 'internal' ? '1399' : '2020'}" data-value="${internal == 'internal' ? '1399' : '2020'}">${internal == 'internal' ? '1399' : '2020'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2019' : '1398'}" data-default="${internal == 'internal' ? '1398' : '2019'}" data-id="${internal == 'internal' ? '1398' : '2019'}" data-value="${internal == 'internal' ? '1398' : '2019'}">${internal == 'internal' ? '1398' : '2019'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2018' : '1397'}" data-default="${internal == 'internal' ? '1397' : '2018'}" data-id="${internal == 'internal' ? '1397' : '2018'}" data-value="${internal == 'internal' ? '1397' : '2018'}">${internal == 'internal' ? '1397' : '2018'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2017' : '1396'}" data-default="${internal == 'internal' ? '1396' : '2017'}" data-id="${internal == 'internal' ? '1396' : '2017'}" data-value="${internal == 'internal' ? '1396' : '2017'}">${internal == 'internal' ? '1396' : '2017'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2016' : '1395'}" data-default="${internal == 'internal' ? '1395' : '2016'}" data-id="${internal == 'internal' ? '1395' : '2016'}" data-value="${internal == 'internal' ? '1395' : '2016'}">${internal == 'internal' ? '1395' : '2016'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2015' : '1394'}" data-default="${internal == 'internal' ? '1394' : '2015'}" data-id="${internal == 'internal' ? '1394' : '2015'}" data-value="${internal == 'internal' ? '1394' : '2015'}">${internal == 'internal' ? '1394' : '2015'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2014' : '1393'}" data-default="${internal == 'internal' ? '1393' : '2014'}" data-id="${internal == 'internal' ? '1393' : '2014'}" data-value="${internal == 'internal' ? '1393' : '2014'}">${internal == 'internal' ? '1393' : '2014'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2013' : '1392'}" data-default="${internal == 'internal' ? '1392' : '2013'}" data-id="${internal == 'internal' ? '1392' : '2013'}" data-value="${internal == 'internal' ? '1392' : '2013'}">${internal == 'internal' ? '1392' : '2013'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2012' : '1391'}" data-default="${internal == 'internal' ? '1391' : '2012'}" data-id="${internal == 'internal' ? '1391' : '2012'}" data-value="${internal == 'internal' ? '1391' : '2012'}">${internal == 'internal' ? '1391' : '2012'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2011' : '1390'}" data-default="${internal == 'internal' ? '1390' : '2011'}" data-id="${internal == 'internal' ? '1390' : '2011'}" data-value="${internal == 'internal' ? '1390' : '2011'}">${internal == 'internal' ? '1390' : '2011'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2010' : '1389'}" data-default="${internal == 'internal' ? '1389' : '2010'}" data-id="${internal == 'internal' ? '1389' : '2010'}" data-value="${internal == 'internal' ? '1389' : '2010'}">${internal == 'internal' ? '1389' : '2010'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2009' : '1388'}" data-default="${internal == 'internal' ? '1388' : '2009'}" data-id="${internal == 'internal' ? '1388' : '2009'}" data-value="${internal == 'internal' ? '1388' : '2009'}">${internal == 'internal' ? '1388' : '2009'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2008' : '1387'}" data-default="${internal == 'internal' ? '1387' : '2008'}" data-id="${internal == 'internal' ? '1387' : '2008'}" data-value="${internal == 'internal' ? '1387' : '2008'}">${internal == 'internal' ? '1387' : '2008'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2007' : '1386'}" data-default="${internal == 'internal' ? '1386' : '2007'}" data-id="${internal == 'internal' ? '1386' : '2007'}" data-value="${internal == 'internal' ? '1386' : '2007'}">${internal == 'internal' ? '1386' : '2007'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2006' : '1385'}" data-default="${internal == 'internal' ? '1385' : '2006'}" data-id="${internal == 'internal' ? '1385' : '2006'}" data-value="${internal == 'internal' ? '1385' : '2006'}">${internal == 'internal' ? '1385' : '2006'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2005' : '1384'}" data-default="${internal == 'internal' ? '1384' : '2005'}" data-id="${internal == 'internal' ? '1384' : '2005'}" data-value="${internal == 'internal' ? '1384' : '2005'}">${internal == 'internal' ? '1384' : '2005'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2004' : '1383'}" data-default="${internal == 'internal' ? '1383' : '2004'}" data-id="${internal == 'internal' ? '1383' : '2004'}" data-value="${internal == 'internal' ? '1383' : '2004'}">${internal == 'internal' ? '1383' : '2004'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2003' : '1382'}" data-default="${internal == 'internal' ? '1382' : '2003'}" data-id="${internal == 'internal' ? '1382' : '2003'}" data-value="${internal == 'internal' ? '1382' : '2003'}">${internal == 'internal' ? '1382' : '2003'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2002' : '1381'}" data-default="${internal == 'internal' ? '1381' : '2002'}" data-id="${internal == 'internal' ? '1381' : '2002'}" data-value="${internal == 'internal' ? '1381' : '2002'}">${internal == 'internal' ? '1381' : '2002'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2001' : '1380'}" data-default="${internal == 'internal' ? '1380' : '2001'}" data-id="${internal == 'internal' ? '1380' : '2001'}" data-value="${internal == 'internal' ? '1380' : '2001'}">${internal == 'internal' ? '1380' : '2001'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2000' : '1379'}" data-default="${internal == 'internal' ? '1379' : '2000'}" data-id="${internal == 'internal' ? '1379' : '2000'}" data-value="${internal == 'internal' ? '1379' : '2000'}">${internal == 'internal' ? '1379' : '2000'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1999' : '1378'}" data-default="${internal == 'internal' ? '1378' : '1999'}" data-id="${internal == 'internal' ? '1378' : '1999'}" data-value="${internal == 'internal' ? '1378' : '1999'}">${internal == 'internal' ? '1378' : '1999'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1998' : '1377'}" data-default="${internal == 'internal' ? '1377' : '1998'}" data-id="${internal == 'internal' ? '1377' : '1998'}" data-value="${internal == 'internal' ? '1377' : '1998'}">${internal == 'internal' ? '1377' : '1998'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1997' : '1376'}" data-default="${internal == 'internal' ? '1376' : '1997'}" data-id="${internal == 'internal' ? '1376' : '1997'}" data-value="${internal == 'internal' ? '1376' : '1997'}">${internal == 'internal' ? '1376' : '1997'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1996' : '1375'}" data-default="${internal == 'internal' ? '1375' : '1996'}" data-id="${internal == 'internal' ? '1375' : '1996'}" data-value="${internal == 'internal' ? '1375' : '1996'}">${internal == 'internal' ? '1375' : '1996'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1995' : '1374'}" data-default="${internal == 'internal' ? '1374' : '1995'}" data-id="${internal == 'internal' ? '1374' : '1995'}" data-value="${internal == 'internal' ? '1374' : '1995'}">${internal == 'internal' ? '1374' : '1995'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1994' : '1373'}" data-default="${internal == 'internal' ? '1373' : '1994'}" data-id="${internal == 'internal' ? '1373' : '1994'}" data-value="${internal == 'internal' ? '1373' : '1994'}">${internal == 'internal' ? '1373' : '1994'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1993' : '1372'}" data-default="${internal == 'internal' ? '1372' : '1993'}" data-id="${internal == 'internal' ? '1372' : '1993'}" data-value="${internal == 'internal' ? '1372' : '1993'}">${internal == 'internal' ? '1372' : '1993'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1992' : '1371'}" data-default="${internal == 'internal' ? '1371' : '1992'}" data-id="${internal == 'internal' ? '1371' : '1992'}" data-value="${internal == 'internal' ? '1371' : '1992'}">${internal == 'internal' ? '1371' : '1992'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1991' : '1370'}" data-default="${internal == 'internal' ? '1370' : '1991'}" data-id="${internal == 'internal' ? '1370' : '1991'}" data-value="${internal == 'internal' ? '1370' : '1991'}">${internal == 'internal' ? '1370' : '1991'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1990' : '1369'}" data-default="${internal == 'internal' ? '1369' : '1990'}" data-id="${internal == 'internal' ? '1369' : '1990'}" data-value="${internal == 'internal' ? '1369' : '1990'}">${internal == 'internal' ? '1369' : '1990'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1989' : '1368'}" data-default="${internal == 'internal' ? '1368' : '1989'}" data-id="${internal == 'internal' ? '1368' : '1989'}" data-value="${internal == 'internal' ? '1368' : '1989'}">${internal == 'internal' ? '1368' : '1989'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1988' : '1367'}" data-default="${internal == 'internal' ? '1367' : '1988'}" data-id="${internal == 'internal' ? '1367' : '1988'}" data-value="${internal == 'internal' ? '1367' : '1988'}">${internal == 'internal' ? '1367' : '1988'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1987' : '1366'}" data-default="${internal == 'internal' ? '1366' : '1987'}" data-id="${internal == 'internal' ? '1366' : '1987'}" data-value="${internal == 'internal' ? '1366' : '1987'}">${internal == 'internal' ? '1366' : '1987'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1986' : '1365'}" data-default="${internal == 'internal' ? '1365' : '1986'}" data-id="${internal == 'internal' ? '1365' : '1986'}" data-value="${internal == 'internal' ? '1365' : '1986'}">${internal == 'internal' ? '1365' : '1986'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1985' : '1364'}" data-default="${internal == 'internal' ? '1364' : '1985'}" data-id="${internal == 'internal' ? '1364' : '1985'}" data-value="${internal == 'internal' ? '1364' : '1985'}">${internal == 'internal' ? '1364' : '1985'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1984' : '1363'}" data-default="${internal == 'internal' ? '1363' : '1984'}" data-id="${internal == 'internal' ? '1363' : '1984'}" data-value="${internal == 'internal' ? '1363' : '1984'}">${internal == 'internal' ? '1363' : '1984'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1983' : '1362'}" data-default="${internal == 'internal' ? '1362' : '1983'}" data-id="${internal == 'internal' ? '1362' : '1983'}" data-value="${internal == 'internal' ? '1362' : '1983'}">${internal == 'internal' ? '1362' : '1983'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1982' : '1361'}" data-default="${internal == 'internal' ? '1361' : '1982'}" data-id="${internal == 'internal' ? '1361' : '1982'}" data-value="${internal == 'internal' ? '1361' : '1982'}">${internal == 'internal' ? '1361' : '1982'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1981' : '1360'}" data-default="${internal == 'internal' ? '1360' : '1981'}" data-id="${internal == 'internal' ? '1360' : '1981'}" data-value="${internal == 'internal' ? '1360' : '1981'}">${internal == 'internal' ? '1360' : '1981'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1980' : '1359'}" data-default="${internal == 'internal' ? '1359' : '1980'}" data-id="${internal == 'internal' ? '1359' : '1980'}" data-value="${internal == 'internal' ? '1359' : '1980'}">${internal == 'internal' ? '1359' : '1980'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1979' : '1358'}" data-default="${internal == 'internal' ? '1358' : '1979'}" data-id="${internal == 'internal' ? '1358' : '1979'}" data-value="${internal == 'internal' ? '1358' : '1979'}">${internal == 'internal' ? '1358' : '1979'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1978' : '1357'}" data-default="${internal == 'internal' ? '1357' : '1978'}" data-id="${internal == 'internal' ? '1357' : '1978'}" data-value="${internal == 'internal' ? '1357' : '1978'}">${internal == 'internal' ? '1357' : '1978'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1977' : '1356'}" data-default="${internal == 'internal' ? '1356' : '1977'}" data-id="${internal == 'internal' ? '1356' : '1977'}" data-value="${internal == 'internal' ? '1356' : '1977'}">${internal == 'internal' ? '1356' : '1977'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1976' : '1355'}" data-default="${internal == 'internal' ? '1355' : '1976'}" data-id="${internal == 'internal' ? '1355' : '1976'}" data-value="${internal == 'internal' ? '1355' : '1976'}">${internal == 'internal' ? '1355' : '1976'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1975' : '1354'}" data-default="${internal == 'internal' ? '1354' : '1975'}" data-id="${internal == 'internal' ? '1354' : '1975'}" data-value="${internal == 'internal' ? '1354' : '1975'}">${internal == 'internal' ? '1354' : '1975'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1974' : '1353'}" data-default="${internal == 'internal' ? '1353' : '1974'}" data-id="${internal == 'internal' ? '1353' : '1974'}" data-value="${internal == 'internal' ? '1353' : '1974'}">${internal == 'internal' ? '1353' : '1974'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1973' : '1352'}" data-default="${internal == 'internal' ? '1352' : '1973'}" data-id="${internal == 'internal' ? '1352' : '1973'}" data-value="${internal == 'internal' ? '1352' : '1973'}">${internal == 'internal' ? '1352' : '1973'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1972' : '1351'}" data-default="${internal == 'internal' ? '1351' : '1972'}" data-id="${internal == 'internal' ? '1351' : '1972'}" data-value="${internal == 'internal' ? '1351' : '1972'}">${internal == 'internal' ? '1351' : '1972'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1971' : '1350'}" data-default="${internal == 'internal' ? '1350' : '1971'}" data-id="${internal == 'internal' ? '1350' : '1971'}" data-value="${internal == 'internal' ? '1350' : '1971'}">${internal == 'internal' ? '1350' : '1971'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1970' : '1349'}" data-default="${internal == 'internal' ? '1349' : '1970'}" data-id="${internal == 'internal' ? '1349' : '1970'}" data-value="${internal == 'internal' ? '1349' : '1970'}">${internal == 'internal' ? '1349' : '1970'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1969' : '1348'}" data-default="${internal == 'internal' ? '1348' : '1969'}" data-id="${internal == 'internal' ? '1348' : '1969'}" data-value="${internal == 'internal' ? '1348' : '1969'}">${internal == 'internal' ? '1348' : '1969'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1968' : '1347'}" data-default="${internal == 'internal' ? '1347' : '1968'}" data-id="${internal == 'internal' ? '1347' : '1968'}" data-value="${internal == 'internal' ? '1347' : '1968'}">${internal == 'internal' ? '1347' : '1968'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1967' : '1346'}" data-default="${internal == 'internal' ? '1346' : '1967'}" data-id="${internal == 'internal' ? '1346' : '1967'}" data-value="${internal == 'internal' ? '1346' : '1967'}">${internal == 'internal' ? '1346' : '1967'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1966' : '1345'}" data-default="${internal == 'internal' ? '1345' : '1966'}" data-id="${internal == 'internal' ? '1345' : '1966'}" data-value="${internal == 'internal' ? '1345' : '1966'}">${internal == 'internal' ? '1345' : '1966'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1965' : '1344'}" data-default="${internal == 'internal' ? '1344' : '1965'}" data-id="${internal == 'internal' ? '1344' : '1965'}" data-value="${internal == 'internal' ? '1344' : '1965'}">${internal == 'internal' ? '1344' : '1965'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1964' : '1343'}" data-default="${internal == 'internal' ? '1343' : '1964'}" data-id="${internal == 'internal' ? '1343' : '1964'}" data-value="${internal == 'internal' ? '1343' : '1964'}">${internal == 'internal' ? '1343' : '1964'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1963' : '1342'}" data-default="${internal == 'internal' ? '1342' : '1963'}" data-id="${internal == 'internal' ? '1342' : '1963'}" data-value="${internal == 'internal' ? '1342' : '1963'}">${internal == 'internal' ? '1342' : '1963'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1962' : '1341'}" data-default="${internal == 'internal' ? '1341' : '1962'}" data-id="${internal == 'internal' ? '1341' : '1962'}" data-value="${internal == 'internal' ? '1341' : '1962'}">${internal == 'internal' ? '1341' : '1962'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1961' : '1340'}" data-default="${internal == 'internal' ? '1340' : '1961'}" data-id="${internal == 'internal' ? '1340' : '1961'}" data-value="${internal == 'internal' ? '1340' : '1961'}">${internal == 'internal' ? '1340' : '1961'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1960' : '1339'}" data-default="${internal == 'internal' ? '1339' : '1960'}" data-id="${internal == 'internal' ? '1339' : '1960'}" data-value="${internal == 'internal' ? '1339' : '1960'}">${internal == 'internal' ? '1339' : '1960'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1959' : '1338'}" data-default="${internal == 'internal' ? '1338' : '1959'}" data-id="${internal == 'internal' ? '1338' : '1959'}" data-value="${internal == 'internal' ? '1338' : '1959'}">${internal == 'internal' ? '1338' : '1959'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1958' : '1337'}" data-default="${internal == 'internal' ? '1337' : '1958'}" data-id="${internal == 'internal' ? '1337' : '1958'}" data-value="${internal == 'internal' ? '1337' : '1958'}">${internal == 'internal' ? '1337' : '1958'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1957' : '1336'}" data-default="${internal == 'internal' ? '1336' : '1957'}" data-id="${internal == 'internal' ? '1336' : '1957'}" data-value="${internal == 'internal' ? '1336' : '1957'}">${internal == 'internal' ? '1336' : '1957'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1956' : '1335'}" data-default="${internal == 'internal' ? '1335' : '1956'}" data-id="${internal == 'internal' ? '1335' : '1956'}" data-value="${internal == 'internal' ? '1335' : '1956'}">${internal == 'internal' ? '1335' : '1956'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1955' : '1334'}" data-default="${internal == 'internal' ? '1334' : '1955'}" data-id="${internal == 'internal' ? '1334' : '1955'}" data-value="${internal == 'internal' ? '1334' : '1955'}">${internal == 'internal' ? '1334' : '1955'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1954' : '1333'}" data-default="${internal == 'internal' ? '1333' : '1954'}" data-id="${internal == 'internal' ? '1333' : '1954'}" data-value="${internal == 'internal' ? '1333' : '1954'}">${internal == 'internal' ? '1333' : '1954'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1953' : '1332'}" data-default="${internal == 'internal' ? '1332' : '1953'}" data-id="${internal == 'internal' ? '1332' : '1953'}" data-value="${internal == 'internal' ? '1332' : '1953'}">${internal == 'internal' ? '1332' : '1953'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1952' : '1331'}" data-default="${internal == 'internal' ? '1331' : '1952'}" data-id="${internal == 'internal' ? '1331' : '1952'}" data-value="${internal == 'internal' ? '1331' : '1952'}">${internal == 'internal' ? '1331' : '1952'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1951' : '1330'}" data-default="${internal == 'internal' ? '1330' : '1951'}" data-id="${internal == 'internal' ? '1330' : '1951'}" data-value="${internal == 'internal' ? '1330' : '1951'}">${internal == 'internal' ? '1330' : '1951'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1950' : '1329'}" data-default="${internal == 'internal' ? '1329' : '1950'}" data-id="${internal == 'internal' ? '1329' : '1950'}" data-value="${internal == 'internal' ? '1329' : '1950'}">${internal == 'internal' ? '1329' : '1950'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1949' : '1328'}" data-default="${internal == 'internal' ? '1328' : '1949'}" data-id="${internal == 'internal' ? '1328' : '1949'}" data-value="${internal == 'internal' ? '1328' : '1949'}">${internal == 'internal' ? '1328' : '1949'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1948' : '1327'}" data-default="${internal == 'internal' ? '1327' : '1948'}" data-id="${internal == 'internal' ? '1327' : '1948'}" data-value="${internal == 'internal' ? '1327' : '1948'}">${internal == 'internal' ? '1327' : '1948'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1947' : '1326'}" data-default="${internal == 'internal' ? '1326' : '1947'}" data-id="${internal == 'internal' ? '1326' : '1947'}" data-value="${internal == 'internal' ? '1326' : '1947'}">${internal == 'internal' ? '1326' : '1947'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1946' : '1325'}" data-default="${internal == 'internal' ? '1325' : '1946'}" data-id="${internal == 'internal' ? '1325' : '1946'}" data-value="${internal == 'internal' ? '1325' : '1946'}">${internal == 'internal' ? '1325' : '1946'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1945' : '1324'}" data-default="${internal == 'internal' ? '1324' : '1945'}" data-id="${internal == 'internal' ? '1324' : '1945'}" data-value="${internal == 'internal' ? '1324' : '1945'}">${internal == 'internal' ? '1324' : '1945'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1944' : '1323'}" data-default="${internal == 'internal' ? '1323' : '1944'}" data-id="${internal == 'internal' ? '1323' : '1944'}" data-value="${internal == 'internal' ? '1323' : '1944'}">${internal == 'internal' ? '1323' : '1944'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1943' : '1322'}" data-default="${internal == 'internal' ? '1322' : '1943'}" data-id="${internal == 'internal' ? '1322' : '1943'}" data-value="${internal == 'internal' ? '1322' : '1943'}">${internal == 'internal' ? '1322' : '1943'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1942' : '1321'}" data-default="${internal == 'internal' ? '1321' : '1942'}" data-id="${internal == 'internal' ? '1321' : '1942'}" data-value="${internal == 'internal' ? '1321' : '1942'}">${internal == 'internal' ? '1321' : '1942'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1941' : '1320'}" data-default="${internal == 'internal' ? '1320' : '1941'}" data-id="${internal == 'internal' ? '1320' : '1941'}" data-value="${internal == 'internal' ? '1320' : '1941'}">${internal == 'internal' ? '1320' : '1941'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1940' : '1319'}" data-default="${internal == 'internal' ? '1319' : '1940'}" data-id="${internal == 'internal' ? '1319' : '1940'}" data-value="${internal == 'internal' ? '1319' : '1940'}">${internal == 'internal' ? '1319' : '1940'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1939' : '1318'}" data-default="${internal == 'internal' ? '1318' : '1939'}" data-id="${internal == 'internal' ? '1318' : '1939'}" data-value="${internal == 'internal' ? '1318' : '1939'}">${internal == 'internal' ? '1318' : '1939'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1938' : '1317'}" data-default="${internal == 'internal' ? '1317' : '1938'}" data-id="${internal == 'internal' ? '1317' : '1938'}" data-value="${internal == 'internal' ? '1317' : '1938'}">${internal == 'internal' ? '1317' : '1938'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1937' : '1316'}" data-default="${internal == 'internal' ? '1316' : '1937'}" data-id="${internal == 'internal' ? '1316' : '1937'}" data-value="${internal == 'internal' ? '1316' : '1937'}">${internal == 'internal' ? '1316' : '1937'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1936' : '1315'}" data-default="${internal == 'internal' ? '1315' : '1936'}" data-id="${internal == 'internal' ? '1315' : '1936'}" data-value="${internal == 'internal' ? '1315' : '1936'}">${internal == 'internal' ? '1315' : '1936'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1935' : '1314'}" data-default="${internal == 'internal' ? '1314' : '1935'}" data-id="${internal == 'internal' ? '1314' : '1935'}" data-value="${internal == 'internal' ? '1314' : '1935'}">${internal == 'internal' ? '1314' : '1935'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1934' : '1313'}" data-default="${internal == 'internal' ? '1313' : '1934'}" data-id="${internal == 'internal' ? '1313' : '1934'}" data-value="${internal == 'internal' ? '1313' : '1934'}">${internal == 'internal' ? '1313' : '1934'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1933' : '1312'}" data-default="${internal == 'internal' ? '1312' : '1933'}" data-id="${internal == 'internal' ? '1312' : '1933'}" data-value="${internal == 'internal' ? '1312' : '1933'}">${internal == 'internal' ? '1312' : '1933'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1932' : '1311'}" data-default="${internal == 'internal' ? '1311' : '1932'}" data-id="${internal == 'internal' ? '1311' : '1932'}" data-value="${internal == 'internal' ? '1311' : '1932'}">${internal == 'internal' ? '1311' : '1932'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1931' : '1310'}" data-default="${internal == 'internal' ? '1310' : '1931'}" data-id="${internal == 'internal' ? '1310' : '1931'}" data-value="${internal == 'internal' ? '1310' : '1931'}">${internal == 'internal' ? '1310' : '1931'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1930' : '1309'}" data-default="${internal == 'internal' ? '1309' : '1930'}" data-id="${internal == 'internal' ? '1309' : '1930'}" data-value="${internal == 'internal' ? '1309' : '1930'}">${internal == 'internal' ? '1309' : '1930'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1929' : '1308'}" data-default="${internal == 'internal' ? '1308' : '1929'}" data-id="${internal == 'internal' ? '1308' : '1929'}" data-value="${internal == 'internal' ? '1308' : '1929'}">${internal == 'internal' ? '1308' : '1929'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1928' : '1307'}" data-default="${internal == 'internal' ? '1307' : '1928'}" data-id="${internal == 'internal' ? '1307' : '1928'}" data-value="${internal == 'internal' ? '1307' : '1928'}">${internal == 'internal' ? '1307' : '1928'}</li>
-<li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '1927' : '1306'}" data-default="${internal == 'internal' ? '1306' : '1927'}" data-id="${internal == 'internal' ? '1306' : '1927'}" data-value="${internal == 'internal' ? '1306' : '1927'}">${internal == 'internal' ? '1306' : '1927'}</li>
-
-                                                            </ul></div><input type="hidden" `;
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2024" data-default="2024" data-id="2024" data-value="2024">2024</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2023" data-default="2023" data-id="2023" data-value="2023">2023</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2022" data-default="2022" data-id="2022" data-value="2022">2022</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2021" data-default="2021" data-id="2021" data-value="2021">2021</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2020" data-default="2020" data-id="2020" data-value="2020">2020</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2019" data-default="2019" data-id="2019" data-value="2019">2019</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2018" data-default="2018" data-id="2018" data-value="2018">2018</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2017" data-default="2017" data-id="2017" data-value="2017">2017</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2016" data-default="2016" data-id="2016" data-value="2016">2016</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2015" data-default="2015" data-id="2015" data-value="2015">2015</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2014" data-default="2014" data-id="2014" data-value="2014">2014</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2013" data-default="2013" data-id="2013" data-value="2013">2013</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2012" data-default="2012" data-id="2012" data-value="2012">2012</li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2011" data-default="2011" data-id="2011" data-value="2011">2011
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2010" data-default="2010" data-id="2010" data-value="2010">2010
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2009" data-default="2009" data-id="2009" data-value="2009">2009
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2008" data-default="2008" data-id="2008" data-value="2008">2008
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2007" data-default="2007" data-id="2007" data-value="2007">2007
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2006" data-default="2006" data-id="2006" data-value="2006">2006
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2005" data-default="2005" data-id="2005" data-value="2005">2005
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2004" data-default="2004" data-id="2004" data-value="2004">2004
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2003" data-default="2003" data-id="2003" data-value="2003">2003
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2002" data-default="2002" data-id="2002" data-value="2002">2002
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2001" data-default="2001" data-id="2001" data-value="2001">2001
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="2000" data-default="2000" data-id="2000" data-value="2000">2000
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1999" data-default="1999" data-id="1999" data-value="1999">1999
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1998" data-default="1998" data-id="1998" data-value="1998">1998
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1997" data-default="1997" data-id="1997" data-value="1997">1997
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1996" data-default="1996" data-id="1996" data-value="1996">1996
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1995" data-default="1995" data-id="1995" data-value="1995">1995
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1994" data-default="1994" data-id="1994" data-value="1994">1994
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1993" data-default="1993" data-id="1993" data-value="1993">1993
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1992" data-default="1992" data-id="1992" data-value="1992">1992
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1991" data-default="1991" data-id="1991" data-value="1991">1991
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1990" data-default="1990" data-id="1990" data-value="1990">1990
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1989" data-default="1989" data-id="1989" data-value="1989">1989
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1988" data-default="1988" data-id="1988" data-value="1988">1988
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1987" data-default="1987" data-id="1987" data-value="1987">1987
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1986" data-default="1986" data-id="1986" data-value="1986">1986
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1985" data-default="1985" data-id="1985" data-value="1985">1985
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1984" data-default="1984" data-id="1984" data-value="1984">1984
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1983" data-default="1983" data-id="1983" data-value="1983">1983
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1982" data-default="1982" data-id="1982" data-value="1982">1982
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1981" data-default="1981" data-id="1981" data-value="1981">1981
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1980" data-default="1980" data-id="1980" data-value="1980">1980
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1979" data-default="1979" data-id="1979" data-value="1979">1979
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1978" data-default="1978" data-id="1978" data-value="1978"> 1978
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1977" data-default="1977" data-id="1977" data-value="1977">1977
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1976" data-default="1976" data-id="1976" data-value="1976">1976
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1975" data-default="1975" data-id="1975" data-value="1975">1975
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1974" data-default="1974" data-id="1974" data-value="1974">1974
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1973" data-default="1973" data-id="1973" data-value="1973">1973
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1972" data-default="1972" data-id="1972" data-value="1972"> 1972
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1971" data-default="1971" data-id="1971" data-value="1971">1971
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1970" data-default="1970" data-id="1970" data-value="1970">1970
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1969" data-default="1969" data-id="1969" data-value="1969">1969
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1968" data-default="1968" data-id="1968" data-value="1968">1968
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1967" data-default="1967" data-id="1967" data-value="1967">1967
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1966" data-default="1966" data-id="1966" data-value="1966">1966
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1965" data-default="1965" data-id="1965" data-value="1965"> 1965
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1964" data-default="1964" data-id="1964" data-value="1964">1964
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1963" data-default="1963" data-id="1963" data-value="1963">1963
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1962" data-default="1962" data-id="1962" data-value="1962">1962
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1961" data-default="1961" data-id="1961" data-value="1961">1961
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1960" data-default="1960" data-id="1960" data-value="1960">1960
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1959" data-default="1959" data-id="1959" data-value="1959">1959
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1958" data-default="1958" data-id="1958" data-value="1958">1958
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1957" data-default="1957" data-id="1957" data-value="1957">1957
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1956" data-default="1956" data-id="1956" data-value="1956">1956
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1955" data-default="1955" data-id="1955" data-value="1955">1955
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1954" data-default="1954" data-id="1954" data-value="1954">1954
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1953" data-default="1953" data-id="1953" data-value="1953">1953
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1952" data-default="1952" data-id="1952" data-value="1952">1952
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1951" data-default="1951" data-id="1951" data-value="1951">1951
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1950" data-default="1950" data-id="1950" data-value="1950">1950
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="$1949" data-default="1949" data-id="1949" data-value="1949">1949
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1948" data-default="1948" data-id="1948" data-value="1948">1948
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1947" data-default="1947" data-id="1947" data-value="1947">1947
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1946" data-default="1946" data-id="1946" data-value="1946">1946
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1945" data-default="1945" data-id="1945" data-value="1945">1945
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1944" data-default="1944" data-id="1944" data-value="1944">1944
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1943" data-default="1943" data-id="1943" data-value="1943">1943
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1942" data-default="1942" data-id="1942" data-value="1942">1942
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="$1941" data-default="1941" data-id="1941" data-value="1941">1941
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1940" data-default="1940" data-id="1940" data-value="1940">1940
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1939" data-default="1939" data-id="1939" data-value="1939">1939
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1938" data-default="1938" data-id="1938" data-value="1938">1938
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1937" data-default="1937" data-id="1937" data-value="1937">1937
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1936" data-default="1936" data-id="1936" data-value="1936">1936
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1935" data-default="1935" data-id="1935" data-value="1935">1935
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1934" data-default="1934" data-id="1934" data-value="1934">1934
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1933" data-default="1933" data-id="1933" data-value="1933">1933
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1932" data-default="1932" data-id="1932" data-value="1932">1932
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1931" data-default="1931" data-id="1931" data-value="1931">1931
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1930" data-default="1930" data-id="1930" data-value="1930">1930
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1929" data-default="1929" data-id="1929" data-value="1929">1929
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1928" data-default="1928" data-id="1928" data-value="1928">1928
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1927" data-default="1927" data-id="1927" data-value="1927">1927
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1926" data-default="1926" data-id="1926" data-value="1926"> 1926
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1925" data-default="1925" data-id="1925" data-value="1925"> 1925
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1924" data-default="1924" data-id="1924" data-value="1924">1924
+                                                               </li>
+                                                               <li onclick="select_date_val(this)" class="li-item" data-switch="1923" data-default="1923" data-id="1923" data-value="1923">1923
+                                                               </li>
+                                                           </div><input type="hidden" `;
                         for (var y = 0; y < schema[i].room[s].form[j].attrs.length; y++) {
                             if (schema[i].room[s].form[j].attrs[y].attr.name !== 'id' && schema[i].room[s].form[j].attrs[y].attr
                                 .name !== 'placeholder' && schema[i].room[s].form[j].attrs[y].attr.name !== 'type') {
@@ -3567,7 +3707,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                         element_child.innerHTML += string;
                         element_children.appendChild(element_child);
 
-                    } else if (element_child_title == 'انقضا گذرنامه') {
+                    } else if (element_child_title == 'انتهاء صلاحية جواز السفر') {
                         var element_child = document.createElement("div");
                         element_child.className = `package-info-item ${internal}`;
                         var label = document.createElement("label");
@@ -3577,7 +3717,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
 
                         var string = `<div class="passenger-date-items${internal == 'internal' ? ' internal' : ''}"> <div class="passenger-date-item has-select"
                                                               >
-                                                              <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'day')" placeholder="روز" class="day${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'day')" onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                              <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'day')" placeholder="يوم" class="day${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'day')" onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                                <ul class="drop-item">
                                                                    <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="1">1</li>
        <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="2">2</li>
@@ -3615,87 +3755,87 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                                                            </div>
                                                            <div class="passenger-date-item has-select"
                                                              >
-                                                             <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'month')" placeholder="ماه" class="month${internal == 'internal' ? '' : ' necessary'}"   oninput="autoComplete_search(event,this,'month')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" data-id=""/></div>
+                                                             <div class="inner-item"><input maxlength="2" type="text"  onclick="toggle_date(this,'month')" placeholder="شهر" class="month${internal == 'internal' ? '' : ' necessary'}"   oninput="autoComplete_search(event,this,'month')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" data-id=""/></div>
                                                              <ul class="drop-item">
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="01" data-switch="${internal == 'internal' ? 'January' : 'فروردین'}" data-default="${internal == 'internal' ? 'فروردین' : 'January'}" data-value="${internal == 'internal' ? 'فروردین' : 'January'}" >
-                                                             ${internal == 'internal' ? 'فروردین' : 'January'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="01" data-switch="January" data-default="January" data-value="January" >
+                                                             January
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="02" data-switch="${internal == 'internal' ? 'February' : 'اردیبهشت'}" data-default="${internal == 'internal' ? 'اردیبهشت' : 'February'}" data-value="${internal == 'internal' ? 'اردیبهشت' : 'February'}">
-                                                             ${internal == 'internal' ? 'اردیبهشت' : 'February'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="02" data-switch="February" data-default="February" data-value="February">
+                                                             February
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="03" data-switch="${internal == 'internal' ? 'March' : 'خرداد'}" data-default="${internal == 'internal' ? 'خرداد' : 'March'}" data-value="${internal == 'internal' ? 'خرداد' : 'March'}">${internal == 'internal' ? 'خرداد' : 'March'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="03" data-switch="March" data-default="March" data-value="March">March
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="04" data-switch="${internal == 'internal' ? 'April' : 'تیر'}" data-default="${internal == 'internal' ? 'تیر' : 'April'}" data-value="${internal == 'internal' ? 'تیر' : 'April'}">${internal == 'internal' ? 'تیر' : 'April'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="04" data-switch="April" data-default="April" data-value="April">April
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="05" data-switch="${internal == 'internal' ? 'May' : 'مرداد'}" data-default="${internal == 'internal' ? 'مرداد' : 'May'}" data-value="${internal == 'internal' ? 'مرداد' : 'May'}">${internal == 'internal' ? 'مرداد' : 'May'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="05" data-switch="May" data-default="May" data-value="May">May
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="06" data-switch="${internal == 'internal' ? 'June' : 'شهریور'}" data-default="${internal == 'internal' ? 'شهریور' : 'June'}" data-value="${internal == 'internal' ? 'شهریور' : 'June'}">${internal == 'internal' ? 'شهریور' : 'June'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="06" data-switch="June" data-default="June" data-value="June">June
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="07" data-switch="${internal == 'internal' ? 'July' : 'مهر'}" data-default="${internal == 'internal' ? 'مهر' : 'July'}" data-value="${internal == 'internal' ? 'مهر' : 'July'}">${internal == 'internal' ? 'مهر' : 'July'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="07" data-switch="July" data-default="July" data-value="July">July
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="08" data-switch="${internal == 'internal' ? 'August' : 'آبان'}" data-default="${internal == 'internal' ? 'آبان' : 'August'}" data-value="${internal == 'internal' ? 'آبان' : 'August'}">
-                                                             ${internal == 'internal' ? 'آبان' : 'August'}</li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="09" data-switch="${internal == 'internal' ? 'September' : 'آذر'}" data-default="${internal == 'internal' ? 'آذر' : 'September'}" data-value="${internal == 'internal' ? 'آذر' : 'September'}">
-                                                             ${internal == 'internal' ? 'آذر' : 'September'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="08" data-switch="August" data-default="August" data-value="August">
+                                                             August</li>
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="09" data-switch="September" data-default="September" data-value="September">
+                                                             September
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="10" data-switch="${internal == 'internal' ? 'October' : 'دی'}" data-default="${internal == 'internal' ? 'دی' : 'October'}" data-value="${internal == 'internal' ? 'دی' : 'October'}">
-                                                             ${internal == 'internal' ? 'دی' : 'October'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="10" data-switch="October" data-default="October" data-value="October">
+                                                             October
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="11" data-switch="${internal == 'internal' ? 'November' : 'بهمن'}" data-default="${internal == 'internal' ? 'بهمن' : 'November'}" data-value="${internal == 'internal' ? 'بهمن' : 'November'}">
-                                                             ${internal == 'internal' ? 'بهمن' : 'November'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="11" data-switch="November" data-default="November" data-value="November">
+                                                             November
                                                              </li>
-                                                             <li onclick="select_date_val(this)" class="li-item" data-id="12" data-switch="${internal == 'internal' ? 'December' : 'اسفند'}" data-default="${internal == 'internal' ? 'اسفند' : 'December'}" data-value="${internal == 'internal' ? 'اسفند' : 'December'}">
-                                                             ${internal == 'internal' ? 'اسفند' : 'December'}
+                                                             <li onclick="select_date_val(this)" class="li-item" data-id="12" data-switch="December" data-default="December" data-value="December">
+                                                             December
                                                              </li>
                                                              </ul>
                                                            </div>
                                                            <div class="passenger-date-item has-select"
                                                               >
-                                                              <div class="inner-item"><input maxlength="4" type="text"  onclick="toggle_date(this,'year-passport')"  placeholder="سال" class="year${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'year-passport')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                              <div class="inner-item"><input maxlength="4" type="text"  onclick="toggle_date(this,'year-passport')"  placeholder="سنة" class="year${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'year-passport')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                               <ul class="drop-item">
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2024' : '1402'}" data-default="${internal == 'internal' ? '1402' : '2024'}" data-id="${internal == 'internal' ? '1402' : '2024'}" data-value="${internal == 'internal' ? '1402' : '2024'}">${internal == 'internal' ? '1402' : '2024'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2024" data-default="2024" data-id="2024" data-value="2024">2024
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2025' : '1403'}" data-default="${internal == 'internal' ? '1403' : '2025'}" data-id="${internal == 'internal' ? '1403' : '2025'}" data-value="${internal == 'internal' ? '1403' : '2025'}">${internal == 'internal' ? '1403' : '2025'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2025" data-default="2025" data-id="2025" data-value="2025">2025
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2026' : '1404'}" data-default="${internal == 'internal' ? '1404' : '2026'}" data-id="${internal == 'internal' ? '1404' : '2026'}" data-value="${internal == 'internal' ? '1404' : '2026'}">${internal == 'internal' ? '1404' : '2026'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2026" data-default="2026" data-id="2026" data-value="2026">2026
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2027' : '1405'}" data-default="${internal == 'internal' ? '1405' : '2027'}" data-id="${internal == 'internal' ? '1405' : '2027'}" data-value="${internal == 'internal' ? '1405' : '2027'}">${internal == 'internal' ? '1405' : '2027'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2027" data-default="2027" data-id="2027" data-value="2027">2027
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2028' : '1406'}" data-default="${internal == 'internal' ? '1406' : '2028'}" data-id="${internal == 'internal' ? '1406' : '2028'}" data-value="${internal == 'internal' ? '1406' : '2028'}">${internal == 'internal' ? '1406' : '2028'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2028" data-default="2028" data-id="2028" data-value="2028">2028
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2029' : '1407'}" data-default="${internal == 'internal' ? '1407' : '2029'}" data-id="${internal == 'internal' ? '1407' : '2029'}" data-value="${internal == 'internal' ? '1407' : '2029'}">${internal == 'internal' ? '1407' : '2029'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2029" data-default="2029" data-id="2029" data-value="2029">2029
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2030' : '1408'}" data-default="${internal == 'internal' ? '1408' : '2030'}" data-id="${internal == 'internal' ? '1408' : '2030'}" data-value="${internal == 'internal' ? '1408' : '2030'}">${internal == 'internal' ? '1408' : '2030'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2030" data-default="2030" data-id="2030" data-value="2030">2030
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2031' : '1409'}" data-default="${internal == 'internal' ? '1409' : '2031'}" data-id="${internal == 'internal' ? '1409' : '2031'}" data-value="${internal == 'internal' ? '1409' : '2031'}">${internal == 'internal' ? '1409' : '2031'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2031" data-default="2031" data-id="2031" data-value="2031">2031
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2032' : '1410'}" data-default="${internal == 'internal' ? '1410' : '2032'}" data-id="${internal == 'internal' ? '1410' : '2032'}" data-value="${internal == 'internal' ? '1410' : '2032'}">${internal == 'internal' ? '1410' : '2032'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2032" data-default="2032" data-id="2032" data-value="2032">2032
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2033' : '1411'}" data-default="${internal == 'internal' ? '1411' : '2033'}" data-id="${internal == 'internal' ? '1411' : '2033'}" data-value="${internal == 'internal' ? '1411' : '2033'}">${internal == 'internal' ? '1411' : '2033'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2033" data-default="2033" data-id="2033" data-value="2033">2033
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2034' : '1412'}" data-default="${internal == 'internal' ? '1412' : '2034'}" data-id="${internal == 'internal' ? '1412' : '2034'}" data-value="${internal == 'internal' ? '1412' : '2034'}">${internal == 'internal' ? '1412' : '2034'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2034" data-default="2034" data-id="2034" data-value="2034">2034
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2035' : '1413'}" data-default="${internal == 'internal' ? '1413' : '2035'}" data-id="${internal == 'internal' ? '1413' : '2035'}" data-value="${internal == 'internal' ? '1413' : '2035'}">${internal == 'internal' ? '1413' : '2035'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2035" data-default="2035" data-id="2035" data-value="2035">2035
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2036' : '1414'}" data-default="${internal == 'internal' ? '1414' : '2036'}" data-id="${internal == 'internal' ? '1414' : '2036'}" data-value="${internal == 'internal' ? '1414' : '2036'}">${internal == 'internal' ? '1414' : '2036'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2036" data-default="2036" data-id="2036" data-value="2036">2036
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2037' : '1415'}" data-default="${internal == 'internal' ? '1415' : '2037'}" data-id="${internal == 'internal' ? '1415' : '2037'}" data-value="${internal == 'internal' ? '1415' : '2037'}">${internal == 'internal' ? '1415' : '2037'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2037" data-default="2037" data-id="2037" data-value="2037">2037
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2038' : '1416'}" data-default="${internal == 'internal' ? '1416' : '2038'}" data-id="${internal == 'internal' ? '1416' : '2038'}" data-value="${internal == 'internal' ? '1416' : '2038'}">${internal == 'internal' ? '1416' : '2038'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="$2038" data-default="2038" data-id="2038" data-value="2038">2038
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2039' : '1417'}" data-default="${internal == 'internal' ? '1417' : '2039'}" data-id="${internal == 'internal' ? '1417' : '2039'}" data-value="${internal == 'internal' ? '1417' : '2039'}">${internal == 'internal' ? '1417' : '2039'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2039" data-default="2039" data-id="2039" data-value="2039">2039
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2040' : '1418'}" data-default="${internal == 'internal' ? '1418' : '2040'}" data-id="${internal == 'internal' ? '1418' : '2040'}" data-value="${internal == 'internal' ? '1418' : '2040'}">${internal == 'internal' ? '1418' : '2040'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2040" data-default="2040" data-id="2040" data-value="2040">2040
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2041' : '1419'}" data-default="${internal == 'internal' ? '1419' : '2041'}" data-id="${internal == 'internal' ? '1419' : '2041'}" data-value="${internal == 'internal' ? '1419' : '2041'}">${internal == 'internal' ? '1419' : '2041'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2041" data-default="2041" data-id="2041" data-value="2041">2041
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2042' : '1420'}" data-default="${internal == 'internal' ? '1420' : '2042'}" data-id="${internal == 'internal' ? '1420' : '2042'}" data-value="${internal == 'internal' ? '1420' : '2042'}">${internal == 'internal' ? '1420' : '2042'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2042" data-default="2042" data-id="2042" data-value="2042">2042
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2043' : '1421'}" data-default="${internal == 'internal' ? '1421' : '2043'}" data-id="${internal == 'internal' ? '1421' : '2043'}" data-value="${internal == 'internal' ? '1421' : '2043'}">${internal == 'internal' ? '1421' : '2043'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2043" data-default="2043" data-id="2043" data-value="2043">2043
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2044' : '1422'}" data-default="${internal == 'internal' ? '1422' : '2044'}" data-id="${internal == 'internal' ? '1422' : '2044'}" data-value="${internal == 'internal' ? '1422' : '2044'}">${internal == 'internal' ? '1422' : '2044'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="$2044" data-default="2044" data-id="2044" data-value="2044">2044
                                                               </li>
-                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="${internal == 'internal' ? '2045' : '1423'}" data-default="${internal == 'internal' ? '1423' : '2045'}" data-id="${internal == 'internal' ? '1423' : '2045'}" data-value="${internal == 'internal' ? '1423' : '2045'}">${internal == 'internal' ? '1423' : '2045'}
+                                                              <li onclick="select_date_val(this)" class="li-item" data-switch="2045" data-default="2045" data-id="2045" data-value="2045">2045
                                                               </li>
                                                               </ul>
                                                            </div><input type="hidden" value="${internal == 'internal' ? '-' : ''}" class="datepicker passexpiredate"`;
@@ -3709,7 +3849,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                         string += `/></div>`;
                         element_child.innerHTML += string;
                         element_children.appendChild(element_child);
-                    } else if (element_child_title == 'ملیت') {
+                    } else if (element_child_title == 'الجنسية') {
                         var element_child = document.createElement("div");
                         element_child.className = `package-info-item has-select-input`;
                         var label = document.createElement("label");
@@ -3730,216 +3870,214 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                         };
                         string += `/></div><input type="hidden" value="1002236" name="${input_name}" class="area-id issuecountry"/><ul class="drop-item wide">
                                    <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
        <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
        <li
-           onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-           data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-           data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-           data-id="1002138">آنتیگوا و باربودا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+           data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+           data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+           data-id="1002138">أنتيغوا وبربودا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-           میکرونزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-           کوچک
-           حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
            onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
            onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
            onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-           (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-           فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-           کوک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-           شمالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+           onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند
+           (مالفيناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر
+           فيجي</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر
+           كوك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا
+           الشمالية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
            فوتونا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-           (آمریکا)</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-           (بریتانیا)</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+           (أمريكا)</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+           (بريطانيا)</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
            onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
            onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-           گرنادین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و
+           غرينادين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
            onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
            onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-           دمکراتیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، جمهورية
+           الديمقراطية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
            onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
            onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
            onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+           onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
        </ul></div>`;
                         element_child.innerHTML += string;
                         element_children.appendChild(element_child);
 
-                    } else if (element_child_title == 'کشور محل اقامت') {
+                    } else if (element_child_title == 'بلد الإقامة') {
                         var element_child = document.createElement("div");
                         element_child.className = `package-info-item has-select-input ${internal}`;
                         var label = document.createElement("label");
@@ -3960,217 +4098,215 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                         };
                         string += `/></div><input type="hidden" value="1002236" name="${input_name}" class="countryofresistance area-id"/><ul class="drop-item wide">
                                    <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
        <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
        <li
-           onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-           data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-           data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-           data-id="1002138">آنتیگوا و باربودا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+           data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+           data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+           data-id="1002138">أنتيغوا وبربودا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-           میکرونزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-           کوچک
-           حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
            onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
            onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
            onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-           (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-           فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-           کوک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-           شمالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+           onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند
+           (مالفيناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر
+           فيجي</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر
+           كوك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا
+           الشمالية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
            فوتونا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-           (آمریکا)</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-           (بریتانیا)</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+           (أمريكا)</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+           (بريطانيا)</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
            onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
            onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-           گرنادین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و
+           غرينادين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
            onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
            onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-           دمکراتیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، جمهورية
+           الديمقراطية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
            onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
            onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
            onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+           onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
        </ul></div>`;
                         element_child.innerHTML += string;
                         element_children.appendChild(element_child);
 
 
-                    } else if (element_child_title == 'کشور صادرکننده گذرنامه') {
+                    } else if (element_child_title == 'بلد إصدار جواز السفر') {
                         var element_child = document.createElement("div");
                         element_child.className = `package-info-item has-select-input unvisible ${internal}`;
                         var label = document.createElement("label");
@@ -4191,220 +4327,215 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                         };
                         string += `></_input></div><input type="hidden" value="1002236" name="${input_name}" class="area-id passportissuecountry"></_input><ul class="drop-item wide">
                                    <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
        <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-       <li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+       <li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
        <li
-           onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-           data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-           data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-           data-id="1002138">آنتیگوا و باربودا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+           data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+           data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+           data-id="1002138">أنتيغوا وبربودا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-           میکرونزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-           کوچک
-           حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
            onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
            onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
            onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-           (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-           فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-           کوک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-           شمالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+           onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند
+           (مالفيناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر
+           فيجي</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر
+           كوك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا
+           الشمالية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
            فوتونا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-           (آمریکا)</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-           (بریتانیا)</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+           (أمريكا)</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+           (بريطانيا)</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
            onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
            onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-           گرنادین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و
+           غرينادين</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
            onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
            onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-           دمکراتیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، جمهورية
+           الديمقراطية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
            onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
            onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li>
-           <li
-           onclick="select_area_val(this)" class="li-item" data-value="لوکزامبورگ" data-id="1002065">لوکزامبورگ</li>
-           <li
-           onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
            onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
            onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+           onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+           onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
        </ul></div>`;
                         element_child.innerHTML += string;
                         element_children.appendChild(element_child);
 
 
-                    } else if (element_child_title == 'ایمیل') {
+                    } else if (element_child_title == 'البرید الإلکتروني') {
                         var element_child = document.createElement("div");
                         element_child.className = `package-info-item unvisible passenger-email`;
                         var label = document.createElement("label");
@@ -4422,7 +4553,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                         element_child.innerHTML += string;
                         element_children.appendChild(element_child);
 
-                    } else if (element_child_title == 'شماره گذرنامه') {
+                    } else if (element_child_title == 'رقم جواز السفر') {
                         var element_child = document.createElement("div");
                         if (document.querySelector(".main-container").getAttribute("data-schemaid") == 251) {
                             if (document.querySelector(".internal").value == 0 && document.querySelector(".provider").value == 0) {
@@ -4456,7 +4587,6 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                                 element_child.querySelector("input").value = "-"
                             }
                         }
-
                         element_children.appendChild(element_child);
 
                     } else if (element_child_title == 'roomid' || element_child_title == 'type') {
@@ -4476,7 +4606,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                         element_children.appendChild(element_child);
                     } else {
                         var element_child = document.createElement("div");
-                        if (element_child_title == 'کد ملی') {
+                        if (element_child_title == 'رقم الهویة الوطنية') {
                             if (document.querySelector(".main-container").getAttribute("data-schemaid") == 251) {
                                 if (document.querySelector(".internal").value == 0 && document.querySelector(".provider").value == 0) {
                                     element_child.className = `package-info-item unvisible`;
@@ -4489,28 +4619,22 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
 
                         } else {
                             element_child.className = `package-info-item`;
-
                         }
                         var label = document.createElement("label");
                         label.innerHTML = element_child_title;
                         element_child.appendChild(label);
                         var string = `<div class="inner-item"><input `;
-                        if (element_child_title == 'نام به انگلیسی') {
-                            label.setAttribute("data-label", "نام");
-                            string += `onkeydown="english_key(event,this)" onkeyup="upperCase_key(event,this)"`;
-                        } if (element_child_title == 'نام') {
-                            label.setAttribute("data-label", "نام");
-                            string += `onkeyup="upperCase_key(event,this)"`;
-                        }
-                        if (element_child_title == 'نام خانوادگی به انگلیسی') {
-                            label.setAttribute("data-label", "نام خانوادگی");
+                        console.log("ok2=" + element_child_title)
+                        if (element_child_title == 'الاسم الأول باللغة الإنجليزية') {
+                            label.setAttribute("data-label", "الاسم");
                             string += `onkeydown="english_key(event,this)" onkeyup="upperCase_key(event,this)"`;
                         }
-                        if (element_child_title == 'نام خانوادگی') {
-                            label.setAttribute("data-label", "نام خانوادگی");
-                            string += `onkeyup="upperCase_key(event,this)"`;
+                        if (element_child_title == 'اللقب باللغة الإنجليزية') {
+                            label.setAttribute("data-label", "اللقب");
+                            string += `onkeydown="english_key(event,this)" onkeyup="upperCase_key(event,this)"`;
                         }
-                        if (element_child_title == 'کد ملی') {
+
+                        if (element_child_title == 'رقم الهویة الوطنية') {
                             label.setAttribute("data-label", element_child_title);
                             string +=
                                 `onkeyup="this.value=this.value.replace(/[^0-9]/g, '');" onkeydown="persian_key(event,this)"`;
@@ -4532,7 +4656,6 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
                                 }
                             }
                         }
-
                         element_children.appendChild(element_child);
                     }
                 }
@@ -4563,12 +4686,8 @@ function toggle_date(element, type) {
         "drop-item-toggle");
     if (type == 'day') {
         renderData(data_day, type, element);
-    } else if (type == 'day-service') {
-        renderData(data_day_service, type, element);
     } else if (type == 'month') {
         renderData(data_month, type, element);
-    } else if (type == 'month-service') {
-        renderData(data_month_service, type, element);
     } else if (type == 'year-birthdate') {
         renderData(data_year_birthdate, type, element);
     } else if (type == 'year-passport') {
@@ -4626,7 +4745,7 @@ function english_key(event, element) {
         event.preventDefault();
         element.closest(".inner-item").classList.add("invalid");
         element.closest(".package-info-item").insertAdjacentHTML('beforeend',
-            `<div class="description">صفحه کلید را به انگلیسی تغییر دهید.</div>`)
+            `<div class="description">تغيير لوحة المفاتيح إلى اللغة الإنجليزية.</div>`)
         return false;
     } else {
         element.closest(".inner-item").classList.remove("invalid");
@@ -4933,62 +5052,12 @@ function autoComplete_search(event, element, type) {
     })
 
     if (count == 0) {
-        parentElement.querySelector(".drop-item").insertAdjacentHTML('beforeend', `<li class="nodata" data-value="" data-id=""> موردی یافت نشد</li>`)
+        parentElement.querySelector(".drop-item").insertAdjacentHTML('beforeend', `<li class="nodata" data-value="" data-id="">لم يتم العثور على أي عناصر</li>`)
     } else {
         if (parentElement.querySelector(".drop-item").querySelector(".nodata")) { parentElement.querySelector(".drop-item").querySelector(".nodata").remove() }
 
     }
 
-
-    // var searched_value = event.target.value;
-    // if (type == 'day') {
-    //     var filterd_date = data_day.filter((item, i) => {
-    //         return item.data_value.includes(searched_value);
-    //     });
-    //     renderData(filterd_date, type, element);
-    // } else if (type == 'month') {
-    //     var filterd_date = data_month.filter((item, i) => {
-    //         return item.data_value.toUpperCase().includes(searched_value.toUpperCase()) || item.data_id.toUpperCase().includes(searched_value);
-    //     });
-    //     renderData(filterd_date, type, element);
-    // } else if (type == 'month-service') {
-    //     var filterd_date = data_month_service.filter((item, i) => {
-    //         return item.date_value.toUpperCase().includes(searched_value.toUpperCase()) || item.date_id.toUpperCase().includes(searched_value);
-    //     });
-    //     renderData(filterd_date, type, element);
-    // } else if (type == 'day-service') {
-    //     var filterd_date = data_day_service.filter((item, i) => {
-    //         return item.date_value.toUpperCase().includes(searched_value.toUpperCase()) || item.date_id.toUpperCase().includes(searched_value);
-    //     });
-    //     renderData(filterd_date, type, element);
-    // } else if (type == 'year-birthdate') {
-    //     var filterd_date = data_year_birthdate.filter((item, i) => {
-    //         return item.data_value.includes(searched_value);
-    //     });
-
-    //     renderData(filterd_date, type, element);
-    // } else if (type == 'year-passport') {
-    //     var filterd_date = data_year_passport.filter((item, i) => {
-    //         return item.data_value.includes(searched_value);
-    //     });
-    //     renderData(filterd_date, type, element);
-    // } else if (type == 'year-visa') {
-    //     var filterd_date = data_year_visa.filter((item, i) => {
-    //         return item.data_value.includes(searched_value);
-    //     });
-    //     renderData(filterd_date, type, element);
-    // } else if (type == 'area') {
-    //     var filterd_date = data_area.filter((item, i) => {
-    //         return item.data_value.includes(searched_value);
-    //     });
-    //     renderData(filterd_date, type, element);
-    //     element.setAttribute("data-value", "");
-    // } else if (type == 'year-service') {
-    //     var filterd_date = data_year_service.filter((item, i) => {
-    //         return item.data_value.includes(searched_value);
-    //     });
-    //     renderData(filterd_date, type, element);
-    // }
 };
 
 function autoFill_search(event, element, type) {
@@ -5106,7 +5175,6 @@ function toggle_codeCountry(element, type) {
     reset_drop_item();
     element.closest(".package-info-item").querySelector(".drop-item").classList.toggle(
         "drop-item-toggle");
-
     renderData(data_countryCode, "code", element);
 
 };
@@ -5196,65 +5264,6 @@ document.onkeydown = checkKey;
 var index = -1;
 var liSelected;
 
-// function checkKey(e) {
-//     e = e || window.event;
-//     for (var i = 0; i < document.getElementsByClassName("passenger-info-content").length; i++) {
-//         for (var j = 0; j < document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item").length; j++) {
-//             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].classList.contains("drop-item-toggle")) {
-//                 var len = document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item").length - 1;
-//                 if (e.keyCode == 38) {
-//                     console.log('keyCode up')
-//                     // up arrow
-//                     if (liSelected) {
-//                         li_isnot_selected(liSelected, "selected");
-//                         index--;
-//                         next = document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item")[index];
-
-//                         if (typeof next !== undefined && index >= 0) {
-//                             liSelected = next;
-//                         } else {
-//                             index = len;
-//                             liSelected = document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item")[len];
-//                         }
-
-//                         li_isnot_selected(liSelected, "selected");
-//                     } else {
-//                         index = 0;
-//                         liSelected = document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item")[len];
-//                         li_isnot_selected(liSelected, "selected");
-//                     }
-//                 } else if (e.keyCode == 40) {
-//                     console.log('keyCode down')
-//                     // down arrow
-//                     index++;
-//                     if (liSelected) {
-//                         console.log('liSelected1')
-//                         next = document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item")[index];
-//                         if (typeof next !== undefined && index <= len) {
-//                             liSelected = next;
-//                         } else {
-//                             index = 0;
-//                             liSelected = document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item")[0];
-//                         }
-//                     } else {
-//                         console.log('liSelected0')
-//                         index = 0;
-//                         liSelected = document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item")[0];
-//                     }
-//                     li_is_selected(liSelected, "selected");
-
-//                 } else if (e.keyCode == 13) {
-//                     console.log(index)
-//                     // enter 
-//                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item")[index].click();
-//                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("drop-item")[j].getElementsByClassName("li-item")[index].classList.remove("selected");
-//                     index = -1;
-//                 }
-//             }
-//         }
-//     }
-
-// };
 function checkKey(e) {
     e = e || window.event;
     for (var i = 0; i < document.getElementsByClassName("passenger-info-content").length; i++) {
@@ -5266,6 +5275,7 @@ function checkKey(e) {
 
                 var len = items.length - 1;
                 if (e.keyCode == 38) {
+
                     // up arrow
                     if (liSelected) {
                         li_isnot_selected(liSelected, "selected");
@@ -5286,9 +5296,11 @@ function checkKey(e) {
                         li_isnot_selected(liSelected, "selected");
                     }
                 } else if (e.keyCode == 40) {
+
                     // down arrow
                     index++;
                     if (liSelected) {
+                        console.log('liSelected1');
                         next = items[index];
                         if (typeof next !== 'undefined' && index <= len) {
                             liSelected = next;
@@ -5297,12 +5309,14 @@ function checkKey(e) {
                             liSelected = items[0];
                         }
                     } else {
+                        console.log('liSelected0');
                         index = 0;
                         liSelected = items[0];
                     }
                     li_is_selected(liSelected, "selected");
 
                 } else if (e.keyCode == 13) {
+
                     // enter 
                     items[index].click();
                     items[index].classList.remove("selected");
@@ -5343,16 +5357,15 @@ function load_extra_service(element, type) {
     if ($(element).is(":checked")) {
         let url = "";
         if (type == 'train') {
-            url = "/Client_Extra_Service_Train_ver.2.bc?lid=1"
+            url = "/Client_Extra_Service_Train_Ar_ver.2.bc"
         } else {
-            url = "/Client_Extra_Service_ver.2.bc?lid=1"
+            url = "/Client_Extra_Service_Ar_ver.2.bc"
         }
         if ($(element).val() == "-") {
             $(element).val('');
             $(element).closest(".package-info-item").find(".mini-loading").show();
             $.post(`${url}`, {
-                extra_service: $(".extra_service").val(),
-                schemaid: document.querySelector(".main-container").getAttribute("data-schemaid")
+                extra_service: $(".extra_service").val()
             }, function (response) {
                 $(element).closest(".package-info-item").find(".mini-loading").hide();
                 $(element).closest(".passenger-info-items").find(".extra_services")
@@ -5392,7 +5405,7 @@ function next_step(element) {
                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").value == "") {
                             document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات مسافر را وارد کنید.</div>`);
+                            document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل الركاب</div>`);
                             isExist = false;
                         }
                     };
@@ -5409,7 +5422,7 @@ function next_step(element) {
 
                                     if (!document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].getElementsByClassName("passenger-date-item")[y].querySelector(".necessary").getAttribute("data-id") && document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].getElementsByClassName("passenger-date-item")[y].querySelector(".necessary").getAttribute("data-id") == "") {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].getElementsByClassName("passenger-date-item")[y].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات مسافر را وارد کنید.</div>`);
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل الركاب</div>`);
                                         isExist = false;
                                     }
                                 }
@@ -5430,7 +5443,7 @@ function next_step(element) {
                         document.querySelector(".passengers-notices-content").getElementsByClassName("package-info-item")[i].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.querySelector(".passengers-notices-content").getElementsByClassName("package-info-item")[i].querySelector(".necessary").value == "") {
                             document.querySelector(".passengers-notices-content").getElementsByClassName("package-info-item")[i].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.querySelector(".passengers-notices-content").getElementsByClassName("package-info-item")[i].insertAdjacentHTML('beforeend', `<div class="description">مشخصات را وارد کنید.</div>`);
+                            document.querySelector(".passengers-notices-content").getElementsByClassName("package-info-item")[i].insertAdjacentHTML('beforeend', `<div class="description">أدخل التفاصيل.</div>`);
                             isExist = false;
                         }
                     };
@@ -5453,25 +5466,25 @@ function next_step(element) {
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                            document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                             isValid = false;
                         } else if (check_month < 1 || check_month > 12) {
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                            document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                             isValid = false;
                         } else if (check_day < 1 || check_day > new Date(check_year, check_month, 0).getDate()) {
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                            document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                             isValid = false;
                         } else if (isNaN(birthday_date.getTime())) {
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                            document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                             isValid = false;
                         } else {
                             document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelectorAll(".description").forEach((desc) => {
@@ -5487,8 +5500,7 @@ function next_step(element) {
                             date = a.split("-");
                             date = date[2] + "-" + date[0] + "-" + date[1];
                             var current_date = new Date(date);
-                            // تغییر در نحوه مقایسع تاریخ
-                            if (document.querySelector(".main-container").getAttribute("data-schemaid") == 290) {
+                            if(document.querySelector(".main-container").getAttribute("data-schemaid") == 290){
                                 const returnInfoSection = document.querySelector('.returninfoRoutesInfo');
                                 if (returnInfoSection) {
                                     const firstInput = returnInfoSection.querySelector('input.EnNum_date_flight');
@@ -5497,35 +5509,34 @@ function next_step(element) {
                                         const flight_date_Object = new Date(flight_return);
                                         const flight_date = flight_date_Object.getTime();
                                         var time_diff = flight_date - birthday_date.getTime();
-                                    }
+                                    } 
                                 }
-                            } else if (document.querySelector(".main-container").getAttribute("data-schemaid") == 291) {
+                            }else if(document.querySelector(".main-container").getAttribute("data-schemaid") == 291){
                                 var flight_departure = document.querySelector(".exitDateMs").value;
                                 const flight_date_Object = new Date(flight_departure);
                                 const flight_date = flight_date_Object.getTime();
                                 var time_diff = flight_date - birthday_date.getTime();
-                            } else if (document.querySelector(".main-container").getAttribute("data-schemaid") == 292) {
+                            }else if(document.querySelector(".main-container").getAttribute("data-schemaid") == 292){
                                 const route = document.querySelectorAll('.rout-details-part');
                                 if (route.length > 0) {
                                     var flight_departure = route[route.length - 2].querySelector(".departure_date_flight").value;
-                                    console.log("flight_departure2=" + flight_departure)
+                                    console.log("flight_departure2="+flight_departure)
                                     const flight_date_Object = new Date(flight_departure);
                                     const flight_date = flight_date_Object.getTime();
                                     var time_diff = flight_date - birthday_date.getTime();
                                 }
-                            } else {
-                                console.log("ok-4")
+                            }else{
                                 var time_diff = current_date.getTime() - birthday_date.getTime();
                             }
                             var days_diff = Math.ceil(time_diff / (1000 * 3600 * 24));
-                            // var tmp = (Math.floor(days_diff / 365));
-                            var tmp = days_diff / 365;
+                            var tmp = (Math.floor(days_diff / 365));
                             if (passenger_type == 2) {
-                                if (tmp < 12 || tmp > 97.5) {
+                                if (tmp < 12 || tmp > 98) {
+
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">برای بزرگسال تاریخ تولد معتبر وارد کنید</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">للبالغين، أدخل تاريخ ميلاد صالحًا</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.remove("invalid");
@@ -5537,7 +5548,7 @@ function next_step(element) {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">برای کودک تاریخ تولد معتبر وارد کنید</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخ ميلاد صالحًا للطفل</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.remove("invalid");
@@ -5549,7 +5560,7 @@ function next_step(element) {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">برای نوزاد تاریخ تولد معتبر وارد کنید</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخ ميلاد صالحًا للرضیع</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.remove("invalid");
@@ -5575,25 +5586,25 @@ function next_step(element) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (check_month < 1 || check_month > 12) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (check_day < 1 || check_day > new Date(check_year, check_month, 0).getDate()) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (isNaN(passexpiredate_date.getTime())) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelectorAll(".description").forEach((desc) => {
@@ -5605,7 +5616,7 @@ function next_step(element) {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ انقضای گذرنامه باید بیشتر از 6 ماه باشد.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يكون تاريخ انتهاء جواز السفر أكثر من 6 أشهر.</div>`);
                                     isValid = false;
 
                                 } else {
@@ -5621,17 +5632,16 @@ function next_step(element) {
                     if (document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode")) {
                         if (document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").classList.contains("necessary")) {
                             var passportcode = document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").value;
-                            if (document.querySelector(".main-container").getAttribute("data-schemaid") == 290 || document.querySelector(".main-container").getAttribute("data-schemaid") == 291 || document.querySelector(".main-container").getAttribute("data-schemaid") == 292) {
+                            if(document.querySelector(".main-container").getAttribute("data-schemaid") == 290 || document.querySelector(".main-container").getAttribute("data-schemaid") == 291 || document.querySelector(".main-container").getAttribute("data-schemaid") == 292){
                                 var regex = /^[a-zA-Z]{1}[0-9]{8,9}$/;
-                            } else {
+                            }else{
                                 var regex = /^[a-zA-Z]{1}[0-9]{8}$/;
                             }
-
                             if (document.getElementsByClassName("passenger-info-content")[i].querySelector(".issuecountry")) {
                                 if (document.getElementsByClassName("passenger-info-content")[i].querySelector(".issuecountry").value == 1002236) {
                                     if (!regex.test(passportcode)) {
                                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">شماره گذرنامه صحیح نیست.</div>`);
+                                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم جواز السفر غير صحيح.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.remove("invalid");
@@ -5641,7 +5651,7 @@ function next_step(element) {
                             } else {
                                 if (!regex.test(passportcode)) {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">شماره گذرنامه صحیح نیست.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم جواز السفر غير صحيح.</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.remove("invalid");
@@ -5676,12 +5686,12 @@ function next_step(element) {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.remove("invalid");
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کد ملی صحیح نیست.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم الهویة الوطنية غير صحيح.</div>`);
                                     isValid = false;
                                 }
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کد ملی صحیح نیست.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم الهویة الوطنية غير صحيح.</div>`);
                                 isValid = false;
                             }
 
@@ -5691,23 +5701,19 @@ function next_step(element) {
                         if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].value.length < 2) {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 2 است.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 2.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
                             }
-
-                            if (module_type !== 401 && module_type !== 402) {
-                                var regex = new RegExp("^[a-zA-Z ]+$");
-                                if (!regex.test(document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].value)) {
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description"> کاراکتر غیر مجاز وارد شده است.</div>`);
-                                    isValid = false;
-                                } else {
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
-                                }
+                            var regex = new RegExp("^[a-zA-Z ]+$");
+                            if (!regex.test(document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].value)) {
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description"> تم إدخال حرف غير قانوني.</div>`);
+                                isValid = false;
+                            } else {
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
                             }
-
                         }
                     };
                     if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[0]) {
@@ -5715,7 +5721,7 @@ function next_step(element) {
                             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].classList.contains("necessary")) {
                                 if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].getAttribute("data-value") == '') {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کشور را انتخاب کنید.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">اختر البلد.</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".inner-item").classList.remove("invalid");
@@ -5736,7 +5742,7 @@ function next_step(element) {
                     } else {
                         document.querySelector(".passengers-info-content").classList.add("unvisible");
                         document.querySelector(".buyers-info-content").classList.remove("unvisible");
-                        document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+                        document.querySelector(".step-title").innerText = 'بیانات المشتري';
                         element.setAttribute("data-step", "buyer");
                         element.previousElementSibling.classList.remove("unvisible");
                         element.previousElementSibling.setAttribute("data-step", "buyer");
@@ -5773,7 +5779,7 @@ function next_step(element) {
                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").value == "") {
                             document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات خریدار را وارد کنید.</div>`);
+                            document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل بیانات المشتري.</div>`);
                             isExist = false;
                         }
                     };
@@ -5797,7 +5803,7 @@ function next_step(element) {
                     if (!document.querySelector(".agency-content").classList.contains("unvisible")) {
                         if (document.querySelector(".selected-agency").getAttribute("data-agencyid") == '' || !document.querySelector(".selected-agency").getAttribute("data-agencyid")) {
                             isValid = false;
-                            document.querySelector(".selected-agency").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">آژانس موردنظر را از لیست پیشنهادی انتخاب کنید.</div>`);
+                            document.querySelector(".selected-agency").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">قم باختيار الوكالة المطلوبة من القائمة المقترحة.</div>`);
                         }
 
                     }
@@ -5807,7 +5813,7 @@ function next_step(element) {
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].value.length < 2) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 2 است - ویرایش در پنل کاربری.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 2 - قم بالتحرير في لوحة المستخدم.</div>`);
                                 isValid = false;
 
                             } else {
@@ -5820,7 +5826,7 @@ function next_step(element) {
                             var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                             if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].value)) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">ایمیل صحیح نمی‌باشد.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">البرید الإلکتروني  غير صحيح.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".inner-item").classList.remove("invalid");
@@ -5831,7 +5837,7 @@ function next_step(element) {
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].value.length < 5) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 5 است.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 5.</div>`);
                                 isValid = false;
 
                             } else {
@@ -5846,7 +5852,7 @@ function next_step(element) {
                                     var regex = /^[1-9][0-9]{9,10}$/;
                                     if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").value)) {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".tel").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن ثابت باید با کد شهر شروع شود.</div>`);
+                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".tel").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الخط الأرضي برمز المدينة.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").closest(".inner-item").classList.remove("invalid");
@@ -5860,7 +5866,7 @@ function next_step(element) {
                                     var regex = /^9([0123645789]{9})$/;
                                     if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").value)) {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".mobile").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن همراه باید با 9 شروع شده و بیش از 10 رقم نباشد.</div>`);
+                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".mobile").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الهاتف الخليوي بـ 9 أرقام ولا يتجاوز 10 أرقام.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").closest(".inner-item").classList.remove("invalid");
@@ -5914,13 +5920,13 @@ function next_step(element) {
                         document.querySelector(".buyers-info-content").classList.add("unvisible");
                         if (document.querySelector(".transfer-info-content")) {
                             document.querySelector(".touristpanel-info-content").classList.remove("unvisible");
-                            document.querySelector(".step-title").innerText = 'خدمات و گشت';
+                            document.querySelector(".step-title").innerText = 'الخدمة والدورية';
                             element.setAttribute("data-step", "touristpanel");
                             element.previousElementSibling.setAttribute("data-step", "touristpanel");
                             check_steps("touristpanel");
                         } else {
                             document.querySelector(".summary-info-content").classList.remove("unvisible");
-                            document.querySelector(".step-title").innerText = 'پرداخت و صدور';
+                            document.querySelector(".step-title").innerText = 'الدفع والإصدار';
                             element.setAttribute("data-step", "summary");
                             element.previousElementSibling.setAttribute("data-step", "summary");
                             check_steps("summary");
@@ -6016,8 +6022,8 @@ function next_step(element) {
                         if (properties.length > 0) {
                             var objEditUser = `{
                   "data": {
-                  "lid": 1,
-                  "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/fa/schema_name",
+                  "lid": 3,
+                  "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/ar/schema_name",
                   "properties": ${JSON.stringify(properties)},
                   "schemaId": "${document.querySelector(".check-has-data").dataset.hashid}",
                   "schemaVersion": "1.0.0",
@@ -6110,7 +6116,7 @@ function next_step(element) {
                                         }
                                     }
 
-                                } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'آژانس مورد نظر را انتخاب کنید') {
+                                } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'قم باختيار الوكالة المطلوبة') {
                                     var element_child = document.createElement("div");
                                     element_child.className = "d-item";
                                     element_child.innerHTML = `<div class="t-head color_font">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText}</div> <div class="t-body font-weight color_gray">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("input").value}</div>`;
@@ -6119,13 +6125,11 @@ function next_step(element) {
                             }
                         }
                         document.querySelector(".summary-buyer-items").appendChild(element);
-                        if (document.querySelector(".main-container").getAttribute("data-dmnid") == 4754 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4740 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4889 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4929 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4869) {
-                            $.post('/Client_Check_Member_Point_ver.2.bc?lid=1', {
+                        if (document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475) {
+                            $.post('/Client_Check_Member_Point_Ar_ver.2.bc', {
                                 userid: document.querySelector(".main-userid").value,
                                 product_data: document.querySelector(".coupon_data").value,
                                 provider_id: document.querySelector(".provider").value,
-                                f_provider_id: document.querySelector("input[name=fprovider]") ? document.querySelector("input[name=fprovider]").value : '',
-                                in_provider_id: document.querySelector(".in_provider_id") ? document.querySelector(".in_provider_id").value : '',
                                 schemaid: document.querySelector(".main-container").getAttribute("data-schemaid")
                             }, function (response) {
                                 if (document.querySelector(".member-point-container").querySelector("#ballsWaveG")) {
@@ -6158,7 +6162,7 @@ function next_step(element) {
                             necessary.closest(".inner-item").classList.remove("invalid");
                             if (necessary.value == "") {
                                 necessary.closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("transfer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات سرویس را وارد کنید.</div>`);
+                                document.getElementsByClassName("transfer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل الخدمة.</div>`);
                                 isExist = false;
                             }
                         });
@@ -6171,7 +6175,7 @@ function next_step(element) {
                         if (document.getElementsByClassName("transfer-info-content")[i].getElementsByClassName("address-item")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("transfer-info-content")[i].getElementsByClassName("address-item")[j].value.length < 5) {
                                 document.getElementsByClassName("transfer-info-content")[i].getElementsByClassName("address-item")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("transfer-info-content")[i].getElementsByClassName("address-item")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 5 است.</div>`);
+                                document.getElementsByClassName("transfer-info-content")[i].getElementsByClassName("address-item")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 5.</div>`);
                                 isValid = false;
 
                             } else {
@@ -6227,7 +6231,7 @@ function next_step(element) {
                         document.querySelector(".summary-info-content").classList.remove("unvisible");
                     }
                     element.previousElementSibling.setAttribute("data-step", "summary");
-                    document.querySelector(".step-title").innerText = 'پرداخت و صدور';
+                    document.querySelector(".step-title").innerText = 'الدفع والإصدار';
                     element.setAttribute("data-step", "summary");
 
                     check_steps("summary");
@@ -6318,8 +6322,8 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                     if (properties.length > 0) {
                         var objEditUser = `{
                 "data": {
-                "lid": 1,
-                "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/fa/schema_name",
+                "lid": 3,
+                "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/ar/schema_name",
                 "properties": ${JSON.stringify(properties)},
                 "schemaId": "${document.querySelector(".check-has-data").dataset.hashid}",
                 "schemaVersion": "1.0.0",
@@ -6411,7 +6415,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     }
                                 }
 
-                            } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'آژانس مورد نظر را انتخاب کنید') {
+                            } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'قم باختيار الوكالة المطلوبة') {
                                 var element_child = document.createElement("div");
                                 element_child.className = "d-item";
                                 element_child.innerHTML = `<div class="t-head color_font">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText}</div> <div class="t-body font-weight color_gray">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("input").value}</div>`;
@@ -6420,13 +6424,11 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         }
                     }
                     document.querySelector(".summary-buyer-items").appendChild(element);
-                    if (document.querySelector(".main-container").getAttribute("data-dmnid") == 4754 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4740 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4889 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4929 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4869) {
-                        $.post('/Client_Check_Member_Point_ver.2.bc?lid=1', {
+                    if (document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475) {
+                        $.post('/Client_Check_Member_Point_Ar_ver.2.bc', {
                             userid: document.querySelector(".main-userid").value,
                             product_data: document.querySelector(".coupon_data").value,
                             provider_id: document.querySelector(".provider").value,
-                            f_provider_id: document.querySelector("input[name=fprovider]") ? document.querySelector("input[name=fprovider]").value : '',
-                            in_provider_id: document.querySelector(".in_provider_id") ? document.querySelector(".in_provider_id").value : '',
                             schemaid: document.querySelector(".main-container").getAttribute("data-schemaid")
                         }, function (response) {
                             if (document.querySelector(".member-point-container").querySelector("#ballsWaveG")) {
@@ -6454,8 +6456,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             var isValid = true;
             if (!document.querySelector(".rule-condition-content").querySelector("input[type=checkbox]").checked) {
                 document.querySelector(".rule-condition-content").insertAdjacentHTML('beforeend',
-                    `<div class="description">لطفا قوانین و مقررات را تایید فرمایید</div>`);
-                console.log("ok-1")
+                    `<div class="description">یرجی مطالعة قسم القوانين</div>`);
                 isValid = false;
             } else {
                 if (document.querySelector(".rule-condition-content").querySelector(".description")) {
@@ -6465,7 +6466,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             if (document.querySelector(".counter-content").classList.contains("is-necessary")) {
                 if (document.querySelector(".counter-content").querySelector(".name").value == "") {
                     document.querySelector(".counter-content").insertAdjacentHTML('beforeend',
-                        `<div class="description">لطفا کانتر اقدام کننده را انتخاب فرمایید</div>`);
+                        `<div class="description">الرجاء تحديد عداد المشغل</div>`);
                     isValid = false;
                 } else {
                     if (document.querySelector(".counter-content").querySelector(".description")) {
@@ -6473,29 +6474,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                     }
                 }
             };
-            //add new
-            if (document.querySelector(".train-captcha-content")) {
-                if (document.querySelector(".train-captchatxt").value == "") {
-                    isValid = false;
-                    if (!document.querySelector(".train-captcha-content").querySelector(".description")) {
-                        document.querySelector(".train-captcha-content").insertAdjacentHTML('beforeend', `<div class="description">لطفا کد امنیتی را وارد فرمایید</div>`);
-                    }
-                } else {
-                    if (document.querySelector(".train-captcha-content").querySelector(".description")) {
-                        document.querySelector(".train-captcha-content").querySelector(".description").remove();
-                    }
-                }
-            }
             if (isValid) {
-                //add new
-                if (document.querySelector(".train-captcha-content")) {
-                    if (document.querySelector(".invoice-form").querySelector(".captchaId_finalform")) {
-                        document.querySelector(".invoice-form").querySelector(".captchaId_finalform").value = document.querySelector(".train-captcha-content").querySelector(".train-captchaid").value;
-                    }
-                    if (document.querySelector(".invoice-form").querySelector(".captchaText_finalform")) {
-                        document.querySelector(".invoice-form").querySelector(".captchaText_finalform").value = document.querySelector(".train-captcha-content").querySelector(".train-captchatxt").value;
-                    }
-                }
                 document.querySelector(".summary-invoice").classList.remove("unvisible");
                 document.querySelector(".invoice-container").innerHTML = `<div id="ballsWaveG"> <div id="ballsWaveG_1" class="ballsWaveG"></div><div id="ballsWaveG_2" class="ballsWaveG"></div><div id="ballsWaveG_3" class="ballsWaveG"></div><div id="ballsWaveG_4" class="ballsWaveG"></div><div id="ballsWaveG_5" class="ballsWaveG"></div><div id="ballsWaveG_6" class="ballsWaveG"></div> <div id="ballsWaveG_7" class="ballsWaveG"></div><div id="ballsWaveG_8" class="ballsWaveG"></div> </div>`
                 if (document.querySelector(".Credit_payment")) {
@@ -6504,13 +6483,13 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                     };
                 }
                 if (document.querySelector("input[name=share]").value == 1) {
-                    document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">جهت ثبت پیش قرارداد کلیک کنید</div>`;
+                    document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">انقر لتسجيل العقد المسبق</div>`;
                     document.querySelector("input[name=bank_id]").value = -1;
                 } else {
                     if (document.querySelector("input[name=accounttype]").value == 1) {
-                        document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">جهت ثبت پیش قرارداد و ارسال به حسابداری کلیک کنید</div>`;
+                        document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">انقر لتسجيل العقد المسبق وإرساله إلى قسم المحاسبة</div>`;
                     } else {
-                        $.post('/Client_Bank_List_ver.2.bc?lid=1', {
+                        $.post('/Client_Bank_List_Ar_ver.2.bc', {
                             firstpay: document.querySelector(".firstpay-price").innerText,
                         }, function (response) {
                             if (document.querySelector(".invoice-container").querySelector("#ballsWaveG")) {
@@ -6541,7 +6520,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("package-info-item")[j].querySelector(".necessary").value == "") {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات مسافر را وارد کنید.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل الركاب</div>`);
                                 isExist = false;
                             }
                         };
@@ -6621,7 +6600,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[y].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[y].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[y].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[y].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">سن کودک باید بین  ${parseFloat(passengers_age_splited[y] - 1)} و  ${passengers_age_splited[y]} سال باشد</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[y].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يتراوح عمر الطفل بين ${parseFloat(passengers_age_splited[y] - 1)} و  ${passengers_age_splited[y]} سنوات</div>`);
                                     isValid = false;
 
                                 }
@@ -6644,25 +6623,25 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                                 isValid = false;
                             } else if (check_month < 1 || check_month > 12) {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                                 isValid = false;
                             } else if (check_day < 1 || check_day > new Date(check_year, check_month, 0).getDate()) {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                                 isValid = false;
                             } else if (isNaN(birthday_date.getTime())) {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelectorAll(".description").forEach((desc) => {
@@ -6678,18 +6657,18 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 date = a.split("-");
                                 date = date[2] + "-" + date[0] + "-" + date[1];
                                 var current_date = new Date(date);
-                                if (document.querySelector(".main-container").getAttribute("data-schemaid") == 290251) {
+                                if(document.querySelector(".main-container").getAttribute("data-schemaid") == 290251){
                                     const returnInfoSection = document.querySelector('.returninfoRoutesInfo');
-                                    if (returnInfoSection) {
-                                        const firstInput = returnInfoSection.querySelector('input.EnNum_date_flight');
-                                        if (firstInput) {
-                                            var flight_return = firstInput.value;
-                                            const flight_date_Object = new Date(flight_return);
-                                            const flight_date = flight_date_Object.getTime();
-                                            var time_diff = flight_date - birthday_date.getTime();
-                                        }
-                                    }
-                                } else {
+                                if (returnInfoSection) {
+                                    const firstInput = returnInfoSection.querySelector('input.EnNum_date_flight');
+                                    if (firstInput) {
+                                        var flight_return = firstInput.value;
+                                        const flight_date_Object = new Date(flight_return);
+                                        const flight_date = flight_date_Object.getTime();
+                                        var time_diff = flight_date - birthday_date.getTime();
+                                    } 
+                                }
+                                }else{
                                     var time_diff = current_date.getTime() - birthday_date.getTime();
                                 }
                                 var days_diff = Math.ceil(time_diff / (1000 * 3600 * 24));
@@ -6699,7 +6678,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">برای بزرگسال تاریخ تولد معتبر وارد کنید</div>`);
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">للبالغين، أدخل تاريخ ميلاد صالحًا</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.remove("invalid");
@@ -6723,25 +6702,25 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                                     isValid = false;
                                 } else if (check_month < 1 || check_month > 12) {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                                     isValid = false;
                                 } else if (check_day < 1 || check_day > new Date(check_year, check_month, 0).getDate()) {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                                     isValid = false;
                                 } else if (isNaN(passexpiredate_date.getTime())) {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelectorAll(".description").forEach((desc) => {
@@ -6754,7 +6733,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ انقضای گذرنامه باید بیشتر از 6 ماه باشد.</div>`);
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يكون تاريخ انتهاء جواز السفر أكثر من 6 أشهر.</div>`);
                                         isValid = false;
 
                                     } else {
@@ -6770,16 +6749,16 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode")) {
                             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").classList.contains("necessary")) {
                                 var passportcode = document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").value;
-                                if (document.querySelector(".main-container").getAttribute("data-schemaid") == 290251) {
+                                if(document.querySelector(".main-container").getAttribute("data-schemaid") == 290251){
                                     var regex = /^[a-zA-Z]{1}[0-9]{8,9}$/;
-                                } else {
+                                }else {
                                     var regex = /^[a-zA-Z]{1}[0-9]{8}$/;
                                 }
                                 if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".issuecountry")) {
                                     if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".issuecountry").value == 1002236) {
                                         if (!regex.test(passportcode)) {
                                             document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").closest(".inner-item").classList.add("invalid");
-                                            document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">شماره گذرنامه صحیح نیست.</div>`);
+                                            document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم جواز السفر غير صحيح.</div>`);
                                             isValid = false;
                                         } else {
                                             document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").closest(".inner-item").classList.remove("invalid");
@@ -6789,7 +6768,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 } else {
                                     if (!regex.test(passportcode)) {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">شماره گذرنامه صحیح نیست.</div>`);
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم جواز السفر غير صحيح.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".passportcode").closest(".inner-item").classList.remove("invalid");
@@ -6823,12 +6802,12 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".NationalCode").closest(".inner-item").classList.remove("invalid");
                                     } else {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".NationalCode").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کد ملی صحیح نیست.</div>`);
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم الهویة الوطنية غير صحيح.</div>`);
                                         isValid = false;
                                     }
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".NationalCode").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کد ملی صحیح نیست.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم الهویة الوطنية غير صحيح.</div>`);
                                     isValid = false;
                                 }
 
@@ -6841,24 +6820,19 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].classList.contains("necessary")) {
                                     if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].value.length < 2) {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 2 است.</div>`);
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 2.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
                                     }
-                                    if (document.querySelector(".main-container").getAttribute("data-schemaid") == 249) {
-                                        if (document.querySelector("input[name=factor_type]").value == 4) {
-                                            var regex = new RegExp("^[a-zA-Z ]+$");
-                                            if (!regex.test(document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].value)) {
-                                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
-                                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کاراکتر غیر مجاز وارد شده است.</div>`);
-                                                isValid = false;
-                                            } else {
-                                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
-                                            }
-                                        }
+                                    var regex = new RegExp("^[a-zA-Z ]+$");
+                                    if (!regex.test(document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].value)) {
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تم إدخال حرف غير قانوني.</div>`);
+                                        isValid = false;
+                                    } else {
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
                                     }
-
                                 }
                             };
                         };
@@ -6868,7 +6842,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("autocompleteCOUNTRY")[j].classList.contains("necessary")) {
                                     if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("autocompleteCOUNTRY")[j].getAttribute("data-value") == '') {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کشور را انتخاب کنید.</div>`);
+                                        document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">اختر البلد.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("passenger")[s].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".inner-item").classList.remove("invalid");
@@ -6895,7 +6869,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                     } else {
                         document.querySelector(".passengers-info-content").classList.add("unvisible");
                         document.querySelector(".buyers-info-content").classList.remove("unvisible");
-                        document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+                        document.querySelector(".step-title").innerText = 'بیانات المشتري';
                         element.setAttribute("data-step", "buyer");
                         element.previousElementSibling.classList.remove("unvisible");
                         element.previousElementSibling.setAttribute("data-step", "buyer");
@@ -6936,7 +6910,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").value == "") {
                             document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات خریدار را وارد کنید.</div>`);
+                            document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل بیانات المشتري.</div>`);
                             isExist = false;
                         }
                     };
@@ -6966,21 +6940,12 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             };
 
             if (isExist) {
-                if (document.querySelector(".buyer-1")) {
-                    if (!document.querySelector(".agency-content").classList.contains("unvisible")) {
-                        if (document.querySelector(".selected-agency").getAttribute("data-agencyid") == '' || !document.querySelector(".selected-agency").getAttribute("data-agencyid")) {
-                            isValid = false;
-                            document.querySelector(".selected-agency").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">آژانس موردنظر را از لیست پیشنهادی انتخاب کنید.</div>`);
-                        }
-
-                    }
-                }
                 for (var i = 0; i < document.getElementsByClassName("buyer-info-content").length; i++) {
                     for (var j = 0; j < document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name").length; j++) {
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].value.length < 2) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 2 است - ویرایش در پنل کاربری.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 2 - قم بالتحرير في لوحة المستخدم.</div>`);
                                 isValid = false;
 
                             } else {
@@ -6993,7 +6958,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                             if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].value)) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">ایمیل صحیح نمی‌باشد.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">البرید الإلکتروني  غير صحيح.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".inner-item").classList.remove("invalid");
@@ -7004,7 +6969,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].value.length < 5) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 5 است.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 5.</div>`);
                                 isValid = false;
 
                             } else {
@@ -7019,7 +6984,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     var regex = /^[1-9][0-9]{9,10}$/;
                                     if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").value)) {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".tel").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن ثابت باید با کد شهر شروع شود.</div>`);
+                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".tel").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الخط الأرضي برمز المدينة.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").closest(".inner-item").classList.remove("invalid");
@@ -7033,7 +6998,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     var regex = /^9([0123645789]{9})$/;
                                     if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").value)) {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".mobile").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن همراه باید با 9 شروع شده و بیش از 10 رقم نباشد.</div>`);
+                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".mobile").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الهاتف الخليوي بـ 9 أرقام ولا يتجاوز 10 أرقام.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").closest(".inner-item").classList.remove("invalid");
@@ -7086,7 +7051,6 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 }
                             }
                         };
-
                         document.querySelector(".buyers-info-content").classList.add("unvisible");
                         if (document.querySelector(".services-info-content")) {
                             if (document.querySelector(".serviceid")) {
@@ -7146,7 +7110,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
 
                                     serviceid = document.querySelector(".serviceid").value;
 
-                                    $.post('/Client_Hotel_Services_ver.2.bc?lid=1', {
+                                    $.post('/Client_Hotel_Services_Ar_ver.2.bc', {
                                         provider: document.querySelector(".provider").value,
                                         cityid: cityid,
                                         fdate: document.querySelector(".invoice-form").querySelector("input[name=fdate]").value,
@@ -7195,7 +7159,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     var hotel_extra_service = true;
                                     const FareSourceCode_obj = JSON.parse(document.querySelector(".hotel_extra_service").value)
                                     var FareSourceCode = FareSourceCode_obj.id.FareSourceCode.transfer_options
-                                    $.post('/Client_Hotel_ExtraServices_ver.2.bc?lid=1', {
+                                    $.post('/Client_Hotel_ExtraServices_Ar_ver.2.bc', {
                                         FareSourceCode: FareSourceCode,
                                         extra_service: hotel_extra_service,
                                         providerid: check_provider,
@@ -7207,16 +7171,12 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     show_extra_service_content(element);
                                 }
                                 if (check_provider == 70) {
-
-
-
-                                    
                                     document.querySelector(".services-info-content").classList.remove("unvisible");
                                     var hotel_extra_service = true;
                                     var transfer_to = document.querySelector(".hotel_extra_service_transfer_to").value;
                                     var transfer_from = document.querySelector(".hotel_extra_service_transfer_from").value;
-                                    $.post('/Client_Hotel_ExtraServices_moghim_ver.2.bc?lid=1', {
-                                        lid: 1,
+                                    $.post('/Client_Hotel_ExtraServices_moghim_ver.2.bc', {
+                                        lid: 3,
                                         extra_service: hotel_extra_service,
                                         providerid: check_provider,
                                         transfer_to: transfer_to,
@@ -7257,7 +7217,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             var isValid = true;
             if (!document.querySelector(".rule-condition-content").querySelector("input[type=checkbox]").checked) {
                 document.querySelector(".rule-condition-content").insertAdjacentHTML('beforeend',
-                    `<div class="description">لطفا قوانین و مقررات را تایید فرمایید</div>`);
+                    `<div class="description">یرجی مطالعة قسم القوانين</div>`);
                 isValid = false;
             } else {
                 if (document.querySelector(".rule-condition-content").querySelector(".description")) {
@@ -7267,7 +7227,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             if (document.querySelector(".counter-content").classList.contains("is-necessary")) {
                 if (document.querySelector(".counter-content").querySelector(".name").value == "") {
                     document.querySelector(".counter-content").insertAdjacentHTML('beforeend',
-                        `<div class="description">لطفا کانتر اقدام کننده را انتخاب فرمایید</div>`);
+                        `<div class="description">الرجاء تحديد عداد المشغل</div>`);
                     isValid = false;
                 } else {
                     if (document.querySelector(".counter-content").querySelector(".description")) {
@@ -7284,13 +7244,13 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                     };
                 }
                 if (document.querySelector("input[name=share]").value == 1) {
-                    document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">جهت ثبت پیش قرارداد کلیک کنید</div>`;
+                    document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">انقر لتسجيل العقد المسبق</div>`;
                     document.querySelector("input[name=bank_id]").value = -1;
                 } else {
                     if (document.querySelector("input[name=accounttype]").value == 1) {
-                        document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">جهت ثبت پیش قرارداد و ارسال به حسابداری کلیک کنید</div>`;
+                        document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">انقر لتسجيل العقد المسبق وإرساله إلى قسم المحاسبة</div>`;
                     } else {
-                        $.post('/Client_Bank_List_ver.2.bc?lid=1', {
+                        $.post('/Client_Bank_List_Ar_ver.2.bc', {
                             firstpay: document.querySelector(".firstpay-price").innerText,
                         }, function (response) {
                             if (document.querySelector(".invoice-container").querySelector("#ballsWaveG")) {
@@ -7338,7 +7298,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".necessary").value == "") {
                             document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].insertAdjacentHTML('beforeend', `<div class="description">مشخصات ترسفر را وارد کنید.</div>`);
+                            document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل النقل.</div>`);
                             isExist = false;
                         }
                     };
@@ -7373,7 +7333,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (document.querySelector(".geo-parent-desc")) {
                             document.querySelector(".georgia-services").querySelector(".description").remove();
                         }
-                        document.querySelector(".georgia-services").insertAdjacentHTML('beforeend', `<div class="geo-parent-desc description">حداقل اطلاعات یکی از مسیرهای ورود یا حرکت را کامل کنید.</div>`);
+                        document.querySelector(".georgia-services").insertAdjacentHTML('beforeend', `<div class="geo-parent-desc description">أكمل طريق دخول أو مغادرة واحد على الأقل.</div>`);
                         isExist = false;
                     } else {
                         if (document.querySelector(".geo-parent-desc")) {
@@ -7389,7 +7349,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.getElementsByClassName("service-info-col-inner")[i].querySelector(".necessary-item").closest(".service-info-col-inner").classList.remove("invalid");
                         if (document.getElementsByClassName("service-info-col-inner")[i].querySelector(".necessary-item").value == "") {
                             document.getElementsByClassName("service-info-col-inner")[i].querySelector(".necessary-item").closest(".service-info-col-inner").classList.add("invalid");
-                            document.getElementsByClassName("service-info-col-inner")[i].insertAdjacentHTML('beforeend', `<div class="description">مشخصات ترسفر را وارد کنید.</div>`);
+                            document.getElementsByClassName("service-info-col-inner")[i].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل النقل.</div>`);
                             isExist = false;
                         }
                     };
@@ -7420,7 +7380,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 if (start_timeid > end_timeid) {
                                     if (!(END >= start_timeid || END == 0 || END <= end_timeid)) {
                                         document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".clockpicker").closest(".inner-item").classList.add("invalid");
-                                        document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".clockpicker").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">ساعت باید بین ${start_time} و ${end_time} باشد</div>`);
+                                        document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".clockpicker").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن تكون الساعة بين ${start_time} و ${end_time} </div>`);
                                         isValid = false;
                                     } else {
                                         document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".clockpicker").closest(".inner-item").classList.remove("invalid");
@@ -7428,7 +7388,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 } else {
                                     if (!(start_timeid <= END && END <= end_timeid)) {
                                         document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".clockpicker").closest(".inner-item").classList.add("invalid");
-                                        document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".clockpicker").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">ساعت باید بین ${start_time} و ${end_time} باشد</div>`);
+                                        document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".clockpicker").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن تكون الساعة بين ${start_time} و ${end_time} </div>`);
                                         isValid = false;
                                     } else {
                                         document.querySelector(".transfer-hotel-content").getElementsByClassName("package-info-item")[i].querySelector(".clockpicker").closest(".inner-item").classList.remove("invalid");
@@ -7497,7 +7457,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").value == "") {
                             document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات مسافر را وارد کنید.</div>`);
+                            document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل الركاب</div>`);
                             isExist = false;
                         }
                     };
@@ -7532,7 +7492,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary-cip").closest(".inner-item").classList.remove("invalid");
                         if (document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary-cip").value == "") {
                             document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary-cip").closest(".inner-item").classList.add("invalid");
-                            document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات cip را وارد کنید.</div>`);
+                            document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل CP.</div>`);
                             isExist = false;
                         }
                     };
@@ -7576,25 +7536,25 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                         isValid = false;
                     } else if (check_month < 1 || check_month > 12) {
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                         isValid = false;
                     } else if (check_day < 1 || check_day > new Date(check_year, check_month, 0).getDate()) {
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                         isValid = false;
                     } else if (isNaN(birthday_date.getTime())) {
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                         isValid = false;
                     } else {
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelectorAll(".description").forEach((desc) => {
@@ -7618,7 +7578,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">برای بزرگسال تاریخ تولد معتبر وارد کنید</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">للبالغين، أدخل تاريخ ميلاد صالحًا</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.remove("invalid");
@@ -7630,7 +7590,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">برای کودک تاریخ تولد معتبر وارد کنید</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخ ميلاد صالحًا للطفل</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.remove("invalid");
@@ -7642,7 +7602,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">برای نوزاد تاریخ تولد معتبر وارد کنید</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخ ميلاد صالحًا للرضیع</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.remove("invalid");
@@ -7666,25 +7626,25 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (check_month < 1 || check_month > 12) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (check_day < 1 || check_day > new Date(check_year, check_month, 0).getDate()) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (isNaN(passexpiredate_date.getTime())) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelectorAll(".description").forEach((desc) => {
@@ -7696,7 +7656,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ انقضای گذرنامه باید بیشتر از 6 ماه باشد.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يكون تاريخ انتهاء جواز السفر أكثر من 6 أشهر.</div>`);
                                     isValid = false;
 
                                 } else {
@@ -7716,7 +7676,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             if (document.getElementsByClassName("passenger-info-content")[i].querySelector(".issuecountry").value == 1002236) {
                                 if (!regex.test(passportcode)) {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">شماره گذرنامه صحیح نیست.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم جواز السفر غير صحيح.</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.remove("invalid");
@@ -7726,7 +7686,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         } else {
                             if (!regex.test(passportcode)) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">شماره گذرنامه صحیح نیست.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم جواز السفر غير صحيح.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.remove("invalid");
@@ -7755,12 +7715,12 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.remove("invalid");
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کد ملی صحیح نیست.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم الهویة الوطنية غير صحيح.</div>`);
                                     isValid = false;
                                 }
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کد ملی صحیح نیست.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم الهویة الوطنية غير صحيح.</div>`);
                                 isValid = false;
                             }
 
@@ -7770,7 +7730,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].value.length < 2) {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 2 است.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 2.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
@@ -7778,7 +7738,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             var regex = new RegExp("^[a-zA-Z ]+$");
                             if (!regex.test(document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].value)) {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کاراکتر غیر مجاز وارد شده است.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تم إدخال حرف غير قانوني.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
@@ -7791,7 +7751,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].classList.contains("necessary")) {
                                 if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].getAttribute("data-value") == '') {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کشور را انتخاب کنید.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">اختر البلد.</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".inner-item").classList.remove("invalid");
@@ -7806,7 +7766,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("address-cip")[j].classList.contains("necessary-cip")) {
                             if (document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("address-cip")[j].value.length < 5) {
                                 document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("address-cip")[j].closest(".inner-item").classList.add("invalid");
-                                document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("address-cip")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 5 است.</div>`);
+                                document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("address-cip")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 5.</div>`);
                                 isValid = false;
                             } else {
                                 document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("address-cip")[j].closest(".inner-item").classList.remove("invalid");
@@ -7821,7 +7781,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     var regex = /^9([0123645789]{9})$/;
                                     if (!regex.test(document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile-cip").value)) {
                                         document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile-cip").closest(".inner-item").classList.add("invalid");
-                                        document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].querySelector(".mobile-cip").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن همراه باید با 9 شروع شده و بیش از 10 رقم نباشد.</div>`);
+                                        document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].querySelector(".mobile-cip").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الهاتف الخليوي بـ 9 أرقام ولا يتجاوز 10 أرقام.</div>`);
                                         isValid = false;
                                     } else {
                                         document.querySelector(".cips-info-content").getElementsByClassName("inner_box")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile-cip").closest(".inner-item").classList.remove("invalid");
@@ -7842,7 +7802,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.querySelector(".passengers-info-content").classList.add("unvisible");
                         document.querySelector(".cips-info-content").classList.add("unvisible");
                         document.querySelector(".buyers-info-content").classList.remove("unvisible");
-                        document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+                        document.querySelector(".step-title").innerText = 'بیانات المشتري';
                         element.setAttribute("data-step", "buyer");
                         element.previousElementSibling.classList.remove("unvisible");
                         element.previousElementSibling.setAttribute("data-step", "buyer");
@@ -7874,7 +7834,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").value == "") {
                             document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات خریدار را وارد کنید.</div>`);
+                            document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل بیانات المشتري.</div>`);
                             isExist = false;
                         }
                     };
@@ -7903,21 +7863,13 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
 
             };
             if (isExist) {
-                if (document.querySelector(".buyer-1")) {
-                    if (!document.querySelector(".agency-content").classList.contains("unvisible")) {
-                        if (document.querySelector(".selected-agency").getAttribute("data-agencyid") == '' || !document.querySelector(".selected-agency").getAttribute("data-agencyid")) {
-                            isValid = false;
-                            document.querySelector(".selected-agency").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">آژانس موردنظر را از لیست پیشنهادی انتخاب کنید.</div>`);
-                        }
 
-                    }
-                }
                 for (var i = 0; i < document.getElementsByClassName("buyer-info-content").length; i++) {
                     for (var j = 0; j < document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name").length; j++) {
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].value.length < 2) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 2 است - ویرایش در پنل کاربری.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 2 - قم بالتحرير في لوحة المستخدم.</div>`);
                                 isValid = false;
 
                             } else {
@@ -7930,7 +7882,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                             if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].value)) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">ایمیل صحیح نمی‌باشد.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">البرید الإلکتروني  غير صحيح.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".inner-item").classList.remove("invalid");
@@ -7941,7 +7893,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].value.length < 5) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 5 است.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 5.</div>`);
                                 isValid = false;
 
                             } else {
@@ -7956,7 +7908,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     var regex = /^[1-9][0-9]{9,10}$/;
                                     if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").value)) {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".tel").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن ثابت باید با کد شهر شروع شود.</div>`);
+                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".tel").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الخط الأرضي برمز المدينة.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").closest(".inner-item").classList.remove("invalid");
@@ -7970,7 +7922,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     var regex = /^9([0123645789]{9})$/;
                                     if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").value)) {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".mobile").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن همراه باید با 9 شروع شده و بیش از 10 رقم نباشد.</div>`);
+                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".mobile").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الهاتف الخليوي بـ 9 أرقام ولا يتجاوز 10 أرقام.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").closest(".inner-item").classList.remove("invalid");
@@ -8024,7 +7976,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
 
                         document.querySelector(".buyers-info-content").classList.add("unvisible");
                         document.querySelector(".summary-info-content").classList.remove("unvisible");
-                        document.querySelector(".step-title").innerText = 'پرداخت و صدور';
+                        document.querySelector(".step-title").innerText = 'الدفع والإصدار';
                         element.setAttribute("data-step", "summary");
                         element.previousElementSibling.setAttribute("data-step", "summary");
                         check_steps("summary");
@@ -8117,8 +8069,8 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (properties.length > 0) {
                             var objEditUser = `{
                  "data": {
-                 "lid": 1,
-                 "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/fa/schema_name",
+                 "lid": 3,
+                 "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/ar/schema_name",
                  "properties": ${JSON.stringify(properties)},
                  "schemaId": "${document.querySelector(".check-has-data").dataset.hashid}",
                  "schemaVersion": "1.0.0",
@@ -8232,7 +8184,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                         }
                                     }
 
-                                } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'آژانس مورد نظر را انتخاب کنید') {
+                                } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'قم باختيار الوكالة المطلوبة') {
                                     var element_child = document.createElement("div");
                                     element_child.className = "d-item";
                                     element_child.innerHTML = `<div class="t-head color_font">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText}</div> <div class="t-body font-weight color_gray">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("input").value}</div>`;
@@ -8246,13 +8198,11 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         }
 
                         document.querySelector(".summary-buyer-items").appendChild(element);
-                        if (document.querySelector(".main-container").getAttribute("data-dmnid") == 4754 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4740 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4889 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4929 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4869) {
-                            $.post('/Client_Check_Member_Point_ver.2.bc?lid=1', {
+                        if (document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475) {
+                            $.post('/Client_Check_Member_Point_Ar_ver.2.bc', {
                                 userid: document.querySelector(".main-userid").value,
                                 product_data: document.querySelector(".coupon_data").value,
                                 provider_id: document.querySelector(".provider").value,
-                                f_provider_id: document.querySelector("input[name=fprovider]") ? document.querySelector("input[name=fprovider]").value : '',
-                                in_provider_id: document.querySelector(".in_provider_id") ? document.querySelector(".in_provider_id").value : '',
                                 schemaid: document.querySelector(".main-container").getAttribute("data-schemaid")
                             }, function (response) {
                                 if (document.querySelector(".member-point-container").querySelector("#ballsWaveG")) {
@@ -8271,6 +8221,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
 
 
 
+
                 }
             }
         } else if (element.getAttribute("data-step") == "summary") {
@@ -8283,7 +8234,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             var isValid = true;
             if (!document.querySelector(".rule-condition-content").querySelector("input[type=checkbox]").checked) {
                 document.querySelector(".rule-condition-content").insertAdjacentHTML('beforeend',
-                    `<div class="description">لطفا قوانین و مقررات را تایید فرمایید</div>`);
+                    `<div class="description">یرجی مطالعة قسم القوانين</div>`);
                 isValid = false;
             } else {
                 if (document.querySelector(".rule-condition-content").querySelector(".description")) {
@@ -8293,7 +8244,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             if (document.querySelector(".counter-content").classList.contains("is-necessary")) {
                 if (document.querySelector(".counter-content").querySelector(".name").value == "") {
                     document.querySelector(".counter-content").insertAdjacentHTML('beforeend',
-                        `<div class="description">لطفا کانتر اقدام کننده را انتخاب فرمایید</div>`);
+                        `<div class="description">الرجاء تحديد عداد المشغل</div>`);
                     isValid = false;
                 } else {
                     if (document.querySelector(".counter-content").querySelector(".description")) {
@@ -8310,13 +8261,13 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                     };
                 }
                 if (document.querySelector("input[name=share]").value == 1) {
-                    document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">جهت ثبت پیش قرارداد کلیک کنید</div>`;
+                    document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">انقر لتسجيل العقد المسبق</div>`;
                     document.querySelector("input[name=bank_id]").value = -1;
                 } else {
                     if (document.querySelector("input[name=accounttype]").value == 1) {
-                        document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">جهت ثبت پیش قرارداد و ارسال به حسابداری کلیک کنید</div>`;
+                        document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">انقر لتسجيل العقد المسبق وإرساله إلى قسم المحاسبة</div>`;
                     } else {
-                        $.post('/Client_Bank_List_ver.2.bc?lid=1', {
+                        $.post('/Client_Bank_List_Ar_ver.2.bc', {
                             firstpay: document.querySelector(".firstpay-price").innerText,
                         }, function (response) {
                             if (document.querySelector(".invoice-container").querySelector("#ballsWaveG")) {
@@ -8348,7 +8299,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").value == "") {
                             document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات مسافر را وارد کنید.</div>`);
+                            document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل تفاصيل الركاب</div>`);
                             isExist = false;
                         }
                     };
@@ -8398,25 +8349,25 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                         isValid = false;
                     } else if (check_month < 1 || check_month > 12) {
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                         isValid = false;
                     } else if (check_day < 1 || check_day > new Date(check_year, check_month, 0).getDate()) {
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                         isValid = false;
                     } else if (isNaN(birthday_date.getTime())) {
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید.</div>`);
+                        document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا.</div>`);
                         isValid = false;
                     } else {
                         document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelectorAll(".description").forEach((desc) => {
@@ -8440,7 +8391,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">برای بزرگسال تاریخ تولد معتبر وارد کنید</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">للبالغين، أدخل تاريخ ميلاد صالحًا</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".birthday").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.remove("invalid");
@@ -8463,25 +8414,25 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (check_month < 1 || check_month > 12) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (check_day < 1 || check_day > new Date(check_year, check_month, 0).getDate()) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else if (isNaN(passexpiredate_date.getTime())) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ معتبر وارد کنید. </div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">أدخل تاريخًا صالحًا. </div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelectorAll(".description").forEach((desc) => {
@@ -8493,7 +8444,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".year").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".month").closest(".inner-item").classList.add("invalid");
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").querySelector(".day").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تاریخ انقضای گذرنامه باید بیشتر از 6 ماه باشد.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passexpiredate").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يكون تاريخ انتهاء جواز السفر أكثر من 6 أشهر.</div>`);
                                     isValid = false;
 
                                 } else {
@@ -8513,7 +8464,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             if (document.getElementsByClassName("passenger-info-content")[i].querySelector(".issuecountry").value == 1002236) {
                                 if (!regex.test(passportcode)) {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">شماره پاسپورت صحیح نیست.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم جواز السفر  غير صحيح.</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.remove("invalid");
@@ -8523,7 +8474,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         } else {
                             if (!regex.test(passportcode)) {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">شماره پاسپورت صحیح نیست.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم جواز السفر  غير صحيح.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".passportcode").closest(".inner-item").classList.remove("invalid");
@@ -8555,12 +8506,12 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.remove("invalid");
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کد ملی صحیح نیست.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم الهویة الوطنية غير صحيح.</div>`);
                                     isValid = false;
                                 }
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کد ملی صحیح نیست.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].querySelector(".NationalCode").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">رقم الهویة الوطنية غير صحيح.</div>`);
                                 isValid = false;
                             }
 
@@ -8570,7 +8521,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].value.length < 2) {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 2 است.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 2.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
@@ -8578,7 +8529,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             var regex = new RegExp("^[a-zA-Z ]+$");
                             if (!regex.test(document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].value)) {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کاراکتر غیر مجاز وارد شده است.</div>`);
+                                document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تم إدخال حرف غير قانوني.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("english")[j].closest(".inner-item").classList.remove("invalid");
@@ -8601,7 +8552,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].classList.contains("necessary")) {
                                 if (document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].getAttribute("data-value") == '') {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".inner-item").classList.add("invalid");
-                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">کشور را انتخاب کنید.</div>`);
+                                    document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">اختر البلد.</div>`);
                                     isValid = false;
                                 } else {
                                     document.getElementsByClassName("passenger-info-content")[i].getElementsByClassName("autocompleteCOUNTRY")[j].closest(".inner-item").classList.remove("invalid");
@@ -8617,7 +8568,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                     } else {
                         document.querySelector(".passengers-info-content").classList.add("unvisible");
                         document.querySelector(".buyers-info-content").classList.remove("unvisible");
-                        document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+                        document.querySelector(".step-title").innerText = 'بیانات المشتري';
                         element.setAttribute("data-step", "buyer");
                         element.previousElementSibling.classList.remove("unvisible");
                         element.previousElementSibling.setAttribute("data-step", "buyer");
@@ -8655,7 +8606,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.remove("invalid");
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").value == "") {
                             document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].querySelector(".necessary").closest(".inner-item").classList.add("invalid");
-                            document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">مشخصات خریدار را وارد کنید.</div>`);
+                            document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-info-item")[j].insertAdjacentHTML('beforeend', `<div class="description">أدخل بیانات المشتري.</div>`);
                             isExist = false;
                         }
                     };
@@ -8684,21 +8635,13 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
 
             };
             if (isExist) {
-                if (document.querySelector(".buyer-1")) {
-                    if (!document.querySelector(".agency-content").classList.contains("unvisible")) {
-                        if (document.querySelector(".selected-agency").getAttribute("data-agencyid") == '' || !document.querySelector(".selected-agency").getAttribute("data-agencyid")) {
-                            isValid = false;
-                            document.querySelector(".selected-agency").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">آژانس موردنظر را از لیست پیشنهادی انتخاب کنید.</div>`);
-                        }
 
-                    }
-                }
                 for (var i = 0; i < document.getElementsByClassName("buyer-info-content").length; i++) {
                     for (var j = 0; j < document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name").length; j++) {
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].value.length < 2) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 2 است - ویرایش در پنل کاربری.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("name")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 2 - قم بالتحرير في لوحة المستخدم.</div>`);
                                 isValid = false;
 
                             } else {
@@ -8711,7 +8654,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                             var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                             if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].value)) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">ایمیل صحیح نمی‌باشد.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">البرید الإلکتروني  غير صحيح.</div>`);
                                 isValid = false;
                             } else {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("email")[j].closest(".inner-item").classList.remove("invalid");
@@ -8722,7 +8665,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].classList.contains("necessary")) {
                             if (document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].value.length < 5) {
                                 document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".inner-item").classList.add("invalid");
-                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">حداقل تعداد کاراکتر 5 است.</div>`);
+                                document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("address")[j].closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">الحد الأدنى لعدد الأحرف هو 5.</div>`);
                                 isValid = false;
 
                             } else {
@@ -8737,7 +8680,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     var regex = /^[1-9][0-9]{9,10}$/;
                                     if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").value)) {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".tel").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن ثابت باید با کد شهر شروع شود.</div>`);
+                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".tel").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الخط الأرضي برمز المدينة.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".tel").closest(".inner-item").classList.remove("invalid");
@@ -8751,7 +8694,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     var regex = /^9([0123645789]{9})$/;
                                     if (!regex.test(document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").value)) {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").closest(".inner-item").classList.add("invalid");
-                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".mobile").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">تلفن همراه باید با 9 شروع شده و بیش از 10 رقم نباشد.</div>`);
+                                        document.getElementsByClassName("buyer-info-content")[i].querySelector(".mobile").closest(".package-info-item").insertAdjacentHTML('beforeend', `<div class="description">يجب أن يبدأ الهاتف الخليوي بـ 9 أرقام ولا يتجاوز 10 أرقام.</div>`);
                                         isValid = false;
                                     } else {
                                         document.getElementsByClassName("buyer-info-content")[i].getElementsByClassName("package-number-items")[j].querySelector(".mobile").closest(".inner-item").classList.remove("invalid");
@@ -8807,7 +8750,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
 
                         document.querySelector(".buyers-info-content").classList.add("unvisible");
                         document.querySelector(".summary-info-content").classList.remove("unvisible");
-                        document.querySelector(".step-title").innerText = 'پرداخت و صدور';
+                        document.querySelector(".step-title").innerText = 'الدفع والإصدار';
                         element.setAttribute("data-step", "summary");
                         element.previousElementSibling.setAttribute("data-step", "summary");
                         check_steps("summary");
@@ -8898,8 +8841,8 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         if (properties.length > 0) {
                             var objEditUser = `{
               "data": {
-              "lid": 1,
-              "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/fa/schema_name",
+              "lid": 3,
+              "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/ar/schema_name",
               "properties": ${JSON.stringify(properties)},
               "schemaId": "${document.querySelector(".check-has-data").dataset.hashid}",
               "schemaVersion": "1.0.0",
@@ -9002,7 +8945,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                         }
                                     }
 
-                                } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'آژانس مورد نظر را انتخاب کنید') {
+                                } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'قم باختيار الوكالة المطلوبة') {
                                     var element_child = document.createElement("div");
                                     element_child.className = "d-item";
                                     element_child.innerHTML = `<div class="t-head color_font">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText}</div> <div class="t-body font-weight color_gray">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("input").value}</div>`;
@@ -9016,13 +8959,11 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         }
 
                         document.querySelector(".summary-buyer-items").appendChild(element);
-                        if (document.querySelector(".main-container").getAttribute("data-dmnid") == 4754 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4740 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4889 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4929 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4869) {
-                            $.post('/Client_Check_Member_Point_ver.2.bc?lid=1', {
+                        if (document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475) {
+                            $.post('/Client_Check_Member_Point_Ar_ver.2.bc', {
                                 userid: document.querySelector(".main-userid").value,
                                 product_data: document.querySelector(".coupon_data").value,
                                 provider_id: document.querySelector(".provider").value,
-                                f_provider_id: document.querySelector("input[name=fprovider]") ? document.querySelector("input[name=fprovider]").value : '',
-                                in_provider_id: document.querySelector(".in_provider_id") ? document.querySelector(".in_provider_id").value : '',
                                 schemaid: document.querySelector(".main-container").getAttribute("data-schemaid")
                             }, function (response) {
                                 if (document.querySelector(".member-point-container").querySelector("#ballsWaveG")) {
@@ -9054,7 +8995,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             var isValid = true;
             if (!document.querySelector(".rule-condition-content").querySelector("input[type=checkbox]").checked) {
                 document.querySelector(".rule-condition-content").insertAdjacentHTML('beforeend',
-                    `<div class="description">لطفا قوانین و مقررات را تایید فرمایید</div>`);
+                    `<div class="description">یرجی مطالعة قسم القوانين</div>`);
                 isValid = false;
             } else {
                 if (document.querySelector(".rule-condition-content").querySelector(".description")) {
@@ -9064,7 +9005,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
             if (document.querySelector(".counter-content").classList.contains("is-necessary")) {
                 if (document.querySelector(".counter-content").querySelector(".name").value == "") {
                     document.querySelector(".counter-content").insertAdjacentHTML('beforeend',
-                        `<div class="description">لطفا کانتر اقدام کننده را انتخاب فرمایید</div>`);
+                        `<div class="description">الرجاء تحديد عداد المشغل</div>`);
                     isValid = false;
                 } else {
                     if (document.querySelector(".counter-content").querySelector(".description")) {
@@ -9080,13 +9021,13 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                     };
                 }
                 if (document.querySelector("input[name=share]").value == 1) {
-                    document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">جهت ثبت پیش قرارداد کلیک کنید</div>`;
+                    document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">انقر لتسجيل العقد المسبق</div>`;
                     document.querySelector("input[name=bank_id]").value = -1;
                 } else {
                     if (document.querySelector("input[name=accounttype]").value == 1) {
-                        document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">جهت ثبت پیش قرارداد و ارسال به حسابداری کلیک کنید</div>`;
+                        document.querySelector(".invoice-container").innerHTML = `<div class="invoice-content preInvoice" data-clicked="0" onclick="check_invoice(this,'preInvoice')">انقر لتسجيل العقد المسبق وإرساله إلى قسم المحاسبة</div>`;
                     } else {
-                        $.post('/Client_Bank_List_ver.2.bc?lid=1', {
+                        $.post('/Client_Bank_List_Ar_ver.2.bc', {
                             firstpay: document.querySelector(".firstpay-price").innerText,
                         }, function (response) {
                             if (document.querySelector(".invoice-container").querySelector("#ballsWaveG")) {
@@ -9125,7 +9066,7 @@ function prev_step(element) {
         };
         document.querySelector(".passengers-info-content").classList.remove("unvisible");
         document.querySelector(".buyers-info-content").classList.add("unvisible");
-        document.querySelector(".step-title").innerText = 'مشخصات مسافران';
+        document.querySelector(".step-title").innerText = 'بيانات المسافرين';
         element.setAttribute("data-step", "");
         element.classList.add("unvisible");
         element.nextElementSibling.setAttribute("data-step", "passenger");
@@ -9133,7 +9074,7 @@ function prev_step(element) {
     } else if (element.getAttribute("data-step") == "touristpanel") {
         document.querySelector(".buyers-info-content").classList.remove("unvisible");
         document.querySelector(".touristpanel-info-content").classList.add("unvisible");
-        document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+        document.querySelector(".step-title").innerText = 'بیانات المشتري';
         element.setAttribute("data-step", "buyer");
         element.nextElementSibling.setAttribute("data-step", "buyer");
         check_steps("buyer");
@@ -9157,7 +9098,7 @@ function prev_step(element) {
         if (document.querySelector(".main-container").getAttribute("data-schemaid") == 290251) {
             document.querySelector(".insurances-info-content").classList.remove("unvisible");
             document.querySelector(".summary-info-content").classList.add("unvisible");
-            document.querySelector(".step-title").innerText = 'بیمه';
+            document.querySelector(".step-title").innerText = 'التأمين';
             element.setAttribute("data-step", "insurance");
             element.nextElementSibling.setAttribute("data-step", "insurance");
             check_steps("insurance");
@@ -9165,14 +9106,14 @@ function prev_step(element) {
             if (document.querySelector(".transfer-info-content")) {
                 document.querySelector(".touristpanel-info-content").classList.remove("unvisible");
                 document.querySelector(".summary-info-content").classList.add("unvisible");
-                document.querySelector(".step-title").innerText = 'سرویس و خدمات';
+                document.querySelector(".step-title").innerText = 'الخدمة والخدمات';
                 element.setAttribute("data-step", "touristpanel");
                 element.nextElementSibling.setAttribute("data-step", "touristpanel");
                 check_steps("touristpanel");
             } else {
                 document.querySelector(".buyers-info-content").classList.remove("unvisible");
                 document.querySelector(".summary-info-content").classList.add("unvisible");
-                document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+                document.querySelector(".step-title").innerText = 'بیانات المشتري';
                 element.setAttribute("data-step", "buyer");
                 element.nextElementSibling.setAttribute("data-step", "buyer");
                 check_steps("buyer");
@@ -9182,7 +9123,7 @@ function prev_step(element) {
         } else if (document.querySelector(".main-container").getAttribute("data-schemaid") == 251 && (document.querySelector(".provider").value == 82 || document.querySelector(".provider").value == 114 || document.querySelector(".provider").value == 70)) {
             document.querySelector(".services-info-content").classList.remove("unvisible");
             document.querySelector(".summary-info-content").classList.add("unvisible");
-            document.querySelector(".step-title").innerText = 'خدمات و گشت';
+            document.querySelector(".step-title").innerText = 'الخدمة والدورية';
             element.setAttribute("data-step", "service");
             element.nextElementSibling.setAttribute("data-step", "service");
             check_steps("service");
@@ -9190,14 +9131,14 @@ function prev_step(element) {
             if (document.getElementsByClassName("service-info-content")[0]) {
                 document.querySelector(".services-info-content").classList.remove("unvisible");
                 document.querySelector(".summary-info-content").classList.add("unvisible");
-                document.querySelector(".step-title").innerText = 'خدمات و گشت';
+                document.querySelector(".step-title").innerText = 'الخدمة والدورية';
                 element.setAttribute("data-step", "service");
                 element.nextElementSibling.setAttribute("data-step", "service");
                 check_steps("service");
             } else {
                 document.querySelector(".buyers-info-content").classList.remove("unvisible");
                 document.querySelector(".summary-info-content").classList.add("unvisible");
-                document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+                document.querySelector(".step-title").innerText = 'بیانات المشتري';
                 element.setAttribute("data-step", "buyer");
                 element.nextElementSibling.setAttribute("data-step", "buyer");
                 check_steps("buyer");
@@ -9207,7 +9148,7 @@ function prev_step(element) {
     } else if (element.getAttribute("data-step") == "service") {
         document.querySelector(".buyers-info-content").classList.remove("unvisible");
         document.querySelector(".services-info-content").classList.add("unvisible");
-        document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+        document.querySelector(".step-title").innerText = 'بیانات المشتري';
         element.setAttribute("data-step", "buyer");
         element.nextElementSibling.setAttribute("data-step", "buyer");
         check_steps("buyer");
@@ -9215,14 +9156,14 @@ function prev_step(element) {
         if (document.getElementsByClassName("service-info-content")[0] || (document.querySelector(".main-container").getAttribute("data-schemaid") == 290251 && (document.querySelector(".provider").value == 82 || document.querySelector(".provider").value == 114 || document.querySelector(".provider").value == 70))) {
             document.querySelector(".services-info-content").classList.remove("unvisible");
             document.querySelector(".insurances-info-content").classList.add("unvisible");
-            document.querySelector(".step-title").innerText = 'خدمات و گشت';
+            document.querySelector(".step-title").innerText = 'الخدمة والدورية';
             element.setAttribute("data-step", "service");
             element.nextElementSibling.setAttribute("data-step", "service");
             check_steps("service");
         } else {
             document.querySelector(".buyers-info-content").classList.remove("unvisible");
             document.querySelector(".insurances-info-content").classList.add("unvisible");
-            document.querySelector(".step-title").innerText = 'مشخصات خریدار';
+            document.querySelector(".step-title").innerText = 'بیانات المشتري';
             element.setAttribute("data-step", "buyer");
             element.nextElementSibling.setAttribute("data-step", "buyer");
             check_steps("buyer");
@@ -9283,17 +9224,17 @@ function show_passengersList(element) {
 //<!----------------START JS CHECK COUPON---------------->
 function check_coupon_form(event, element) {
     event.preventDefault();
-    if (document.querySelector(".member-point-content .btn-item")) {
+    if(document.querySelector(".member-point-content .btn-item")){
         document.querySelectorAll(".member-point-content .btn-item").forEach(function (btn) {
-            btn.disabled = true;
+            btn.disabled = true; 
             btn.classList.add("disabled");
         });
-        if (document.querySelector(".disable-club-alert")) {
+        if(document.querySelector(".disable-club-alert")){
             document.querySelectorAll(".disable-club-alert").forEach(function (text) {
                 text.remove();
             });
         }
-        document.querySelector(".member-point-content").insertAdjacentHTML('afterend', '<div class="action-message disable-club-alert"><span class="false">به دلیل استفاده از کوپن تخفیف، این بخش غیر فعال است.</span></div>');
+        document.querySelector(".member-point-content").insertAdjacentHTML('afterend', '<div class="action-message disable-club-alert"><span class="false">هذا القسم غير نشط بسبب استخدام قسيمة الخصم.</span></div>');
     }
     document.querySelector(".summary-invoice").classList.add("unvisible");
     document.querySelector(".invoice-container").innerHTML = `<div id="ballsWaveG"> <div id="ballsWaveG_1" class="ballsWaveG"></div><div id="ballsWaveG_2" class="ballsWaveG"></div><div id="ballsWaveG_3" class="ballsWaveG"></div><div id="ballsWaveG_4" class="ballsWaveG"></div><div id="ballsWaveG_5" class="ballsWaveG"></div><div id="ballsWaveG_6" class="ballsWaveG"></div> <div id="ballsWaveG_7" class="ballsWaveG"></div><div id="ballsWaveG_8" class="ballsWaveG"></div> </div>`
@@ -9305,7 +9246,7 @@ function check_coupon_form(event, element) {
     } else {
         totalcom = document.querySelector(".firstpay-section").getAttribute("data-output");
     }
-    $.post('/Client_Check_Coupon_ver.2.bc?lid=1', {
+    $.post('/Client_Check_Coupon_Ar_ver.2.bc', {
         schemaid: document.querySelector(".main-container").getAttribute("data-schemaid"),
         provider: document.querySelector(".provider").value,
         accounttype: document.querySelector("input[name=accounttype]").value,
@@ -9317,7 +9258,7 @@ function check_coupon_form(event, element) {
     }, function (response) {
         self.closest("form").find(".action-loading").hide();
         self.closest("form").find(".action-message").empty().show().html(response);
-        currency_rate();
+        currency_rate()
     });
 };
 
@@ -9357,14 +9298,14 @@ function credit_payment() {
         totalcom = convertPersianNumberToEnglish(totalcom);
     }
 
-    $.post('/Client_Credit_Payment_ver.2.bc?lid=1', {
+    $.post('/Client_Credit_Payment_Ar_ver.2.bc', {
         totalcom: totalcom,
         moneytype: document.querySelector(".moneytype-value").getAttribute("data-output"),
         userid: document.querySelector(".main-userid").value,
     }, function (response) {
         const loader = document.querySelector(".invoice-container #ballsWaveG");
         if (loader) loader.remove();
-        $(".invoice-container").prepend(response);
+        $(".invoice-container").append(response);
     });
 };
 //<!----------------END JS CREDIT PAYMENT---------------->
@@ -9375,7 +9316,7 @@ function toggle_counter_list(element) {
     if (element.getAttribute("data-load") == 0) {
         element.closest(".package-info-item").querySelector(".fa-spinner").classList.remove(
             "unvisible");
-        $.get('/Client_Counter_List.bc?type=1&lid=1', function (response) {
+        $.get('/Client_Counter_List.bc?type=1', function (response) {
             element.closest(".package-info-item").querySelector(".drop-item").innerHTML =
                 response;
             element.setAttribute("data-load", 1);
@@ -9403,7 +9344,7 @@ function invoice_desc(event, element) {
 function show_condition(element) {
     element.closest(".rule-condition-content").querySelector(".invoice-condition-container").classList.add("invoice-condition-container-toggle");
     if (element.closest(".rule-condition-content").querySelector("input[type=checkbox]").getAttribute("data-check") == 0) {
-        $.get('/Client_Company_Rules.bc?lid=1', function (response) {
+        $.get('/Client_Company_Rules_Ar.bc', function (response) {
             element.closest(".rule-condition-content").querySelector(".invoice-condition-container").innerHTML = response;
             element.closest(".rule-condition-content").querySelector("input[type=checkbox]").setAttribute("data-check", 1);
         });
@@ -9421,9 +9362,9 @@ function show_rule_room(element, type) {
     element.closest(".section-item").querySelector(".room-loading").classList.remove("unvisible");
     let url = "";
     if (type) {
-        url = "/Client_FlightHotel_Room_Rule.bc?lid=1"
+        url = "/Client_FlightHotel_Room_Rule.bc"
     } else {
-        url = "/Client_Room_Rule.bc?lid=1"
+        url = "/Client_Rule_Room.bc"
     }
     let mainprovider = 0;
     if (document.querySelector(".mainprovider").value !== '""') {
@@ -9431,8 +9372,7 @@ function show_rule_room(element, type) {
     }
     $.post(`${url}`, {
         mainprovider: mainprovider,
-        optionId: document.querySelector(".optionId").value,
-        sid: sid
+        optionId: document.querySelector(".optionId").value
     }, function (response) {
         element.closest(".section-item").querySelector(".room-loading").classList.add("unvisible");
         element.closest(".section-item").querySelector(".response").innerHTML = response;
@@ -9443,21 +9383,6 @@ function show_rule_room(element, type) {
 function show_service_content(element) {
     if (document.getElementsByClassName("service-info-content")[0]) {
         if (document.querySelector(".transfer-hotel-content")) {
-            for (var i = 0; i < document.querySelector(".transfer-hotel-content").querySelector(".departure").querySelector(".datepicker").closest(".package-info-item").querySelector(".day").closest(".passenger-date-item").querySelector(".drop-item").getElementsByClassName("li-item").length; i++) {
-                data_day_service.push({
-                    "date_value": `${document.querySelector(".transfer-hotel-content").querySelector(".departure").querySelector(".datepicker").closest(".package-info-item").querySelector(".day").closest(".passenger-date-item").querySelector(".drop-item").getElementsByClassName("li-item")[i].getAttribute("data-value")}`,
-                    "date_id": `${document.querySelector(".transfer-hotel-content").querySelector(".departure").querySelector(".datepicker").closest(".package-info-item").querySelector(".day").closest(".passenger-date-item").querySelector(".drop-item").getElementsByClassName("li-item")[i].getAttribute("data-id")}`
-
-                })
-            }
-            for (var i = 0; i < document.querySelector(".transfer-hotel-content").querySelector(".departure").querySelector(".datepicker").closest(".package-info-item").querySelector(".month").closest(".passenger-date-item").querySelector(".drop-item").getElementsByClassName("li-item").length; i++) {
-                data_month_service.push({
-                    "date_value": `${document.querySelector(".transfer-hotel-content").querySelector(".departure").querySelector(".datepicker").closest(".package-info-item").querySelector(".month").closest(".passenger-date-item").querySelector(".drop-item").getElementsByClassName("li-item")[i].getAttribute("data-value")}`,
-                    "date_id": `${document.querySelector(".transfer-hotel-content").querySelector(".departure").querySelector(".datepicker").closest(".package-info-item").querySelector(".month").closest(".passenger-date-item").querySelector(".drop-item").getElementsByClassName("li-item")[i].getAttribute("data-id")}`
-
-                })
-
-            }
             for (var i = 0; i < document.querySelector(".transfer-hotel-content").querySelector(".departure").querySelector(".datepicker").closest(".package-info-item").querySelector(".year").closest(".passenger-date-item").querySelector(".drop-item").getElementsByClassName("li-item").length; i++) {
                 data_year_service.push({
                     "data_value": `${document.querySelector(".transfer-hotel-content").querySelector(".departure").querySelector(".datepicker").closest(".package-info-item").querySelector(".year").closest(".passenger-date-item").querySelector(".drop-item").getElementsByClassName("li-item")[i].getAttribute("data-value")}`,
@@ -9467,7 +9392,7 @@ function show_service_content(element) {
             }
         }
 
-        document.querySelector(".step-title").innerText = 'خدمات و گشت';
+        document.querySelector(".step-title").innerText = 'الخدمة والدورية';
         element.setAttribute("data-step", "service");
         element.previousElementSibling.setAttribute("data-step", "service");
         check_steps("service");
@@ -9483,7 +9408,7 @@ function show_service_content(element) {
 //<!----------------END JS SERVICE HOTEL---------------->
 //<!----------------START JS EXTRA SERVICE HOTEL---------------->
 function show_extra_service_content(element) {
-    document.querySelector(".step-title").innerText = 'سرویس و ترنسفر';
+    document.querySelector(".step-title").innerText = 'الخدمة والنقل';
     element.setAttribute("data-step", "service");
     element.previousElementSibling.setAttribute("data-step", "service");
     check_steps("service");
@@ -9492,7 +9417,7 @@ function show_extra_service_content(element) {
 //<!----------------START JS SUMMARY HOTEL---------------->
 function show_summary_content(element) {
     document.querySelector(".summary-info-content").classList.remove("unvisible");
-    document.querySelector(".step-title").innerText = 'پرداخت و صدور';
+    document.querySelector(".step-title").innerText = 'الدفع والإصدار';
     element.setAttribute("data-step", "summary");
     element.previousElementSibling.setAttribute("data-step", "summary");
     check_steps("summary");
@@ -9584,8 +9509,8 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
     if (properties.length > 0) {
         var objEditUser = `{
      "data": {
-     "lid": 1,
-     "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/fa/schema_name",
+     "lid": 3,
+     "paramUrl": "/${document.querySelector(".check-has-data").dataset.hashid}/ar/schema_name",
      "properties": ${JSON.stringify(properties)},
      "schemaId": "${document.querySelector(".check-has-data").dataset.hashid}",
      "schemaVersion": "1.0.0",
@@ -9688,7 +9613,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                         element.appendChild(element_child);
                     }
                 }
-            } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'آژانس مورد نظر را انتخاب کنید') {
+            } else if (document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText !== 'قم باختيار الوكالة المطلوبة') {
                 var element_child = document.createElement("div");
                 element_child.className = "d-item";
                 element_child.innerHTML = `<div class="t-head color_font">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("label").innerText}</div> <div class="t-body font-weight color_gray">${document.getElementsByClassName("buyer-info-content")[0].getElementsByClassName("package-info-item")[j].querySelector("input").value}</div>`;
@@ -9698,13 +9623,11 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
     }
 
     document.querySelector(".summary-buyer-items").appendChild(element);
-    if (document.querySelector(".main-container").getAttribute("data-dmnid") == 4754 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4740 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4889 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4929 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4869) {
-        $.post('/Client_Check_Member_Point_ver.2.bc?lid=1', {
+    if (document.querySelector(".main-container").getAttribute("data-dmnid") == 2452 || document.querySelector(".main-container").getAttribute("data-dmnid") == 4824 || document.querySelector(".main-container").getAttribute("data-dmnid") == 2475) {
+        $.post('/Client_Check_Member_Point_Ar_ver.2.bc', {
             userid: document.querySelector(".main-userid").value,
             product_data: document.querySelector(".coupon_data").value,
             provider_id: document.querySelector(".provider").value,
-            f_provider_id: document.querySelector("input[name=fprovider]") ? document.querySelector("input[name=fprovider]").value : '',
-            in_provider_id: document.querySelector(".in_provider_id") ? document.querySelector(".in_provider_id").value : '',
             schemaid: document.querySelector(".main-container").getAttribute("data-schemaid")
         }, function (response) {
             if (document.querySelector(".member-point-container").querySelector("#ballsWaveG")) {
@@ -9723,7 +9646,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
 //<!----------------END JS SUMMARY HOTEL---------------->
 //<!----------------START JS INSURANCE FLIGHTHOTEL---------------->
 function show_insurance_content(element) {
-    document.querySelector(".step-title").innerText = 'بیمه';
+    document.querySelector(".step-title").innerText = 'التأمين';
     element.setAttribute("data-step", "insurance");
     element.previousElementSibling.setAttribute("data-step", "insurance");
     check_steps("insurance");
@@ -9737,7 +9660,7 @@ function show_insurance_content(element) {
 
             }
         }
-        $.post('/Client_Price_Insurance_ver.2.bc?lid=1', {
+        $.post('/Client_Price_Insurance_Ar_ver.2.bc', {
             birthdate: join_birthday.slice(0, -1),
             fdate: document.querySelector(".invoice-form").querySelector("input[name=fdate]").value,
             tdate: document.querySelector(".invoice-form").querySelector("input[name=tdate]").value,
@@ -9792,10 +9715,10 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
         $(".table_tour").find("tbody .reservtbl_tour:nth-child(" + index + ")").find(".tdate_tour_string").text($(".nights_tour_array .nights_tour_object:nth-child(" + index + ")").find(".tdate_object").find(".sstring_nights_tour").val())
         $(".table_tour").find("tbody .reservtbl_tour:nth-child(" + index + ")").find(".fdate_tour_mstring").text("(" + $(".nights_tour_array .nights_tour_object:nth-child(" + index + ")").find(".fdate_object").find(".mstring_nights_tour").val() + ")")
         $(".table_tour").find("tbody .reservtbl_tour:nth-child(" + index + ")").find(".tdate_tour_mstring").text("(" + $(".nights_tour_array .nights_tour_object:nth-child(" + index + ")").find(".tdate_object").find(".mstring_nights_tour").val() + ")")
-        $(".table_tour").find("tbody .reservtbl_tour:nth-child(" + index + ")").find(".count-night").text('شب ' + index)
+        $(".table_tour").find("tbody .reservtbl_tour:nth-child(" + index + ")").find(".count-night").text('الليل ' + index)
         for (var j = 0; j < $(".each_family .info-txt").length; j++) {
             var index_td = j + 1
-            $(".table_tour").find("tbody .reservtbl_tour:nth-child(" + index + ")").find(".each_family .info-txt:nth-child(" + index_td + ")").find(".family_count").text('خانواده ' + index_td + ': ')
+            $(".table_tour").find("tbody .reservtbl_tour:nth-child(" + index + ")").find(".each_family .info-txt:nth-child(" + index_td + ")").find(".family_count").text('عائلة ' + index_td + ': ')
         }
     }
     if ($(".row-rooms .tblreserv-row").length > 0) {
@@ -9804,9 +9727,9 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 2
         $(".show-hide").hide()
     }
     if (document.querySelector(".main-container").getAttribute("data-basiscoreid") == undefined || document.querySelector(".main-container").getAttribute("data-basiscoreid") == '') {
-        $(".tour-type-text").text('اتاق')
+        $(".tour-type-text").text('الغرفة')
     } else {
-        $(".tour-type-text").text('خانواده')
+        $(".tour-type-text").text('عائلة')
     }
 };
 //<!----------------END JS TOUR---------------->
@@ -9840,7 +9763,7 @@ function autocomplete_search_airlinecity(element) {
             $(element).closest(".c-infoo").find(".mini-loading").show();
             if ($(element).attr("data-type") == "airline") {
                 $.ajax({
-                    url: "/Client_Cip_Airline.bc?lid=1",
+                    url: "/Client_Spelist_Airline.bc",
                     type: "get",
                     data: {
                         term: $(element).val(),
@@ -9852,7 +9775,7 @@ function autocomplete_search_airlinecity(element) {
                 });
             } else if ($(element).attr("data-type") == "city") {
                 $.ajax({
-                    url: "/Client_Spelist_City.bc?lid=1",
+                    url: "/Client_Spelist_City.bc",
                     type: "get",
                     data: {
                         term: $(element).val(),
@@ -9877,7 +9800,7 @@ function add_cip_element(element) {
         var cost_cip_escort = $(element).closest(".inner_box").find(".cost_cip_escort").val()
         var unit_cip_escort = $(element).closest(".inner_box").find(".unit_cip_escort").val()
         var index = $(element).closest(".inner_box").find(".elements-container").find(".element-container").index()
-        $(element).closest(".inner_box").find(".elements-container").append('<div class="element-container"><p><span class="count-escort"></span> مشخصات استقبال کننده <span>(قیمت : <span class="cost_cip_escort_text">' + cost_cip_escort + '</span><span class="unit-content">' + unit_cip_escort + '</span>)</span></p><div class="package-info-item c-infoo"><label>نام</label><div class="inner-item"><input autocomplete="off" onkeyup="upperCase_key(event,this)" class="input-content necessary-cip" name="_root.escortinfo__0.firsname" type="text" /></div></div><div class="package-info-item c-infoo"><label>نام خانوادگی</label><div class="inner-item"><input  autocomplete="off" onkeyup="upperCase_key(event,this)" class="input-content  necessary-cip" name="_root.escortinfo__0.lastname" type="text" /></div></div><div class="package-info-item c-infoo"><label>جنسیت</label><div class="inner-item"><select name="_root.escortinfo__0.gender"><option value="0">خانم</option><option value="1">آقا</option></select></div></div><div class="clr"></div></div>')
+        $(element).closest(".inner_box").find(".elements-container").append('<div class="element-container"><p><span class="count-escort"></span> الملف الشخصي لموظف الاستقبال<span>(سعر : <span class="cost_cip_escort_text">' + cost_cip_escort + '</span><span class="unit-content">' + unit_cip_escort + '</span>)</span></p><div class="package-info-item c-infoo"><label>الاسم</label><div class="inner-item"><input autocomplete="off" onkeyup="upperCase_key(event,this)" class="input-content necessary-cip" name="_root.escortinfo__0.firsname" type="text" /></div></div><div class="package-info-item c-infoo"><label>اللقب</label><div class="inner-item"><input  autocomplete="off" onkeyup="upperCase_key(event,this)" class="input-content  necessary-cip" name="_root.escortinfo__0.lastname" type="text" /></div></div><div class="package-info-item c-infoo"><label>الجنس</label><div class="inner-item"><select name="_root.escortinfo__0.gender"><option value="0">أنثى</option><option value="1">ذكر</option></select></div></div><div class="clr"></div></div>')
         calculate_cip_total(cost_cip_escort, 'plus', 'escort')
         for (var i = 1; i <= $(element).closest(".inner_box").find(".element-container").length; i++) {
             $(element).closest(".inner_box").find(".element-container:nth-child(" + i + ")").find('.count-escort').text(i + '-')
@@ -9920,9 +9843,9 @@ function check_cip_element(element) {
        <div class="inner-element-container">
            <input type="hidden" value="${$(element).closest(" .element-row").find(".transferid").val()
                 }" name="_root.transfers__${$(element).closest(".element-row").index()}.transferid"/><input type="hidden" value="${$(element).closest(".element-row").find(".car_name").val()}" name="_root.transfers__${$(element).closest(".element-row").index()
-                }.car_name"/><div class="package-info-item c-infoo"><label>آدرس</label><div class="inner-item"><input class="input-content address-cip necessary-cip" name="_root.transfers__${$(element).closest(".element-row").index()
-                }.address" type="text" /></div></div><div class="package-info-item c-infoo"><label>ساعت حضور</label><div class="inner-item"><input readonly class="input-content clockpicker necessary-cip" name="_root.transfers__${$(element).closest(".element-row").index()
-                }.time" type="text" /></div></div><div class="package-info-item c-infoo mobile-cip-container"><label>شماره هماهنگی (تلفن همراه)</label>
+                }.car_name"/><div class="package-info-item c-infoo"><label>العنوان</label><div class="inner-item"><input class="input-content address-cip necessary-cip" name="_root.transfers__${$(element).closest(".element-row").index()
+                }.address" type="text" /></div></div><div class="package-info-item c-infoo"><label>وقت الحضور</label><div class="inner-item"><input readonly class="input-content clockpicker necessary-cip" name="_root.transfers__${$(element).closest(".element-row").index()
+                }.time" type="text" /></div></div><div class="package-info-item c-infoo mobile-cip-container"><label>رقم التنسيق (الهاتف المحمول)</label>
                    <div class="package-number-items">
                        <div class="package-number-item">
                            <div class="inner-item"><input type="text" value=""
@@ -9959,12 +9882,12 @@ function check_cip_element(element) {
         for (var i = 0; i < $(element).val(); i++) {
             $(element).closest(".element-row").find(".inner-elements-container").append(`<div class="inner-element-container">
 <input type="hidden" value="${$(element).closest(" .element-row").find(".transferid").val()}" name="_root.transfers__0.transferid"/><input type="hidden" value="${$(element).closest(".element-row").find(".car_name").val()
-                }" name="_root.transfers__0.car_name"/><div class="package-info-item c-infoo"><label>آدرس</label><div class="inner-item">
+                }" name="_root.transfers__0.car_name"/><div class="package-info-item c-infoo"><label>العنوان</label><div class="inner-item">
        <input class="input-content address-cip necessary-cip" name="_root.transfers__0.address"  type="text" />
-   </div></div><div class="package-info-item c-infoo"><label>ساعت حضور</label>
+   </div></div><div class="package-info-item c-infoo"><label>وقت الحضور</label>
        <div class="inner-item">
            <input class="input-content clockpicker necessary-cip" readonly name="_root.transfers__0.time" type="text" /></div></div>
-           <div class="package-info-item c-infoo mobile-cip-container"><label>شماره هماهنگی (تلفن همراه)</label>
+           <div class="package-info-item c-infoo mobile-cip-container"><label>رقم التنسيق (الهاتف المحمول)</label>
                    <div class="package-number-items">
                        <div class="package-number-item">
                            <div class="inner-item"><input type="text" value=""
@@ -9994,7 +9917,7 @@ function check_cip_element(element) {
             $(element).closest(".element-row").find(".cip_transfer_sum").empty()
         } else {
             var cost_cip_transfer_sum = parseFloat($(element).closest(".element-row").find(".cost_cip_transfer").val()) * parseFloat($(element).val())
-            $(element).closest(".element-row").find(".cip_transfer_sum").html('<span>مجموع: <span class="cost_cip_text">' + cost_cip_transfer_sum + ' </span></span><span class="unit-content">' + $(element).closest(".element-row").find(".unit_cip_transfer").val() + '</span>')
+            $(element).closest(".element-row").find(".cip_transfer_sum").html('<span>المجموع: <span class="cost_cip_text">' + cost_cip_transfer_sum + ' </span></span><span class="unit-content">' + $(element).closest(".element-row").find(".unit_cip_transfer").val() + '</span>')
         }
 
         var plusOrMinus = parseFloat($(element).val()) - parseFloat($(element).closest(".element-row").find(".item_transfer_select").val())
@@ -10022,7 +9945,7 @@ function check_cip_element(element) {
             $(element).closest(".element-row").find(".cip_service_sum").empty()
         } else {
             var cost_cip_service_sum = parseFloat($(element).closest(".element-row").find(".cost_cip_service").val()) * parseFloat($(element).val())
-            $(element).closest(".element-row").find(".cip_service_sum").html('<span>مجموع: <span class="cost_cip_text">' + cost_cip_service_sum + '</span></span><span class="unit-content">' + $(element).closest(".element-row").find(".unit_cip_service").val() + '</span>')
+            $(element).closest(".element-row").find(".cip_service_sum").html('<span>المجموع: <span class="cost_cip_text">' + cost_cip_service_sum + '</span></span><span class="unit-content">' + $(element).closest(".element-row").find(".unit_cip_service").val() + '</span>')
         }
         var plusOrMinus = parseFloat($(element).val()) - parseFloat($(element).closest(".element-row").find(".item_service_select").val())
         $(element).closest(".element-row").find(".item_service_select").val($(element).val())
@@ -10047,7 +9970,7 @@ function check_wheelchair(element) {
     if ($(element).is(':checked')) {
         $(element).val('1')
         $(element).closest(".passengerInfo").find(".check_wheelchair").val('1')
-        $(element).closest(".passenger-info-content").find(".title ").after('<span class="cost_wheelchair">(هزینه ویلچر: <span class="cost_cip_text">' + $(".cost_cip_wheelchair").val() + '</span><span class="unit-content"> ' + $(".unit_cip_wheelchair").val() + ' </span>)</span>')
+        $(element).closest(".passenger-info-content").find(".title ").after('<span class="cost_wheelchair">(رسوم الكرسي المتحرك: <span class="cost_cip_text">' + $(".cost_cip_wheelchair").val() + '</span><span class="unit-content"> ' + $(".unit_cip_wheelchair").val() + ' </span>)</span>')
         calculate_cip_total(cost_cip_wheelchair, 'plus', 'wheelchair')
     } else {
         $(element).val('0')
@@ -10119,7 +10042,7 @@ function calculate_cip_total(element, plusMinus, type) {
 //<!----------------END JS CIP---------------->
 //<!----------------START JS VIS---------------->
 //<!------LOAD UPLOAD INFO------->//
-$(".upload-info").load('/Client_Upload_Info.bc?lid=1', function () {
+$(".upload-info").load('/Client_Upload_Info.bc', function () {
     create_passengers_form('default', document.getElementById('permitid-value').value, document.getElementById('formid-value').value);
 });
 //<!------FORM PASSENGERS------->//
@@ -10132,9 +10055,9 @@ function create_passengers_form(todo, permitid_value, formid_value) {
         }
         var title = schema[i].title;
         var type_element = 0;
-        if (title.indexOf("بزرگسال") > -1) {
+        if (title.indexOf("بالغ") > -1) {
             type_element = 2;
-        } else if (title.indexOf("کودک") > -1) {
+        } else if (title.indexOf("طفل") > -1) {
             type_element = 1;
         }
         var element = document.createElement("div");
@@ -10143,7 +10066,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
         var element_title = document.createElement("div");
         element_title.className = "title  font_14";
         element_title.innerHTML =
-            `<input class="passenger-type" type="hidden" value=${type_element} name="_root.passengerinfo__${i}.passengerinfo.type"/><div class="add-passengers" onclick="add_visa_passenger(this)" data-active="0"><i class="fa fa-plus"></i>اضافه کردن مسافر </div><div class="clr"></div><div class="flex-justify"><div class="passenger-title font-weight">${title}</div><div class="prev-passengers" data-open="0" data-index="${i}" onclick="show_passengersList(this)"><svg data-v-2919ee3e="" aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" name="user-clock" color="inherit" type="regular" class="mr-icon-svg svg-inline--fa fa-user-clock"><path data-v-2919ee3e="" fill="" d="M496 224c-79.63 0-144 64.38-144 144s64.38 144 144 144s144-64.38 144-144S575.6 224 496 224zM544 384h-54.25C484.4 384 480 379.6 480 374.3V304c0-8.836 7.164-16 16-16c8.838 0 16 7.164 16 16v48h32c8.838 0 16 7.164 16 15.1S552.8 384 544 384zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48zM395 512H32c-17.67 0-32-14.33-32-32c0-97.2 78.8-176 176-176h96c19.87 0 38.89 3.441 56.7 9.508c-4.963 15.24-7.787 31.41-8.383 48.17C305.4 355.5 289.1 352 272 352h-96c-65.16 0-119.1 48.95-127 112h299.6C360.9 482.8 376.6 499.1 395 512z" class=""></path></svg>انتخاب مسافران سابق</div></div>`;
+            `<input class="passenger-type" type="hidden" value=${type_element} name="_root.passengerinfo__${i}.passengerinfo.type"/><div class="add-passengers" onclick="add_visa_passenger(this)" data-active="0"><i class="fa fa-plus"></i>إضافة راكب </div><div class="clr"></div><div class="flex-justify"><div class="passenger-title font-weight">${title}</div><div class="prev-passengers" data-open="0" data-index="${i}" onclick="show_passengersList(this)"><svg data-v-2919ee3e="" aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" name="user-clock" color="inherit" type="regular" class="mr-icon-svg svg-inline--fa fa-user-clock"><path data-v-2919ee3e="" fill="" d="M496 224c-79.63 0-144 64.38-144 144s64.38 144 144 144s144-64.38 144-144S575.6 224 496 224zM544 384h-54.25C484.4 384 480 379.6 480 374.3V304c0-8.836 7.164-16 16-16c8.838 0 16 7.164 16 16v48h32c8.838 0 16 7.164 16 15.1S552.8 384 544 384zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48zM395 512H32c-17.67 0-32-14.33-32-32c0-97.2 78.8-176 176-176h96c19.87 0 38.89 3.441 56.7 9.508c-4.963 15.24-7.787 31.41-8.383 48.17C305.4 355.5 289.1 352 272 352h-96c-65.16 0-119.1 48.95-127 112h299.6C360.9 482.8 376.6 499.1 395 512z" class=""></path></svg>قائمة المسافرين السابقين</div></div>`;
         element.appendChild(element_title);
         var element_children = document.createElement("div");
         element_children.className = "passenger-info-items";
@@ -10179,29 +10102,29 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                 element_children.appendChild(element_child);
             } else if (type != 132) {
                 var element_child_title = schema[i].form[j].question;
-                if (element_child_title == 'نام') {
-                    element_child_title = 'نام به انگلیسی';
-                } else if (element_child_title == 'نام خانوادگی') {
-                    element_child_title = 'نام خانوادگی به انگلیسی';
-                } else if (element_child_title == 'شماره پاسپورت') {
-                    element_child_title = 'شماره گذرنامه';
-                } else if (element_child_title == 'انقضا پاسپورت') {
-                    element_child_title = 'انقضا گذرنامه';
-                } else if (element_child_title == 'کشور صادرکننده پاسپورت') {
-                    element_child_title = 'کشور صادرکننده گذرنامه';
-                } else if (element_child_title == 'تاریخ تولد') {
-                    element_child_title = `${internal == 'internal' ? 'تاریخ تولد' : 'تاریخ تولد میلادی'}`;
+                if (element_child_title == 'الاسم') {
+                    element_child_title = 'الاسم الأول باللغة الإنجليزية';
+                } else if (element_child_title == 'اللقب') {
+                    element_child_title = 'اللقب باللغة الإنجليزية';
+                } else if (element_child_title == 'رقم جواز السفر ') {
+                    element_child_title = 'رقم جواز السفر';
+                } else if (element_child_title == 'انتهاء صلاحية جواز السفر') {
+                    element_child_title = 'انتهاء صلاحية جواز السفر';
+                } else if (element_child_title == 'بلد إصدار جواز السفر') {
+                    element_child_title = 'بلد إصدار جواز السفر';
+                } else if (element_child_title == 'تاریخ الولادة') {
+                    element_child_title = `${internal == 'internal' ? 'تاریخ الولادة' : 'تاريخ الميلاد'}`;
                 };
-                if (element_child_title == 'تاریخ تولد میلادی' || element_child_title == 'تاریخ تولد') {
+                if (element_child_title == 'تاريخ الميلاد' || element_child_title == 'تاریخ الولادة') {
                     var element_child = document.createElement("div");
                     element_child.className = "package-info-item";
                     var label = document.createElement("label");
                     label.innerHTML = element_child_title;
-                    label.setAttribute("data-label", "تاریخ تولد");
+                    label.setAttribute("data-label", "تاریخ الولادة");
                     element_child.appendChild(label);
                     var string = `<div class="passenger-date-items"><div class="passenger-date-item has-select"
                                                        >
-                                                       <div class="inner-item"><input type="text"  onclick="toggle_date(this,'day')" placeholder="روز" class="day necessary" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                       <div class="inner-item"><input type="text"  onclick="toggle_date(this,'day')" placeholder="يوم" class="day necessary" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                        <ul class="drop-item">
                                                            <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="1">1</li>
 <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="2">2</li>
@@ -10240,7 +10163,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                                                    </div>
                                                    <div class="passenger-date-item has-select"
                                                       >
-                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'month')"  placeholder="ماه" class="month necessary" oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);"  data-id=""/></div>
+                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'month')"  placeholder="شهر" class="month necessary" oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);"  data-id=""/></div>
                                                        <ul class="drop-item">
                                                            <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="January">
                                                                January
@@ -10276,7 +10199,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                                                    </div>
                                                    <div class="passenger-date-item has-select"
                                                        >
-                                                       <div class="inner-item"><input type="text" onclick="toggle_date(this,'year-birthdate')" placeholder="سال" class="year necessary" oninput="autoComplete_search(event,this,'year-birthdate')" onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                       <div class="inner-item"><input type="text" onclick="toggle_date(this,'year-birthdate')" placeholder="سنة" class="year necessary" oninput="autoComplete_search(event,this,'year-birthdate')" onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                        <ul class="drop-item">
                                                        <li onclick="select_date_val(this)" class="li-item" data-id="2024" data-value="2024">2024</li>
                                                         <li onclick="select_date_val(this)" class="li-item" data-id="2024" data-value="2024">2024</li>
@@ -10483,7 +10406,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
-                } else if (element_child_title == 'انقضا گذرنامه') {
+                } else if (element_child_title == 'انتهاء صلاحية جواز السفر') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item ${internal} unvisible`;
                     var label = document.createElement("label");
@@ -10493,7 +10416,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
 
                     var string = `<div class="passenger-date-items"> <div class="passenger-date-item has-select"
                                                       >
-                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'day')" placeholder="روز" class="day${internal == 'internal' ? '' : ' '}" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'day')" placeholder="يوم" class="day${internal == 'internal' ? '' : ' '}" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                        <ul class="drop-item">
                                                            <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="1">1</li>
 <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="2">2</li>
@@ -10531,7 +10454,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                                                    </div>
                                                    <div class="passenger-date-item has-select"
                                                      >
-                                                     <div class="inner-item"><input type="text"  onclick="toggle_date(this,'month')" placeholder="ماه" class="month${internal == 'internal' ? '' : ' '}"   oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="tab_key(event,this);" data-id=""/></div>
+                                                     <div class="inner-item"><input type="text"  onclick="toggle_date(this,'month')" placeholder="شهر" class="month${internal == 'internal' ? '' : ' '}"   oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')"  onkeyup="tab_key(event,this);" data-id=""/></div>
                                                        <ul class="drop-item">
                                                            <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="January">
                                                                January
@@ -10567,7 +10490,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                                                    </div>
                                                    <div class="passenger-date-item has-select"
                                                       >
-                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'year-passport')"  placeholder="سال" class="year${internal == 'internal' ? '' : ' '}" oninput="autoComplete_search(event,this,'year-passport')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'year-passport')"  placeholder="سنة" class="year${internal == 'internal' ? '' : ' '}" oninput="autoComplete_search(event,this,'year-passport')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                       <ul class="drop-item">
                                                       <li onclick="select_date_val(this)" class="li-item" data-id="2024" data-value="2024">2024
                                                       </li>
@@ -10627,7 +10550,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                     string += `/></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
-                } else if (element_child_title == 'تاریخ صدور گذر نامه') {
+                } else if (element_child_title == 'تاريخ إصدار الجواز') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item ${internal}`;
                     var label = document.createElement("label");
@@ -10637,7 +10560,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
 
                     var string = `<div class="passenger-date-items"> <div class="passenger-date-item has-select"
                                                       >
-                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'day')" placeholder="روز" class="day${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'day')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'day')" placeholder="يوم" class="day${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'day')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                        <ul class="drop-item">
                                                            <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="1">1</li>
                 <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="2">2</li>
@@ -10675,7 +10598,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                                                    </div>
                                                    <div class="passenger-date-item has-select"
                                                      >
-                                                     <div class="inner-item"><input type="text"  onclick="toggle_date(this,'month')" placeholder="ماه" class="month${internal == 'internal' ? '' : ' necessary'}"   oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" data-id=""/></div>
+                                                     <div class="inner-item"><input type="text"  onclick="toggle_date(this,'month')" placeholder="شهر" class="month${internal == 'internal' ? '' : ' necessary'}"   oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" data-id=""/></div>
                                                        <ul class="drop-item">
                                                            <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="January">
                                                                January
@@ -10711,7 +10634,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                                                    </div>
                                                    <div class="passenger-date-item has-select"
                                                       >
-                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'year-visa')"  placeholder="سال" class="year${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'year-visa')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
+                                                      <div class="inner-item"><input type="text"  onclick="toggle_date(this,'year-visa')"  placeholder="سنة" class="year${internal == 'internal' ? '' : ' necessary'}" oninput="autoComplete_search(event,this,'year-visa')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id=""/></div>
                                                       <ul class="drop-item">
                                                       <li onclick="select_date_val(this)" class="li-item" data-id="2000" data-value="2000">2000
                                                       </li>
@@ -10817,7 +10740,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                     string += `/></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
-                } else if (element_child_title == 'ملیت') {
+                } else if (element_child_title == 'الجنسية') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item has-select-input`;
                     var label = document.createElement("label");
@@ -10838,214 +10761,209 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                     };
                     string += `/></div><input type="hidden" value="1002236" name="${input_name}" class="area-id issuecountry"/><ul class="drop-item wide">
                            <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
 <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
 <li
-   onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-   data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-   data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-   data-id="1002138">آنتیگوا و باربودا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+   data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+   data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+   data-id="1002138">أنتيغوا وبربودا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-   میکرونزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-   کوچک
-   حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
    onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
    onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
    onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-   (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-   فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-   کوک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-   شمالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+   onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند
+   (مالفيناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر
+   فيجي</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر
+   كوك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا
+   الشمالية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
    فوتونا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-   (آمریکا)</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-   (بریتانیا)</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+   (أمريكا)</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+   (بريطانيا)</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
    onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
    onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-   گرنادین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و
+   غرينادين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
    onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
    onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-   دمکراتیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، جمهورية
+   الديمقراطية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
    onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li>
-         <li
-           onclick="select_area_val(this)" class="li-item" data-value="لوکزامبورگ" data-id="1002065">لوکزامبورگ</li>
-   <li
-   onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
    onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
    onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+   onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
 </ul></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
@@ -11071,219 +10989,213 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                     };
                     string += `/></div><input type="hidden" value="1002236" name="${input_name}" class="area-id"/><ul class="drop-item wide">
                            <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
 <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
 <li
-   onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-   data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-   data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-   data-id="1002138">آنتیگوا و باربودا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+   data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+   data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+   data-id="1002138">أنتيغوا وبربودا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-   میکرونزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-   کوچک
-   حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
    onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
    onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
    onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-   (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-   فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-   کوک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-   شمالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+   onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند (مالفيناس)</li><li 
+   onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر
+   فيجي</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر
+   كوك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا الشمالية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
    فوتونا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-   (آمریکا)</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-   (بریتانیا)</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+   (أمريكا)</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+   (بريطانيا)</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
    onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
    onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-   گرنادین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و
+   غرينادين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
    onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
    onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-   دمکراتیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، جمهورية
+   الديمقراطية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
    onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li>
-         <li
-           onclick="select_area_val(this)" class="li-item" data-value="لوکزامبورگ" data-id="1002065">لوکزامبورگ</li>
-   <li
-   onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
    onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
    onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+   onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
 </ul></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
-                } else if (element_child_title == 'کشور صادرکننده گذرنامه') {
+                } else if (element_child_title == 'بلد إصدار جواز السفر') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item has-select-input unvisible ${internal}`;
                     var label = document.createElement("label");
@@ -11304,220 +11216,215 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                     };
                     string += `/></div><input type="hidden" value="1002236" name="${input_name}" class="area-id passportissuecountry"/><ul class="drop-item wide">
                            <li onclick="select_area_val(this)" class="li-item" data-value="ایران" data-id="1002236">ایران</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آذربایجان" data-id="1002227">آذربایجان</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آرژانتین" data-id="1002172">آرژانتین</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="أذربيجان" data-id="1002227">أذربيجان</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="الأرجنتين" data-id="1002172">الأرجنتين</li>
 <li onclick="select_area_val(this)" class="li-item" data-value="آروبا" data-id="1002139">آروبا</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آفریقا جنوبی" data-id="1002126">آفریقا جنوبی</li>
-<li onclick="select_area_val(this)" class="li-item" data-value="آفریقای مرکزی" data-id="1002087">آفریقای مرکزی</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="جنوب أفريقيا" data-id="1002126">جنوب أفريقيا</li>
+<li onclick="select_area_val(this)" class="li-item" data-value="أفريقيا الوسطى" data-id="1002087">أفريقيا الوسطى</li>
 <li
-   onclick="select_area_val(this)" class="li-item" data-value="آلبانی"
-   data-id="1002040">آلبانی</li><li onclick="select_area_val(this)" class="li-item" data-value="آلمان"
-   data-id="1002052">آلمان</li><li onclick="select_area_val(this)" class="li-item" data-value="آنتیگوا و باربودا"
-   data-id="1002138">آنتیگوا و باربودا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آندورا" data-id="1002041">آندورا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آنگولا" data-id="1002081">آنگولا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="آنگویلا" data-id="1002137">آنگویلا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ألبانيا"
+   data-id="1002040">ألبانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="ألمانيا"
+   data-id="1002052">ألمانيا</li><li onclick="select_area_val(this)" class="li-item" data-value="أنتيغوا وبربودا"
+   data-id="1002138">أنتيغوا وبربودا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أندورا" data-id="1002041">أندورا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أنغولا" data-id="1002081">أنغولا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أنغيلا" data-id="1002137">أنغيلا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="اتریش" data-id="1002042">اتریش</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اتیوپی" data-id="1002096">اتیوپی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اردن" data-id="1002239">اردن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ارمنستان" data-id="1002226">ارمنستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اروگوئه" data-id="1002180">اروگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اریتره" data-id="1002095">اریتره</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ازبکستان" data-id="1002230">ازبکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسپانیا" data-id="1002077">اسپانیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="استرالیا" data-id="1002187">استرالیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="استونی" data-id="1002048">استونی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسلواکی" data-id="1002075">اسلواکی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اسلوونی" data-id="1002076">اسلوونی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="افغانستان" data-id="1002212">افغانستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اکوادور" data-id="1002176">اکوادور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="الجزایر" data-id="1002080">الجزایر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="السالوادور" data-id="1002149">السالوادور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="امارات متحده عربی" data-id="1002248">امارات متحده عربی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اندونزی" data-id="1002256">اندونزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="انگلستان" data-id="1167330">انگلستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اوکراین" data-id="1002039">اوکراین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="اوگاندا" data-id="1002132">اوگاندا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات فدرال میکرونزی" data-id="1002196">ایالات فدرال
-   میکرونزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002171">ایالات متحده</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده جزایر کوچک حاشیهای" data-id="1198858">ایالات متحده جزایر
-   کوچک
-   حاشیهای</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ایسلند" data-id="1002034">ایسلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="باربادوس" data-id="1002141">باربادوس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="باهاما" data-id="1002140">باهاما</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بحرین" data-id="1002234">بحرین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="برزیل" data-id="1002174">برزیل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أثيوبيا" data-id="1002096">أثيوبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الأردن" data-id="1002239">الأردن</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أرمينيا" data-id="1002226">أرمينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوروغواي" data-id="1002180">أوروغواي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إريتريا" data-id="1002095">إريتريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوزبكستان" data-id="1002230">أوزبكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إسبانيا" data-id="1002077">إسبانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أستراليا" data-id="1002187">أستراليا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="إستونيا" data-id="1002048">إستونيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلوفاكيا" data-id="1002075">سلوفاكيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلوفينيا" data-id="1002076">سلوفينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أفغانستان" data-id="1002212">أفغانستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الاكوادور" data-id="1002176">الاكوادور</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الجزائر" data-id="1002080">الجزائر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سلفادور" data-id="1002149">سلفادور</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الإمارات العربية المتحدة" data-id="1002248">الإمارات العربية المتحدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أندونيسيا" data-id="1002256">أندونيسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="انجلترا" data-id="1167330">انجلترا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوكرانيا" data-id="1002039">أوكرانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أوغندا" data-id="1002132">أوغندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ولايات ميكرونيزيا الموحدة" data-id="1002196">ولايات ميكرونيزيا الموحدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ایالات متحده" data-id="1002211">ایالات متحده</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الولايات المتحدة الجزر الهامشية" data-id="1198858">الولايات المتحدة الجزر الهامشية</li><li onclick="select_area_val(this)" class="li-item" data-value="ایتالیا" data-id="1002059">ایتالیا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="أيسلندا" data-id="1002034">أيسلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بربادوس" data-id="1002141">بربادوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر البهاما" data-id="1002140">جزر البهاما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البحرين" data-id="1002234">البحرين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البرازيل" data-id="1002174">البرازيل</li><li
    onclick="select_area_val(this)" class="li-item" data-value="برمودا" data-id="1002167">برمودا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="برونئی" data-id="1002250">برونئی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلاروس" data-id="1002037">بلاروس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلژیک" data-id="1002043">بلژیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلغارستان" data-id="1002044">بلغارستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بلیز" data-id="1002142">بلیز</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بنگلادش" data-id="1002213">بنگلادش</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بنین" data-id="1002082">بنین</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بروناي" data-id="1002250">بروناي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بيلاروسيا" data-id="1002037">بيلاروسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بلجيكا" data-id="1002043">بلجيكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بلغاريا" data-id="1002044">بلغاريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بليز" data-id="1002142">بليز</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنغلاديش" data-id="1002213">بنغلاديش</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنين" data-id="1002082">بنين</li><li
    onclick="select_area_val(this)" class="li-item" data-value="بوتسوانا" data-id="1002083">بوتسوانا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بوسنی و هرزگوین" data-id="1002036">بوسنی و هرزگوین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="بولیوی" data-id="1002173">بولیوی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پادشاهی بوتان" data-id="1002214">پادشاهی بوتان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاراگوئه" data-id="1002181">پاراگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاکستان" data-id="1002222">پاکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پالائو" data-id="1002203">پالائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پاناما" data-id="1002159">پاناما</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پرتغال" data-id="1002072">پرتغال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پرو" data-id="1002182">پرو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پلینزی فرانسه" data-id="1002190">پلینزی فرانسه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="پورتوریکو" data-id="1002160">پورتوریکو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تاجیکستان" data-id="1002232">تاجیکستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تانزانیا" data-id="1002129">تانزانیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تایلند" data-id="1002264">تایلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تایوان" data-id="1002263">تایوان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترکمنستان" data-id="1002233">ترکمنستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترکیه" data-id="1002247">ترکیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ترینیداد و توباگو" data-id="1002164">ترینیداد و توباگو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="توگو" data-id="1002130">توگو</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="بورما" data-id="1002251">بورما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البوسنة والهرسك" data-id="1002036">البوسنة والهرسك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بوليفيا" data-id="1002173">بوليفيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مملكة بوتان" data-id="1002214">مملكة بوتان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="باراجواي" data-id="1002181">باراجواي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="باكستان" data-id="1002222">باكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بالاو" data-id="1002203">بالاو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بنما" data-id="1002159">بنما</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="البرتغال" data-id="1002072">البرتغال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بيرو" data-id="1002182">بيرو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بولينيزيا الفرنسية" data-id="1002190">بولينيزيا الفرنسية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بورتوريكو" data-id="1002160">بورتوريكو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="طاجيكستان" data-id="1002232">طاجيكستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تنزانيا" data-id="1002129">تنزانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تايلاند" data-id="1002264">تايلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تايوان" data-id="1002263">تايوان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تركمانستان" data-id="1002233">تركمانستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تركيا" data-id="1002247">تركيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ترينيداد وتوباغو" data-id="1002164">ترينيداد وتوباغو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="توغو" data-id="1002130">توغو</li><li
    onclick="select_area_val(this)" class="li-item" data-value="تونس" data-id="1002131">تونس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تونگا" data-id="1002209">تونگا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تووالو" data-id="1002210">تووالو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="تیمور شرقی" data-id="1193762">تیمور شرقی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جامائیکا" data-id="1002155">جامائیکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جبل الطارق" data-id="1002053">جبل الطارق</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر سلیمان" data-id="1002207">جزایر سلیمان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر فالکلند (مالویناس)" data-id="1002177">جزایر فالکلند
-   (مالویناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر فیجی" data-id="1002189">جزایر
-   فیجی</li><li onclick="select_area_val(this)" class="li-item" data-value="جزایر کوک" data-id="1002188">جزایر
-   کوک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر کیمن" data-id="1002144">جزایر کیمن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر مارشال" data-id="1002195">جزایر مارشال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ماریانای شمالی" data-id="1002202">جزایر ماریانای
-   شمالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر والیس و فوتونا" data-id="1002194">جزایر والیس و
+   onclick="select_area_val(this)" class="li-item" data-value="تونغا" data-id="1002209">تونغا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="توفالو" data-id="1002210">توفالو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تيمور الشرقية" data-id="1193762">تيمور الشرقية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جامايكا" data-id="1002155">جامايكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جبل طارق" data-id="1002053">جبل طارق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر سليمان" data-id="1002207">جزر سليمان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر فوكلاند (مالفيناس)" data-id="1002177">جزر فوكلاند
+   (مالفيناس)</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر فيجي" data-id="1002189">جزر
+   فيجي</li><li onclick="select_area_val(this)" class="li-item" data-value="جزر كوك" data-id="1002188">جزر
+   كوك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر كايمان" data-id="1002144">جزر كايمان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر مارشال" data-id="1002195">جزر مارشال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ماريانا الشمالية" data-id="1002202">جزر ماريانا
+   الشمالية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر والیس و فوتونا" data-id="1002194">جزر والیس و
    فوتونا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(آمریکا)" data-id="1002166">جزایر ویرجین
-   (آمریکا)</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزایر ویرجین(بریتانیا)" data-id="1002143">جزایر ویرجین
-   (بریتانیا)</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جزیره گوادلوپ" data-id="1002151">جزیره گوادلوپ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری ایرلند" data-id="1002057">جمهوری ایرلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری چک" data-id="1002046">جمهوری چک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جمهوری دومینیکن" data-id="1002148">جمهوری دومینیکن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="جیبوتی" data-id="1002092">جیبوتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="چاد" data-id="1002088">چاد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="چین" data-id="1002215">چین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="دانمارک" data-id="1002047">دانمارک</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(أمريكا)" data-id="1002166">جزر ویرجین
+   (أمريكا)</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر ویرجین(بريطانيا)" data-id="1002143">جزر ویرجین
+   (بريطانيا)</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزیره جوادلوب" data-id="1002151">جزیره جوادلوب</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جمهورية أيرلندا" data-id="1002057">جمهورية أيرلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الجمهورية التشيكية" data-id="1002046">الجمهورية التشيكية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جمهورية الدومينيكان" data-id="1002148">جمهورية الدومينيكان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جيبوتي" data-id="1002092">جيبوتي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تشاد" data-id="1002088">تشاد</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الصين" data-id="1002215">الصين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الدنمارك" data-id="1002047">الدنمارك</li><li
    onclick="select_area_val(this)" class="li-item" data-value="دومینیکا" data-id="1002147">دومینیکا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="رواندا" data-id="1002119">رواندا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="روسیه" data-id="1002035">روسیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="رومانی" data-id="1002073">رومانی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="زامبیا" data-id="1002104">زامبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ژاپن" data-id="1002217">ژاپن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سائوتومه و پرینسیپ" data-id="1002121">سائوتومه و پرینسیپ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ساحل عاج" data-id="1167335">ساحل عاج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="روسيا" data-id="1002035">روسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="رومانيا" data-id="1002073">رومانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="زامبيا" data-id="1002104">زامبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليابان" data-id="1002217">اليابان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سان تومي وبرينسيبي" data-id="1002121">سان تومي وبرينسيبي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ساحل العاج" data-id="1167335">ساحل العاج</li><li
    onclick="select_area_val(this)" class="li-item" data-value="سریلانکا" data-id="1002225">سریلانکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت پیر و میکلون" data-id="1002170">سنت پیر و میکلون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت کیتس و نویس" data-id="1002161">سنت کیتس و نویس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت لوسیا" data-id="1002162">سنت لوسیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت هلن" data-id="1002120">سنت هلن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنت وینسنت و گرنادین" data-id="1002163">سنت وینسنت و
-   گرنادین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنگاپور" data-id="1002262">سنگاپور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سنگال" data-id="1002122">سنگال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوئد" data-id="1002078">سوئد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوئیس" data-id="1002079">سوئیس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوازیلند" data-id="1002128">سوازیلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سودان" data-id="1002127">سودان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سورینام" data-id="1002183">سورینام</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سوریه" data-id="1002246">سوریه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سومالی" data-id="1002125">سومالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سیرالئون" data-id="1002124">سیرالئون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="سیشل" data-id="1002123">سیشل</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="شیلی" data-id="1002175">شیلی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="صربستان" data-id="1167332">صربستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="عراق" data-id="1002237">عراق</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="عربستان سعودی" data-id="1002245">عربستان سعودی</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سان بيير وميكلون" data-id="1002170">سان بيير وميكلون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت كيتس ونيفيس" data-id="1002161">سانت كيتس ونيفيس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت لوسيا" data-id="1002162">سانت لوسيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت هيلين" data-id="1002120">سانت هيلين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سانت فنسنت وجزر غرينادين" data-id="1002163">سانت فنسنت و
+   غرينادين</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سنغافورة" data-id="1002262">سنغافورة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السنغال" data-id="1002122">السنغال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السويد" data-id="1002078">السويد</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سويسرا" data-id="1002079">سويسرا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سوازيلاند" data-id="1002128">سوازيلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="السودان" data-id="1002127">السودان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سورينام" data-id="1002183">سورينام</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سوريا" data-id="1002246">سوريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الصومال" data-id="1002125">الصومال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سيراليون" data-id="1002124">سيراليون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="سيشيل" data-id="1002123">سيشيل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="شيلي" data-id="1002175">شيلي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="صربيا" data-id="1167332">صربيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="العراق" data-id="1002237">العراق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المملكة العربية السعودية" data-id="1002245">المملكة العربية السعودية</li><li
    onclick="select_area_val(this)" class="li-item" data-value="عمان" data-id="1002243">عمان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="غنا" data-id="1002099">غنا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فرانسه" data-id="1002051">فرانسه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فنلاند" data-id="1002050">فنلاند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="فیلیپین" data-id="1002261">فیلیپین</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قبرس" data-id="1002235">قبرس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قرقیزستان" data-id="1002231">قرقیزستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="قزاقستان" data-id="1002229">قزاقستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غانا" data-id="1002099">غانا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فرنسا" data-id="1002051">فرنسا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فنلندا" data-id="1002050">فنلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فيلبيني" data-id="1002261">فيلبيني</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="قبرص" data-id="1002235">قبرص</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="قيرغيزستان" data-id="1002231">قيرغيزستان</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كازاخستان" data-id="1002229">كازاخستان</li><li
    onclick="select_area_val(this)" class="li-item" data-value="قطر" data-id="1002244">قطر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کاستاریکا" data-id="1002145">کاستاریکا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کالدونیای جدید" data-id="1002198">کالدونیای جدید</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کامبوج" data-id="1002252">کامبوج</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کامرون" data-id="1002086">کامرون</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کانادا" data-id="1002168">کانادا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کره جنوبی" data-id="1002224">کره جنوبی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کرواسی" data-id="1002045">کرواسی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کلمبیا" data-id="1002184">کلمبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنگو" data-id="1002090">کنگو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنگو، جمهوری دمکراتیک" data-id="1198851">کنگو، جمهوری
-   دمکراتیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کنیا" data-id="1002102">کنیا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كوستاريكا" data-id="1002145">كوستاريكا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كاليدونيا الجديدة" data-id="1002198">كاليدونيا الجديدة</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كمبوديا" data-id="1002252">كمبوديا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكاميرون" data-id="1002086">الكاميرون</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كندا" data-id="1002168">كندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كوريا الجنوبية" data-id="1002224">كوريا الجنوبية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كرواتيا" data-id="1002045">كرواتيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كولومبيا" data-id="1002184">كولومبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكونغو" data-id="1002090">الكونغو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكونغو، الجمهورية الديمقراطية" data-id="1198851">الكونغو، جمهورية
+   الديمقراطية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كينيا" data-id="1002102">كينيا</li><li
    onclick="select_area_val(this)" class="li-item" data-value="کوبا" data-id="1002146">کوبا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کومور" data-id="1002089">کومور</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کویت" data-id="1002241">کویت</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کیپ ورد" data-id="1002133">کیپ ورد</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="کیریباتی" data-id="1002192">کیریباتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گامبیا" data-id="1002098">گامبیا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گرجستان" data-id="1002228">گرجستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گرینلند" data-id="1002136">گرینلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گواتمالا" data-id="1002152">گواتمالا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گویان" data-id="1002179">گویان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه" data-id="1002100">گینه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه استوایی" data-id="1002094">گینه استوایی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="گینه بیسائو" data-id="1002101">گینه بیسائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لائوس" data-id="1002258">لائوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جزر القمر" data-id="1002089">جزر القمر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الكويت" data-id="1002241">الكويت</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الرأس الأخضر" data-id="1002133">الرأس الأخضر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="كيريباتي" data-id="1002192">كيريباتي</li><li
+       onclick="select_area_val(this)" class="li-item" data-value="لوكسمبورغ" data-id="1002065">لوكسمبورغ</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غامبيا" data-id="1002098">غامبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جورجيا" data-id="1002228">جورجيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="جرينلاند" data-id="1002136">جرينلاند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غواتيمالا" data-id="1002152">غواتيمالا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غيانا" data-id="1002179">غيانا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا" data-id="1002100">غينيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا الاستوائية" data-id="1002094">غينيا الاستوائية</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="غينيا بيساو" data-id="1002101">غينيا بيساو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="لاوس" data-id="1002258">لاوس</li><li
    onclick="select_area_val(this)" class="li-item" data-value="لبنان" data-id="1002242">لبنان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لسوتو" data-id="1002106">لسوتو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لهستان" data-id="1002071">لهستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="لیبی" data-id="1002108">لیبی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ماداگاسکار" data-id="1002109">ماداگاسکار</li>
-         <li
-           onclick="select_area_val(this)" class="li-item" data-value="لوکزامبورگ" data-id="1002065">لوکزامبورگ</li>
-   <li
-   onclick="select_area_val(this)" class="li-item" data-value="مارتینیک" data-id="1002156">مارتینیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ماکائو" data-id="1002259">ماکائو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالاوی" data-id="1002110">مالاوی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالت" data-id="1002067">مالت</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالزی" data-id="1002260">مالزی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مالی" data-id="1002111">مالی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مجارستان" data-id="1002056">مجارستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مراکش" data-id="1002114">مراکش</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ليسوتو" data-id="1002106">ليسوتو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="بولندا" data-id="1002071">بولندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ليبيا" data-id="1002108">ليبيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مدغشقر" data-id="1002109">مدغشقر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مارتينيك" data-id="1002156">مارتينيك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ماكاو" data-id="1002259">ماكاو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ملاوي" data-id="1002110">ملاوي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مالطا" data-id="1002067">مالطا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ماليزيا" data-id="1002260">ماليزيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="تمويل" data-id="1002111">تمويل</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هنغاريا" data-id="1002056">هنغاريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المغرب" data-id="1002114">المغرب</li><li
    onclick="select_area_val(this)" class="li-item" data-value="مصر" data-id="1002093">مصر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مغولستان" data-id="1002219">مغولستان</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مقدونیه" data-id="1002066">مقدونیه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="مکزیک" data-id="1002169">مکزیک</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موریتانی" data-id="1002112">موریتانی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موریس" data-id="1002134">موریس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="موزامبیک" data-id="1002115">موزامبیک</li><li
-           onclick="select_area_val(this)" class="li-item" data-value="میانمار" data-id="1002251">میانمار</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نائورو" data-id="1002197">نائورو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نپال" data-id="1002220">نپال</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نروژ" data-id="1002070">نروژ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیجر" data-id="1002117">نیجر</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیجریه" data-id="1002118">نیجریه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیکاراگوئه" data-id="1002158">نیکاراگوئه</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="نیوزیلند" data-id="1002199">نیوزیلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هائیتی" data-id="1002153">هائیتی</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هلند" data-id="1002069">هلند</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هند" data-id="1002216">هند</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="منغوليا" data-id="1002219">منغوليا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="مقدونيا" data-id="1002066">مقدونيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="المكسيك" data-id="1002169">المكسيك</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موريتانيا" data-id="1002112">موريتانيا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موريشيوس" data-id="1002134">موريشيوس</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="موزمبيق" data-id="1002115">موزمبيق</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="ناورو" data-id="1002197">ناورو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيبال" data-id="1002220">نيبال</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="النرويج" data-id="1002070">النرويج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="النيجر" data-id="1002117">النيجر</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيجيريا" data-id="1002118">نيجيريا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيكاراغوا" data-id="1002158">نيكاراغوا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="نيوزيلندا" data-id="1002199">نيوزيلندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هايتي" data-id="1002153">هايتي</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="هولندا" data-id="1002069">هولندا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="الهند" data-id="1002216">الهند</li><li
    onclick="select_area_val(this)" class="li-item" data-value="هندوراس" data-id="1002154">هندوراس</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="هنگ کنگ" data-id="1002255">هنگ کنگ</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="وانواتو" data-id="1002193">وانواتو</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ونزوئلا" data-id="1002185">ونزوئلا</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="ویتنام" data-id="1002257">ویتنام</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="یمن" data-id="1002240">یمن</li><li
-   onclick="select_area_val(this)" class="li-item" data-value="یونان" data-id="1002054">یونان</li>
+   onclick="select_area_val(this)" class="li-item" data-value="هونج كونج" data-id="1002255">هونج كونج</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فانواتو" data-id="1002193">فانواتو</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فنزويلا" data-id="1002185">فنزويلا</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="فيتنام" data-id="1002257">فيتنام</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليمن" data-id="1002240">اليمن</li><li
+   onclick="select_area_val(this)" class="li-item" data-value="اليونان" data-id="1002054">اليونان</li>
 </ul></div>`;
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
 
-                } else if (element_child_title == 'شماره گذرنامه') {
+                } else if (element_child_title == 'رقم جواز السفر') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item ${internal}`;
                     var label = document.createElement("label");
@@ -11538,7 +11445,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                     element_child.innerHTML += string;
                     element_children.appendChild(element_child);
 
-                } else if (element_child_title == 'کد ملی') {
+                } else if (element_child_title == 'رقم الهویة الوطنية') {
                     var element_child = document.createElement("div");
                     element_child.className = `package-info-item unvisible`;
                     var label = document.createElement("label");
@@ -11566,16 +11473,16 @@ function create_passengers_form(todo, permitid_value, formid_value) {
                     label.innerHTML = element_child_title;
                     element_child.appendChild(label);
                     var string = `<div class="inner-item"><input `;
-
-                    if (element_child_title == 'نام به انگلیسی') {
-                        label.setAttribute("data-label", "نام");
+                    console.log("ok3")
+                    if (element_child_title == 'الاسم الأول باللغة الإنجليزية') {
+                        label.setAttribute("data-label", "الاسم");
                         string += `onkeydown="english_key(event,this)" onkeyup="upperCase_key(event,this)"`;
                     }
-                    if (element_child_title == 'نام خانوادگی به انگلیسی') {
-                        label.setAttribute("data-label", "نام خانوادگی");
+                    if (element_child_title == 'اللقب باللغة الإنجليزية') {
+                        label.setAttribute("data-label", "اللقب");
                         string += `onkeydown="english_key(event,this)" onkeyup="upperCase_key(event,this)"`;
                     }
-                    if (element_child_title == 'نام پدر') {
+                    if (element_child_title == 'الاسم الأب') {
                         label.setAttribute("data-label", element_child_title);
                         string += `onkeydown="english_key(event,this)" onkeyup="upperCase_key(event,this)"`;
                     }
@@ -11597,7 +11504,7 @@ function create_passengers_form(todo, permitid_value, formid_value) {
         element_child.className = "package-info-item box-doc-infoes";
         var label = document.createElement("label");
         label.innerHTML =
-            "آپلود مدارک : <span class='label-notification'>مدارک آپلود شده باید با پسوند jpeg, jpg یا pdf باشد و حداکثر حجم مجاز برای آپلود, 100 کیلوبایت است.</span>";
+            "تحميل المستندات : <span class='label-notification'>يجب أن تكون المستندات التي تم تحميلها بامتداد jpeg أو jpg أو pdf والحد الأقصى للحجم المسموح للتحميل هو 100 كيلو بايت.</span>";
         element_child.appendChild(label);
 
         var string = "<p class='img-error'></p><ul> ";
@@ -11638,7 +11545,7 @@ function add_visa_passenger(element) {
             $(element).closest('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 2})`).find(
                 '.add-passengers').attr('onclick', 'remove_visa_passenger(this)');
             $(element).closest('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 2})`).find(
-                '.add-passengers').html('<i class="fa fa-minus"></i>حذف مسافر');
+                '.add-passengers').html('<i class="fa fa-minus"></i>إزالة الركاب');
             $(element).closest('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 2})`).find(
                 '.add-passengers').removeClass('add-passengers').addClass('remove-passengers');
             if ($(element).closest('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 2})`).find(
@@ -11746,14 +11653,14 @@ function set_names_visa_passengers() {
         if ($('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 1})`).find('.passenger-type').val() ==
             2) {
             $('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 1})`).find('.passenger-title')
-                .text(`بزرگسال ${i + 1}`)
+                .text(`بالغ ${i + 1}`)
         } else if ($('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 1})`).find('.passenger-type')
             .val() == 1) {
             $('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 1})`).find('.passenger-title')
-                .text(`کودک ${i + 1}`)
+                .text(`طفل ${i + 1}`)
         } else {
             $('.passengers-info-content').children(`.passenger-info-content:nth-child(${i + 1})`).find('.passenger-title')
-                .text(`نوزاد ${i + 1}`)
+                .text(`رضیع ${i + 1}`)
         }
     }
 }
@@ -11789,7 +11696,7 @@ function calculate_age(year, month, day, element) {
             minus_cost = parseFloat($(".escortcost-infant").find(".escortcost").val());
             plust_cost = parseFloat($(".escortcost-adult").find(".escortcost").val());
         }
-        $(element).closest(".passenger-info-content").find('.passenger-title').text('بزرگسال ' + index);
+        $(element).closest(".passenger-info-content").find('.passenger-title').text('بالغ ' + index);
         $(element).closest(".passenger-info-content").find('.passenger-type').val(2)
     } else if (age <= child_rule && age > infant_rule) {
         if ($(element).closest(".passenger-info-content").find('.passenger-type').val() == 2) {
@@ -11803,7 +11710,7 @@ function calculate_age(year, month, day, element) {
             plust_cost = parseFloat($(".escortcost-child").find(".escortcost").val());
         }
 
-        $(element).closest(".passenger-info-content").find('.passenger-title').text('کودک ' + index);
+        $(element).closest(".passenger-info-content").find('.passenger-title').text('طفل ' + index);
         $(element).closest(".passenger-info-content").find('.passenger-type').val(1);
     } else if (age <= infant_rule) {
         if ($(element).closest(".passenger-info-content").find('.passenger-type').val() == 2) {
@@ -11816,7 +11723,7 @@ function calculate_age(year, month, day, element) {
             minus_cost = parseFloat($(".escortcost-infant").find(".escortcost").val());
             plust_cost = parseFloat($(".escortcost-infant").find(".escortcost").val());
         }
-        $(element).closest(".passenger-info-content").find('.passenger-title').text('نوزاد ' + index);
+        $(element).closest(".passenger-info-content").find('.passenger-title').text('رضیع ' + index);
         $(element).closest(".passenger-info-content").find('.passenger-type').val(0);
     }
     document.querySelector(".firstpay-section").querySelector(".firstpay-price").innerHTML = new Intl.NumberFormat('en-US').format(firstpay - minus_cost + plust_cost);
@@ -11826,7 +11733,7 @@ function calculate_age(year, month, day, element) {
 }
 //<!-----------UPLOAD IMAGES--------------->//
 function upload_form(event, element) {
-    var form_action = "/Client_Upload_Action.bc?lid=1";
+    var form_action = "/Client_Upload_Action.bc";
     event.preventDefault();
     var element = $(element);
     if ($(".main-userid").val() == 0) {
@@ -11902,7 +11809,7 @@ function show_train_rule(element) {
     delete obj["total_without_tax"];
     let obj_stringify = JSON.stringify(obj);
     obj_stringify = obj_stringify.replace(/\\/g, '');
-    $.post(`/Client_Train_Rule.bc?lid=1`, {
+    $.post(`/Client_Train_Rule.bc`, {
         id: obj_stringify
     }, function (response) {
         element.closest(".section-item").querySelector(".loading-container").classList.add("unvisible");
@@ -11910,7 +11817,6 @@ function show_train_rule(element) {
 
     });
 }
-
 //<!----------------END JS TRAIN---------------->
 //<!----------------START JS TOURIST PANEL---------------->
 if (document.querySelector(".main-container").getAttribute("data-schemaid") == 501) {
@@ -11972,7 +11878,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 5
             var service_dep_date = $(this).attr("data-date");
             var index = $(this).attr("data-index");
             service_dep_date_splited = service_dep_date.split("-");
-            $(this).append(`<div class="passenger-date-items"><div class="passenger-date-item has-select"><div class="inner-item"><input type="text"  onclick="toggle_date(this,'day')" placeholder="روز" class="day necessary" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id="${service_dep_date_splited[2] ? service_dep_date_splited[2] : ''}" value="${service_dep_date_splited[2] ? service_dep_date_splited[2] : ''}" /></div>
+            $(this).append(`<div class="passenger-date-items"><div class="passenger-date-item has-select"><div class="inner-item"><input type="text"  onclick="toggle_date(this,'day')" placeholder="يوم" class="day necessary" oninput="autoComplete_search(event,this,'day')"  onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id="${service_dep_date_splited[2] ? service_dep_date_splited[2] : ''}" value="${service_dep_date_splited[2] ? service_dep_date_splited[2] : ''}" /></div>
            <ul class="drop-item">
             <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="1">1</li>
             <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="2">2</li>
@@ -12006,7 +11912,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 5
             <li onclick="select_date_val(this)" class="li-item" data-id="30" data-value="30">30</li>
             <li onclick="select_date_val(this)" class="li-item" data-id="31" data-value="31">31</li>
             </ul></div>
-            <div class="passenger-date-item has-select"><div class="inner-item"><input type="text"  onclick="toggle_date(this,'month')"  placeholder="ماه" class="month necessary" oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" data-id="${service_dep_date_splited[1] ? service_dep_date_splited[1] : ''}" value="${service_dep_date_splited[1] ? service_dep_date_splited[1] : ''}"/></div>
+            <div class="passenger-date-item has-select"><div class="inner-item"><input type="text"  onclick="toggle_date(this,'month')"  placeholder="شهر" class="month necessary" oninput="autoComplete_search(event,this,'month')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="tab_key(event,this);" data-id="${service_dep_date_splited[1] ? service_dep_date_splited[1] : ''}" value="${service_dep_date_splited[1] ? service_dep_date_splited[1] : ''}"/></div>
             <ul class="drop-item">
            <li onclick="select_date_val(this)" class="li-item" data-id="01" data-value="January">January</li>
            <li onclick="select_date_val(this)" class="li-item" data-id="02" data-value="February">February</li>
@@ -12022,7 +11928,7 @@ if (document.querySelector(".main-container").getAttribute("data-schemaid") == 5
            <li onclick="select_date_val(this)" class="li-item" data-id="12" data-value="December">December</li>
            </ul></div>
            <div class="passenger-date-item has-select">
-           <div class="inner-item"><input type="text" onclick="toggle_date(this,'year-birthdate')" placeholder="سال" class="year necessary" oninput="autoComplete_search(event,this,'year-birthdate')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id="${service_dep_date_splited[0] ? service_dep_date_splited[0] : ''}" value="${service_dep_date_splited[0] ? service_dep_date_splited[0] : ''}"/></div>
+           <div class="inner-item"><input type="text" onclick="toggle_date(this,'year-birthdate')" placeholder="سنة" class="year necessary" oninput="autoComplete_search(event,this,'year-birthdate')" onblur="autoFill_search(event,this,'passenger-date-item')" onkeyup="this.value=this.value.replace(/[^0-9]/g, ''),tab_key(event,this);" data-id="${service_dep_date_splited[0] ? service_dep_date_splited[0] : ''}" value="${service_dep_date_splited[0] ? service_dep_date_splited[0] : ''}"/></div>
            <ul class="drop-item">
            <li onclick="select_date_val(this)" class="li-item" data-id="2024" data-value="2024">2024</li>
            <li onclick="select_date_val(this)" class="li-item" data-id="2023" data-value="2023">2023</li>
@@ -12274,6 +12180,53 @@ function create_array_data(type) {
     }
 
 };
+
+/*------------------START FUNCTION CHECK COUNTRY OWNER-----------------------*/
+fetch('/Client_CountryId_Library.bc')
+    .then(response => response.json())
+    .then(data => {
+        const country = data.filter((item) => item.dmnid == document.querySelector(".main-container").getAttribute("data-dmnid")).map((item) => item.country);
+        const country_id = data.filter((item) => item.dmnid == document.querySelector(".main-container").getAttribute("data-dmnid")).map((item) => item.country_id);
+        if (country.length > 0) {
+            $(".package-info-item").find(".autocompleteCOUNTRY").each(function () {
+                $(this).closest(".package-info-item").find(".area-id").val(country_id);
+                $(this).val(country);
+                $(this).closest(".passenger-info-content").find(".NationalCode").addClass("not-active")
+                $(this).closest(".passenger-info-content").find(".NationalCode").removeClass("necessary")
+                $(this).closest(".passenger-info-content").find(".NationalCode").val('-')
+
+            })
+        } else {
+            $(".package-info-item").find(".autocompleteCOUNTRY").each(function () {
+                $(this).closest(".package-info-item").find(".area-id").val('1002236');
+                $(this).val('Iran');
+                if ($(".internal").val() == 1) {
+                    $(this).closest(".passenger-info-content").find(".passportcode").closest(".package-info-item").addClass("internal")
+                    $(this).closest(".passenger-info-content").find(".passportcode").removeClass("necessary")
+                    $(this).closest(".passenger-info-content").find(".passexpiredate").closest(".package-info-item").addClass("internal")
+                    $(this).closest(".passenger-info-content").find(".passexpiredate").removeClass("necessary")
+                    $(this).closest(".passenger-info-content").find(".DrawerCo").closest(".package-info-item").addClass("internal")
+                    $(this).closest(".passenger-info-content").find(".DrawerCo").addClass("not-active")
+                    $(this).closest(".passenger-info-content").find(".passportcode").addClass("not-active")
+                    $(this).closest(".passenger-info-content").find(".passexpiredate").addClass("not-active")
+                    $(this).closest(".passenger-info-content").find(".not-active").val("-")
+                } else {
+                    $(this).closest(".passenger-info-content").find(".passportcode").closest(".package-info-item").removeClass("internal")
+                    $(this).closest(".passenger-info-content").find(".passportcode").addClass("necessary")
+                    $(this).closest(".passenger-info-content").find(".DrawerCo").addClass("not-active")
+                    $(this).closest(".passenger-info-content").find(".DrawerCo").removeClass("necessary")
+                    $(this).closest(".passenger-info-content").find(".DrawerCo").closest(".package-info-item").hide()
+                }
+
+            })
+        }
+    }).catch(error => console.error(error))
+/*------------------END FUNCTION CHECK COUNTRY OWNER-----------------------*/
+
+
+
+
+
 
 
 

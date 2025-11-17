@@ -7207,10 +7207,6 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                     show_extra_service_content(element);
                                 }
                                 if (check_provider == 70) {
-
-
-
-                                    
                                     document.querySelector(".services-info-content").classList.remove("unvisible");
                                     var hotel_extra_service = true;
                                     var transfer_to = document.querySelector(".hotel_extra_service_transfer_to").value;

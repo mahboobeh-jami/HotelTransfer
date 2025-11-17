@@ -1,4 +1,4 @@
-<basis core="call" lid="1" file="Client_CheckRkey.inc"></basis> <!-- updated login -->
+<basis core="call" lid="2" file="Client_CheckRkey.inc"></basis> <!-- updated login -->
 <basis core="group" name="Delay_1">
     <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
         <member name="showdetail"method="flighthotel" query='{
@@ -31,7 +31,7 @@
                     "rooms": [##cms.json.header|cms.form.rooms##],
                     "trackingNo": "[##cms.cookie.trackingid##]",
                     "dmnid": [##cms.cms.domainid##],
-                    "lid":"1",
+                    "lid":"2",
                     "unit": "10"
                     
                 }
@@ -56,7 +56,8 @@
                 "infant": "0",
                 "json": [##cms.json.header|cms.form.rooms##],
                 "trackingNo":"[##cms.cookie.trackingid##]" + "FL",
-                "ticketid":"[##cms.form.idvalue##]"
+                "ticketid":"[##cms.form.idvalue##]",
+                "lid":"2"
               }
             ]
           }
@@ -75,17 +76,17 @@
                 postsql="select  Id , ParentId , case when trim(Field) is null  then  (select field from [db.passenger-form-Tree] where id = a.parentid ) else field end as field, value , type , path  from [db.passenger-form-Tree] as a">
                 {"root":[##db.passenger-form.result##]}</member>
         </basis>
-        <basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
+        <basis core="dbsource" source="basiscore" name="db" mid="5" lid="2" usedforid="[##cms.cms.ownerid##]">
             <member core="view" name="phone-company" type="view" postsql="select Answer from [db.phone-company] where prpID = '8000'" />
         </basis>
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 
-
+<body onload="onloadFunc();">
 
     <head>
         <meta charset="UTF-8">
-        <title>رزرو پرواز + هتل</title>
+        <title>Flight + Hotel booking</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="robots" content="index, nofollow" />
@@ -99,21 +100,15 @@
         <meta property="og:image:alt" content="" />
         <meta name="author" content="BasisCore" />
         <!----------------CSS FILE---------------->
-        <link href="https://cdn.basiscore.net/basisfly.com/css/reservation_tem_style_view.css" type="text/css"
+        <link href="https://cdn.basiscore.net/basisfly.com/css/reservation_tem_style_view_En.css" type="text/css"
             rel="stylesheet" />
-        <link href="[##cms.cms.cdn##]/css/style_tem.css" type="text/css" rel="stylesheet" />
-<link rel="shortcut icon" sizes="80x80" href="[##cms.cms.cdn##]/images/shortcut-icon.png" />
-
-
-            <!-- added jami -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-
+        <link href="[##cms.cms.cdn##]/css/style_tem_en.css" type="text/css" rel="stylesheet" />
+                    <!-- added jami -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     </head>
-    <body onload="onloadFunc();">
-    <main class="dir-rtl main-container contain-currency-show" data-dmnid="[##cms.cms.domainid##]" data-schemaid="290251">
+    <main class="dir-ltr main-container contain-currency-show" data-dmnid="[##cms.cms.domainid##]" data-schemaid="290251">
         <input type="hidden" value="[##cms.cms.date##]" id="cms-date"/>
-        <basis core="call" lid="1" file="header.inc"/>
+        <basis core="call" lid="2" file="header.inc"/>
         <section class="content">
             <section class="loginRegister"></section>
             <div id="bg-popup" class="unvisible"></div>
@@ -148,18 +143,18 @@
                     </svg>
                 </i>
                 <div class="line-one font_20 font-weight">
-                    اعتبار نتایج به پایان رسید
+                    Your search has expired
                 </div>
                 <div class="line-two">
-                    برای دریافت آخرین نرخ‌ها لطفا صفحه را مجددا بارگذاری کنید
+                    Please click the button below to get the best prices and review the capacity
                 </div>
                 <button class="background-color_2 color_white font_16 border-radius cursor-pointer"
-                    onclick="window.location='[##cms.Host.FA_redirect|(/)##]'">صفحه اصلی</button>
+                    onclick="window.location='/EN'">Home</button>
                 <form method="post" action="" class="reSearch-form" data-tem="[##cms.form.checkpreurl##]">
                     <input type="hidden" name="from" value="[##cms.form.from##]" />
                     <input type="hidden" name="to" value="[##cms.form.to##]" />
-                    <input type="hidden" name="fdate" value="[##cms.form.fdate##]" class="departure_date_flight"/>
-                    <input type="hidden" name="tdate" value="[##cms.form.tdate##]" class="return_date_flight"/>
+                    <input type="hidden" name="fdate" value="[##cms.form.fdate##]" />
+                    <input type="hidden" name="tdate" value="[##cms.form.tdate##]" />
                     <input type="hidden" name="checkin" value="[##cms.form.checkin##]" />
                     <input type="hidden" name="checkout" value="[##cms.form.checkout##]" />
                     <input type="hidden" name="roomSearch" value='[##cms.form.roomSearch##]' />
@@ -175,19 +170,19 @@
                 <div class="bc-main">
                     <ul class="step-nav color_gray font_14">
                         <li class="step-item active" data-step="passenger"><i class="fa fa-users icon"></i>
-                            <div class="title">مشخصات مسافران</div>
+                            <div class="title">Passenger Information</div>
                         </li>
                         <li class="step-item" data-step="buyer"><i class="fa fa-user icon"></i>
-                            <div class="title">مشخصات خریدار</div>
+                            <div class="title">Buyer Information</div>
                         </li>
                         <li class="step-item step-item-unvisible" data-step="service"><i class="fa fa-suitcase-rolling icon"></i>
-                            <div class="title">خدمات و گشت</div>
+                            <div class="title">Service and Transfer</div>
                         </li>
                         <li class="step-item" data-step="insurance"><i class="fa fa-shield-alt icon"></i>
-                            <div class="title">بیمه</div>
+                            <div class="title">Insurance</div>
                         </li>
                         <li class="step-item" data-step="summary"><i class="fa fa-credit-card icon"></i>
-                            <div class="title">پرداخت و صدور</div>
+                            <div class="title">Pre-invoice and Payment</div>
                         </li>
                     </ul>
                 </div>
@@ -196,9 +191,9 @@
                 <div class="bc-main">
                     <aside class="width_30 float-right aside-container">
                         <div class="aside-content">
-                            <form method="post" action="/Client_Commission_ver.2.bc?lid=1" class="check-commission">
+                            <form method="post" action="/Client_Commission_ver.2.bc" class="check-commission">
                                 <input type="hidden" value="6" name="type"/>
-                                <input type="hidden" value="1" name="lid"/>
+                                <input type="hidden" value="2" name="lid"/>
                                 <input type="hidden" value="[##cms.form.hsupplier##]" name="hsupplier" />
                                 <input type="hidden" value="[##cms.form.fsupplier##]" name="fsupplier" />
                                 <input type="hidden" value="[##cms.form.productid##]"  name="productid" />
@@ -213,7 +208,7 @@
                                 <div class="check-commission-response"></div>
                             </form>
                             <div class="brief-container box-content width_100">
-                                <div class="box-content-title">اطلاعات پرواز</div>
+                                <div class="box-content-title">Flight Information</div>
                                 <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid"
                                     nullvalue="null">
                                     <layout>
@@ -288,19 +283,13 @@
                                     </face>
                                     <face filter="type in ('object','array')">@child</face>
                                  </basis>
-                                 <div class="color_gray more-info"><span class="font_13">جزییات پرواز</span><i
+                                 <div class="color_gray more-info"><span class="font_13">Flight Details</span><i
                                     class="fa fa-angle-down"></i></div>
                                     <div class="details-container">
                                         <ul class="nav-details flex-justify font_13">
-                                            <li class="nav-li active"
-                                                onclick="toggle_details_content(this,'section-detail')">
-                                                جزییات</li>
-                                            <li class="nav-li" onclick="toggle_details_content(this,'section-bar')" data-type-description="[##cms.form.type-description##]">
-                                                قوانین
-                                                بار
-                                            </li>
-                                            <li class="nav-li" onclick="toggle_details_content(this,'section-rule')" data-type-description="[##cms.form.type-description##]">قوانین
-                                                پرواز</li>
+                                            <li class="nav-li active"  onclick="toggle_details_content(this,'section-detail')">Details</li>
+                                            <li class="nav-li" onclick="toggle_details_content(this,'section-bar')" data-type-description="[##cms.form.type-description##]">Baggage Rules</li>
+                                            <li class="nav-li" onclick="toggle_details_content(this,'section-rule')" data-type-description="[##cms.form.type-description##]">Flight Rules</li>
                                         </ul>
                                         <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid" nullvalue="null">
                                             <face filter="field in ('coupon_data')"></face>
@@ -320,7 +309,7 @@
                                                 </div>
                                             </face>
                                             <face filter="field in ('FlightDep','FlightDes') and type in ('Object')">
-                                                <div class="details-item" style="padding-bottom: 1em;">
+                                                <div class="details-item">
                                                     <div class="details-item-title font_13"><span><span class="route-title"></span> (<span class="startCityDetail"></span><span>-</span><span class="endCityDetail"></span>)</span></div>
                                                     @child
                                                 </div>
@@ -367,14 +356,14 @@
                                                 
                                             </face>
                                             <face filter="field in ('ExitTimeDep','ExitTimeDes')">
-                                                <div class="time-details exitTime" style="width: 33.3%;position: absolute;right: 0;">@value</div>
+                                                <div class="time-details exitTime">@value</div>
                                             </face>
                                             <face filter="field in ('StartDepSstringDep','StartDepSstringDes') and type in ('Scalar.String')">
                                                 <div class="date-details" style="display: none;">
                                                     @value
                                              </face>
                                              <face filter="field in ('StartDepMstringDep','StartDepMstringDes') and type in ('Scalar.String')">
-                                                <span class="EnNum">(@value)</span></div></div>
+                                                <span class="EnNum">(@value)</span> </div></div>
                                                 <span class="duration-details" style="float: left;"></span>
                                              </face>
                                              <face filter="field in ('AirportEndDep','AirportEndDes')">
@@ -382,14 +371,14 @@
                                                     <div class="airport-details endAirportDetail">@value</div>
                                             </face>
                                             <face filter="field in ('ArrivalTimeDep','ArrivalTimeDes')">
-                                                <div class="time-details arrivalTime" style="width: 33.3%;position: absolute;left: 0;bottom: -20px;">@value</div>
+                                                <div class="time-details arrivalTime" style="float: right;width: 33.3%;">@value</div>
                                             </face>
                                             <face filter="field in ('EndDepSstringDep','EndDepSstringDes') and type in ('Scalar.String')">
                                                 <div class="date-details" style="float: right;width: 33.3%;display: none;">
                                                     @value
                                              </face>
                                              <face filter="field in ('EndDepMstringDep','EndDepMstringDes') and type in ('Scalar.String')">
-                                                <span class="EnNum">(@value)</span> <input type="hidden" class="EnNum_date_flight" value="@value"/></div></div>
+                                                <span class="EnNum">(@value)</span><input type="hidden" class="EnNum_date_flight" value="@value"/> </div></div>
                                                 <div class="clr"></div>
                                                 </div>
                                              </face>
@@ -438,14 +427,10 @@
                                             </div>
                                         </face>
                                         <face filter="field in ('BarDepcabin','BarDescabin')">
-                                            <span class="bar-info"><span class="inner-title color_font">بار
-                                                    کابین:
-                                                </span><span>@value</span></span>
+                                            <span class="bar-info"><span class="inner-title color_font">Cabin:</span><span>@value</span></span>
                                         </face>
                                         <face filter="field in ('BarDepperm','BarDesperm')">
-                                            <span class="bar-info"><span class="inner-title color_font">بار
-                                                    مجاز:
-                                                </span><span>@value</span></span>
+                                            <span class="bar-info"><span class="inner-title color_font">Allowable:</span><span>@value</span></span>
                                         </face>
                                         <face filter="type in ('object','array')">@child</face>
                                     </basis>
@@ -495,7 +480,7 @@
                                 </div>
                             </div>
                             <div class="brief-container box-content width_100">
-                                <div class="box-content-title">اطلاعات هتل</div>
+                                <div class="box-content-title">Hotel Information</div>
                                 <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid" nullvalue="null">
                                     <face filter="Field = 'transfer_to'">
                                         <input type="hidden" value='@value' class="hotel_extra_service_transfer_to"/>
@@ -553,18 +538,13 @@
                                     </face>
                                     <face filter="type in ('object','array')">@child</face>
                                 </basis>
-                                <div class="color_gray more-info"><span class="font_13">جزییات هتل</span><i
+                                <div class="color_gray more-info"><span class="font_13">Hotel details</span><i
                                         class="fa fa-angle-down"></i></div>
                             
                                 <div class="details-container">
                                     <ul class="nav-details d-flex font_13">
-                                        <li class="nav-li active"
-                                            onclick="toggle_details_content(this,'section-detail-hotel')">
-                                            جزییات</li>
-                                        <li class="nav-li" onclick="toggle_details_content(this,'section-rule-hotel')">
-                                            قوانین
-                                            اتاق
-                                        </li>
+                                        <li class="nav-li active" onclick="toggle_details_content(this,'section-detail-hotel')">Details</li>
+                                        <li class="nav-li" onclick="toggle_details_content(this,'section-rule-hotel')">Room rules</li>
                                     </ul>
                                     <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid" nullvalue="null">
                                         <face filter="field in ('coupon_data')"></face>
@@ -585,28 +565,28 @@
                                             @value<span></div>
                                         </face>
                                         <face filter="field in ('Service')">
-                                            <span class="font_12 color_gray">سرویس :</span><span class="space font_12">@value</span>
+                                            <span class="font_12 color_gray">Service :</span><span class="space font_12">@value</span>
                                         </face>
                                         <face filter="field in ('Passcount')">
                                             <span class="space">@child</span>
                                         </face>
                                         <face filter="field in ('Adults') and value not in ('0')">
-                                            <span class="font_12 color_gray">بزرگسال :</span><span class="space font_12">@value</span>
+                                            <span class="font_12 color_gray">Adult :</span><span class="space font_12">@value</span>
                                         </face>
                                         <face filter="field in ('Childswithbed') and value not in ('0')">
-                                            <span class="font_12 color_gray">کودک با تخت :</span><span class="space font_12">@value</span>
+                                            <span class="font_12 color_gray">Child (with bed):</span><span class="space font_12">@value</span>
                                         </face>
                                         <face filter="field in ('Childswithoutbed') and value not in ('0')">
-                                            <span class="font_12 color_gray">کودک بدون تخت :</span><span class="space font_12">@value</span>
+                                            <span class="font_12 color_gray">Child (without bed):</span><span class="space font_12">@value</span>
                                         </face>
                                         <face filter="field in ('Infant') and value not in ('0')">
-                                            <span class="font_12 color_gray">نوزاد :</span><span class="space  font_12">@value</span>
+                                            <span class="font_12 color_gray">Infant :</span><span class="space  font_12">@value</span>
                                         </face>
                                         <face filter="field in ('StartDateHotel')">
-                                            <div><span class="font_12 color_gray">تاریخ ورود :</span><span class="space">@child</span></div>
+                                            <div><span class="font_12 color_gray">Check in:</span><span class="space">@child</span></div>
                                         </face>
                                         <face filter="field in ('EndDateHotel')">
-                                            <div><span class="font_12 color_gray">تاریخ خروج :</span><span class="space">@child</span></div>
+                                            <div><span class="font_12 color_gray">Check out:</span><span class="space">@child</span></div>
                                         </face>
                                         <face filter="field in ('StartDateHotelSstring','EndDateHotelSstring')">
                                             <span class="space font_12">@value</span>
@@ -618,8 +598,8 @@
                                     </basis>
                                     <div id="section-rule-hotel" class="unvisible section-content">
                                         <div class="section-item font_13">
-                                            <div class="title">جهت مشاهده قوانین اتاق<span class="clicked font-weight cursor-pointer" onclick="show_rule_room(this,'FH')" >
-                                                کلیک </span>کنید.</div>
+                                            <div class="title"><span class="clicked font-weight cursor-pointer" onclick="show_rule_room(this,'FH')" >
+                                                Click </span>to view room rules.</div>
                                         <div dir="auto" class="response text-justify max-height"></div>
                                         <div class="room-loading unvisible">
                                             <div id="ballsWaveG">
@@ -641,9 +621,7 @@
                                 nullvalue="null">
                                 <layout>
                                     <div class="width_100">
-                                        <div class="cost-box-header background-color_1 color_white text-center">
-                                            قیمت
-                                            پکیج</div>
+                                        <div class="cost-box-header background-color_1 color_white text-center">Package Price</div>
                                         <div class="box-content cost-content color_gray">
                                             @child
                                         </div>
@@ -651,7 +629,7 @@
                                 </layout>
                                 <face filter="field in ('Commissioncost')">
                                     <div class="cost-row flex-justify commission-section" data-output="@value">
-                                        <div class="font_14 title">کمیسیون</div>
+                                        <div class="font_14 title">Commission</div>
                                         <div>
                                             <span class="font-weight font_13 separate commission-price">@value</span> 
                                             <span class="unit-content"></span>
@@ -659,10 +637,10 @@
                                     </div>
                                 </face>
                                 <face filter="field in ('Totalcom')"><div class="cost-row flex-justify totalcom-section" data-output="@value" data-price="@value"></div></face>
-                                <face filter="field in ('Total')"><div class="view-service-price fa-view-service-price width_100"></div><div class="cost-row flex-justify total-section width_100" data-output="@value"></div></face>
+                                <face filter="field in ('Total')"><div class="view-service-price"></div><div class="cost-row flex-justify total-section" data-output="@value"></div></face>
                                 <face filter="field in ('Firstpay')">
-                                    <div class="cost-row flex-justify firstpay-section width_100" data-output="@value" data-price="@value">
-                                        <div class="font_14 title">مبلغ قابل پرداخت</div>
+                                    <div class="cost-row flex-justify firstpay-section" data-output="@value" data-price="@value">
+                                        <div class="font_14 title">The Amount Payable</div>
                                         <div>
                                             <span class="font-weight font_17 separate firstpay-price">@value</span> 
                                             <span class="unit-content"></span></div>
@@ -679,7 +657,7 @@
                     <div class="package-info float-left">
                         <div class="box-content box-content-title">
                             <div class="flex-justify">
-                                <div class="step-title">مشخصات مسافران</div>
+                                <div class="step-title">Passenger Information</div>
                                 <div class="time-left">
                                     <span id="timer">00:00:00</span><i class="flaticon-back-in-time"></i>
                                 </div>
@@ -702,13 +680,13 @@
                                             </g>
                                         </svg> </i>
                                     <div class="line-one font_20 font-weight text-right">
-                                        خطایی رخ داده ، پکیج قابل رزرو نیست
+                                        An error occurred, the package could not be booked
                                     </div>
                                     <div class="line-two text-right">
-                                        برای دریافت نتیجه لطفا تاریخ و یا مسیر خود را تغییر دهید
+                                        To get the result, please change your date or route
                                     </div>
                                     <button class="background-color_1 color_white font_16 border-radius cursor-pointer"
-                                        onclick="window.location='[##cms.Host.FA_redirect|(/)##]'">صفحه اصلی</button>
+                                        onclick="window.location='/EN'">Home</button>
                                 </div>
                             </face>
                             <face filter="field in ('error') and value in ('1') and '[##db.error-code.Value##]' in ('19')">
@@ -726,13 +704,13 @@
                                             </g>
                                         </svg> </i>
                                     <div class="line-one font_20 font-weight text-right">
-                                        پکیج انتخاب شده شما قابل رزرو نیست.(کد خطا 105)
+                                        Your selected package cannot be booked. (Error code 105)
                                     </div>
                                     <div class="line-two text-right">
-                                        لطفا با تیم پشتیبانی سایت تماس ([##db.phone-company.Answer##]) بگیرید.
+                                        Please contact the website support team ([##db.phone-company.Answer##]).
                                     </div>
                                     <button class="background-color_1 color_white font_16 border-radius cursor-pointer"
-                                        onclick="window.location='[##cms.Host.FA_redirect|(/)##]'">صفحه اصلی</button>
+                                        onclick="window.location='/EN'">Home</button>
                                 </div>
                             </face>
                             <face filter="field in ('error') and value in ('1') and '[##db.error-code.Value##]' not in ('19')">
@@ -750,13 +728,13 @@
                                             </g>
                                         </svg> </i>
                                     <div class="line-one font_20 font-weight text-right">
-                                        پکیج قابل رزرو نیست ، [##db.error.value##].
+                                        The package could not be booked ، [##db.error.value##].
                                     </div>
                                     <div class="line-two text-right">
-                                        برای دریافت نتیجه لطفا تاریخ و یا مسیر خود را تغییر دهید
+                                        To get the result, please change your date or route
                                     </div>
                                     <button class="background-color_1 color_white font_16 border-radius cursor-pointer"
-                                        onclick="window.location='[##cms.Host.FA_redirect|(/)##]'">صفحه اصلی</button>
+                                        onclick="window.location='/EN'">Home</button>
                                 </div>
                             </face>
                             <face filter="type in ('object','array')">@child</face>
@@ -768,8 +746,8 @@
                             </face>
                             <face filter="type in ('object','array')">@child</face>
                         </basis>
-                        <form method="post" action="/Client_Final_FH.bc?lid=1" class="invoice-form">
-                            <input type="hidden" value="Client_Show_FH_ver.2.bc?lid=1" name="ViewUrl" />
+                        <form method="post" action="/Client_Final_FH_en.bc" class="invoice-form">
+                            <input type="hidden" value="Client_Show_FH_En_ver.2.bc" name="ViewUrl" />
                             <input type="hidden" value="[##cms.form.inscountry##]" name="inscountry"/>
                             <input type="hidden" value="[##cms.form.productid_f##]" name="productid_f" />
                             <input type="hidden" value="[##cms.form.fsupplier##]" name="fsupplier" />
@@ -857,26 +835,26 @@
                                 </face>
                                 <face filter="type in ('object','array')">@child</face>
                             </basis>
-                        <div class="passengers-info-content"></div>
-                         <!-- updated login -->
-                         <div class="buyers-info-content unvisible" data-load="0">
-                            <div id="ballsWaveG">
-                                <div id="ballsWaveG_1" class="ballsWaveG"></div>
-                                <div id="ballsWaveG_2" class="ballsWaveG"></div>
-                                <div id="ballsWaveG_3" class="ballsWaveG"></div>
-                                <div id="ballsWaveG_4" class="ballsWaveG"></div>
-                                <div id="ballsWaveG_5" class="ballsWaveG"></div>
-                                <div id="ballsWaveG_6" class="ballsWaveG"></div>
-                                <div id="ballsWaveG_7" class="ballsWaveG"></div>
-                                <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                            <div class="passengers-info-content"></div>
+                             <!-- updated login -->
+                             <div class="buyers-info-content unvisible" data-load="0">
+                                <div id="ballsWaveG">
+                                    <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                    <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                    <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                    <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                    <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                    <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                    <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                    <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                </div>
+
+                                <basis core="call" lid="2" run="AtClient" file="/Client_Shopper_En_ver.2.bc" triggers="db.runBuyer"
+                                    if="{##db.runBuyer.run|(false)##}" method="post"
+                                    userid="{##db.runBuyer.userid##}" provider="{##db.runBuyer.provider##}"></basis>
+
                             </div>
-
-                            <basis core="call" lid="1" run="AtClient" file="/Client_Shopper_ver.2.bc?lid=1" triggers="db.runBuyer"
-                                if="{##db.runBuyer.run|(false)##}" method="post"
-                                userid="{##db.runBuyer.userid##}" provider="{##db.runBuyer.provider##}"></basis>
-
-                        </div>
-                        <!-- updated login -->
+                            <!-- updated login -->
                             <div class="services-info-content unvisible" data-load="0">
                                 <div id="ballsWaveG">
                                     <div id="ballsWaveG_1" class="ballsWaveG"></div>
@@ -905,7 +883,7 @@
                         <div class="summary-info-content unvisible">
                             <div class="summary-info box-content passenger">
                                 <div class="box-content-title">
-                                    <div class="color_1 font_14 inside-title">مشخصات مسافران</div>
+                                    <div class="color_1 font_14 inside-title">Passenger Information</div>
                                 </div>
                                 <div class="summary-passenger-items font_13 text-center">
                                   
@@ -914,7 +892,7 @@
                             </div>
                             <div class="summary-info box-content has-maring buyer">
                                 <div class="box-content-title">
-                                    <div class="color_1 font_14 inside-title">مشخصات خریدار</div>
+                                    <div class="color_1 font_14 inside-title">Buyer Information</div>
                                 </div>
                                 <div class="summary-buyer-items font_13 text-center">
                                 </div>
@@ -922,7 +900,7 @@
                             </div>
                             <div class="summary-info box-content has-maring service unvisible">
                                 <div class="box-content-title">
-                                    <div class="color_1 font_14 inside-title">خدمات و گشت</div>
+                                    <div class="color_1 font_14 inside-title">Service and Transfer</div>
                                 </div>
                                 <div class="summary-service-items font_13">
                                 </div>
@@ -930,11 +908,9 @@
                             </div>
                             <div class="summary-info box-content has-maring">
                                 <div class="box-content-title">
-                                    <div class="color_1 font_14 inside-title">کد تخفیف </div>
+                                    <div class="color_1 font_14 inside-title">Discount Code</div>
                                 </div>
-                                <div class="color_gray font_13">اگر کد تخفیف دارید،‌ آن را در بخش زیر وارد کنید
-                                    و دکمه
-                                    اعمال کد را بزنید.</div>
+                                <div class="color_gray font_13">If you have a discount code, enter it in the section below and click the apply code button.</div>
                                 <form class="coupon-form" onsubmit="check_coupon_form(event,this)">
                                     <div class="coupon-content flex-justify">
                                         <input type="text" class="coupon-code" autocomplete="off" />
@@ -973,11 +949,11 @@
                             </div>
                             <div class="summary-info box-content has-maring">
                                 <div class="box-content-title">
-                                    <div class="color_1 font_14 inside-title"> پرداخت </div>
+                                    <div class="color_1 font_14 inside-title"> Payment </div>
                                 </div>
                                 <div class="counter-content has-select-input package-info-item">
                                     <i class="fa fa-spinner unvisible"></i>
-                                    <label>کانتر اقدام کننده</label>
+                                    <label>Counter Acting</label>
                                     <div class="inner-item"><input type="text" class="name" readonly
                                             onclick="toggle_counter_list(this)"
                                              data-load="0" />
@@ -986,17 +962,13 @@
                                 </div>
                                 <div class="clr"></div>
                                 <div class="note-content width_50 package-info-item">
-                                    <label> یادداشت </label>
+                                    <label> Notes </label>
                                     <_textarea onkeyup="invoice_desc(event,this)"></_textarea>
                                 </div>
                                 <div class="clr"></div>
                                 <div class="rule-condition-content color_gray font_12">
                                     <input type="checkbox" class="" data-check="0" />
-                                    <label><span class="font-weight cursor-pointer" onclick="show_condition(this)">قوانین و مقررات</span> این قرارداد را بطور
-                                        کامل
-                                        مطالعه نموده و شرایط آن را قبول دارم که تایید آن بصورت انتخاب این قسمت
-                                        انجام می
-                                        شود .</label>
+                                    <label><span class="font-weight cursor-pointer" onclick="show_condition(this)">Terms and Conditions</span> I have read this contract in full and I accept its terms, which will be approved by selecting this section.</label>
                                     <section class="invoice-condition-container"></section>
                                  
                                 </div>
@@ -1005,9 +977,9 @@
                         </div>
                         <div class="btns-container font_15">
                             <button class="btn-item prev-btn float-right unvisible" data-step=""
-                                onclick="prev_step(this)"> بازگشت به مرحله قبل </button>
+                                onclick="prev_step(this)">Previous</button>
                             <button class="btn-item next-btn float-left" data-step="passenger"
-                                onclick="next_step(this)">تایید و ادامه </button>
+                                onclick="next_step(this)">Confirm and Continue</button>
                                 <div class="clr"></div>
                         </div>
                         <div class="summary-info box-content has-maring summary-invoice unvisible">
@@ -1024,9 +996,9 @@
         </section>
       <!----------------JS FILE---------------->
       <script src="[##cms.cms.cdn##]/_js/jquery/jquery-3.6.3.min.js" type="text/javascript"></script>
-    <basis core="call" lid="1" file="footer.inc"></basis>
+    <basis core="call" lid="2" file="footer.inc"></basis>
     </main>
-  <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_tem_js_view.js" type="text/javascript"></script>
+    <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_tem_js_view_En.js" type="text/javascript"></script>
     <script defer src="https://cdn.basiscore.net/basisfly.com/js/reservation_react.production.min.js" ></script>
     <script defer src="https://cdn.basiscore.net/basisfly.com/js/reservation_react_dom.production.min.js"></script>
     <script defer src="https://cdn.basiscore.net/basisfly.com/js/reservation_babel.min.js"></script>
@@ -1034,10 +1006,8 @@
     <!----------------JS ClOCK---------------->
     <script defer src="https://www.basisfly.com/js/reservation_moment-with-locales.js" type="text/javascript" ></script>
     <script defer src="https://www.basisfly.com/js/reservation_bootstrap-clockpicker.min.js" type="text/javascript" ></script>
-    
-        <!-- added jami -->
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    
+            <!-- added jami -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script type="text/babel">
     function load_passengersList(dmnid, userid, internal, index, index_room) {
     class App extends React.Component {
@@ -1056,11 +1026,11 @@
         }
         componentDidMount() {
             if (internal == 0) {
-                this.setState({ InternalOrExternal: 'شماره گذرنامه' })
+                this.setState({ InternalOrExternal: 'Passport Number' })
             } else {
-                this.setState({ InternalOrExternal: 'کد ملی' })
+                this.setState({ InternalOrExternal: 'National Code' })
             }
-            fetch("/Client_Passengers_List_Json.bc?lid=1", {
+            fetch("/Client_Passengers_List_Json.bc", {
                 method: "POST",
                 body: "dmnid=" + dmnid + "&userid=" + userid + "",
             })
@@ -1103,9 +1073,9 @@
             if (document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector(".gender-id")) {
                 document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector(".gender-id").value = data_gender;
                 if (data_gender == 0) {
-                    document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector(".gender").value = "خانم";
+                    document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector(".gender").value = "Female";
                 } else {
-                    document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector(".gender").value = "آقا";
+                    document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector(".gender").value = "Male";
                 }
             };
             if (document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=hidden]")) {
@@ -1214,11 +1184,9 @@
             const { filter, perPage, data } = this.state;
             let library = data;
             if (filter !== "") {
-                if(library.length !== undefined){
-                    library = library.filter(item =>
+                library = library.filter(item =>
                     item.firstname.toLowerCase().includes(filter) || item.lastname.toLowerCase().includes(filter) || item.birthdate.toLowerCase().includes(filter) || (item.passportcode ? item.passportcode.toLowerCase().includes(filter) : false) || (item.nationalcode ? item.nationalcode.toLowerCase().includes(filter) : false)
                 )
-                }
             }
             library = _.chunk(library, perPage);
             this.setState({
@@ -1263,7 +1231,7 @@
         renderLibrary = () => {
             const { library, currentPage } = this.state;
             if (!library || (library && library.length === 0)) {
-                return (<div className="nodata text-center"> نتیجه ای یافت نشد!</div>);
+                return (<div className="nodata text-center">No results found!</div>);
             }
             return library[currentPage - 1].map((item, i) => (<div className="t-body">
                 <div className="width_30 float-right dir-ltr text-right"><span>{item.firstname}</span><span
@@ -1284,7 +1252,7 @@
                         data-passportissuecountry={item.passportissuecountry}
                         data-index={index}
                         data-index-room={index_room}
-                        data-internal={internal}>انتخاب مسافر</button>
+                        data-internal={internal}>Choose</button>
                     <div className="clr"></div>
                 </div>
                 <div className="clr"></div>
@@ -1309,17 +1277,16 @@
                                 className=""></path>
                         </svg>
                         <div>
-                            <p className="title"> انتخاب مسافران</p>
-                            <p className="sub-title">مسافر مورد نظر خود را انتخاب نمایید</p>
+                            <p className="title">Choose Passengers</p>
+                            <p className="sub-title">Choose your desired passenger</p>
                         </div>
                     </div>
                     <div className="passengers-prev-content font_13 ">
                         <div className="t-head font-weight color_font">
-                            <div className="width_30 float-right">نام ونام خانوادگی</div>
+                            <div className="width_30 float-right">Full Name</div>
                             <div className="width_70 float-left flex-justify"><span>{this.state.InternalOrExternal}<span
-                                className="space">/</span>تاریخ
-                                تولد</span>
-                                <input className="search-passenger" value={this.state.filter} onChange={this.handleChange} type="text" placeholder="جستجو مسافر" />
+                                className="space">/</span>Birthdate</span>
+                                <input className="search-passenger" value={this.state.filter} onChange={this.handleChange} type="text" placeholder="Search in Passengers" />
                             </div>
                             <div className="clr"></div>
                         </div>

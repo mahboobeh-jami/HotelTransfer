@@ -1,279 +1,45 @@
 <basis core="call" lid="1" file="Client_CheckRkey.inc"></basis> <!-- updated login -->
 <basis core="group" name="Delay_1">
-    <basis core="external.fly.ws" source="cmsDbService[##cms.form.sid|(2)##]" procedurename="dbsource" name="db">
-        <member name="showdetail" method="hotel" query='{
+    <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+        <member name="showdetail"method="flighthotel" query='{
             "name": "db",
             "mid": "20",
-            "schemabase": "[##cms.query.schemabase|(true)##]",
-            "schema": {
-                "mainInfo": {
-                    "action": "create",
-                    "childs": [
-                        {
-                        "extra_service": {
-                          "action": "find",
-                          "map": "extra_service"
-                          },
-                          "transfer_to": {
-                            "action": "find",
-                            "map": "extra_service.transfer_to"
-                            },
-                            "transfer_from": {
-                                "action": "find",
-                                "map": "extra_service.transfer_from"
-                            }
-                                                    },
-                        {
-                            "transfer_type": {
-                                "action": "find",
-                                "map": "transfer_type"
-                            }
-                        },
-                        {
-                            "hotelImage": {
-                                "action": "create",
-                                "childs": [
-                                    {
-                                        "rooms": {
-                                            "action": "find",
-                                            "map": "rooms",
-                                            "options": {
-                                                "image": {
-                                                    "action": "find",
-                                                    "map": "hotelinfo.hotelsearch.hotelimage"
-                                                },
-                                                "name": {
-                                                    "action": "find",
-                                                    "map": "hotelinfo.hotelsearch.realname"
-                                                }
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "hotelInfo": {
-                                "action": "create",
-                                "childs": [
-                                    {
-                                        "rooms": {
-                                            "action": "find",
-                                            "map": "rooms",
-                                            "options": {
-                                                "realname": {
-                                                    "action": "find",
-                                                    "map": "hotelinfo.hotelsearch.realname"
-                                                },
-                                                "star": {
-                                                    "action": "find",
-                                                    "map": "hotelinfo.hotelsearch.star"
-                                                },
-                                                "hotelid_transfer_type": {
-                                                    "action": "find",
-                                                    "map": "hotelinfo.hotelsearch.hotelid"
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "cityname": {
-                                            "action": "find",
-                                            "map": "hotelgroup.contry.cityname"
-                                        }
-                                    },
-                                    {
-                                        "countryname": {
-                                            "action": "find",
-                                            "map": "hotelgroup.contry.countryname"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "detailsInfo": {
-                    "action": "create",
-                    "childs": [
-                        {
-                            "rooms": {
-                                "action": "find",
-                                "map": "rooms",
-                                "options": {
-                                    "title": {
-                                        "action": "create",
-                                        "childs": [
-                                        {
-                                            "index": {
-                                                "action": "find",
-                                                "map": "costinfo.index"
-                                            },
-                                        },{
-                                            "roomname": {
-                                                "action": "find",
-                                                "map": "roomdata.roomname"
-                                            },
-                                        }
-                                        ]
-                                    },
-                                 
-                                 
-                                    "services": {
-                                        "action": "find",
-                                        "map": "hotelinfo.hotelsearch.services"
-                                    },
-                                    "passengers": {
-                                        "action": "create",
-                                        "childs": [
-                                            {
-                                                "adults": {
-                                                    "action": "find",
-                                                    "map": "costinfo.adults"
-                                                },
-                                                "childswithbed": {
-                                                    "action": "find",
-                                                    "map": "costinfo.childswithbed"
-                                                },
-                                                "childswithoutbed": {
-                                                    "action": "find",
-                                                    "map": "costinfo.childswithoutbed"
-                                                },
-                                                "infant": {
-                                                    "action": "find",
-                                                    "map": "costinfo.infant"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "dateinfo": {
-                                        "action": "create",
-                                        "childs": [
-                                            {
-                                                "start": {
-                                                    "action": "create",
-                                                    "childs": [
-                                                        {
-                                                            "sstring": {
-                                                                "action": "find",
-                                                                "map": "costinfo.dateinfo.start.sstring"
-                                                            },
-                                                            "mstring": {
-                                                                "action": "find",
-                                                                "map": "costinfo.dateinfo.start.mstring"
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                "end": {
-                                                    "action": "create",
-                                                    "childs": [
-                                                        {
-                                                            "sstring": {
-                                                                "action": "find",
-                                                                "map": "costinfo.dateinfo.end.sstring"
-                                                            },
-                                                            "mstring": {
-                                                                "action": "find",
-                                                                "map": "costinfo.dateinfo.end.mstring"
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        }
-                    ]
-                },
-                "totalInfo": {
-                    "action": "create",
-                    "childs": [
-                        {
-                            "total": {
-                                "action": "find",
-                                "map": "total"
-                            }
-                        },
-                        {
-                            "commission": {
-                                "action": "find",
-                                "map": "costcommission"
-                            }
-                        },
-                        {
-                            "totalcom": {
-                                "action": "find",
-                                "map": "totalcom"
-                            }
-                        },
-                        {
-                            "firstpay": {
-                                "action": "find",
-                                "map": "firstpay"
-                            }
-                        },
-                        {
-                            "moneytype": {
-                                "action": "find",
-                                "map": "moneytype"
-                            }
-                        }
-                    ]
-                },
-                "Credit_payment": {
-                    "action": "find",
-                    "map": "Credit_payment"
-                },
-                "serviceid": {
-                    "action": "find",
-                    "map": "hotelgroup.serviceid"
-                },
-                "hotel_dmnid": {
-                    "action": "find",
-                    "map": "hotelgroup.hotel_dmnid"
-                },
-                "coupon_data": {
-                    "action": "find",
-                    "map": "coupon_data"
-                },
-                "internal": {
-                    "action": "find",
-                    "map": "internal"
-                },
-                "unit": {
-                    "action": "find",
-                    "map": "unit"
+            "schemabase": "false",
+            "schema":"schema",
+            "member": [{
+                    "type": "list",
+                    "name": "q",
+                    "request": "showdetail",
+                    "userid": "[##db.checkrkey.userid|(0)##]",
+                    "hotel": {
+                        "schemaid": "251",
+                        "hotel_supplier": "[##cms.form.hsupplier##]",
+                        "id": "[##cms.form.productid##]",
+                        "provider_basis": "[##cms.form.provider##]",
+                        "provider_ws": [##cms.form.mainprovider|("")##],
+                        
+                        "optionId": "[##cms.form.optionId##]"
+                    },
+                    "flight": {
+                        "schemaid": "290",
+                        "flight_supplier": "[##cms.form.fsupplier##]",
+                        "id": "[##cms.form.idnows##]",
+                        "id-ws": [##cms.form.idws|("")##]
+                        
+                    },
+                    "nights": "[##cms.form.nights##]",
+                    "rooms": [##cms.json.header|cms.form.rooms##],
+                    "trackingNo": "[##cms.cookie.trackingid##]",
+                    "dmnid": [##cms.cms.domainid##],
+                    "lid":"1",
+                    "unit": "10"
+                    
                 }
-            },
-        "member": [
-        {
-          "type": "list",
-          "name": "q",
-          "request": "showdetail",
-          "schemaid": "251",
-          "provider_basis": "[##cms.form.provider##]",
-          "provider_ws":[##cms.form.mainprovider|("")##],
-          "id": "[##cms.form.productid##]",
-          "nights": "[##cms.form.nightLink##]",
-          "rooms":[##cms.json.header|cms.form.rooms##],
-          "optionId": "[##cms.form.optionId##]",
-           "supplier": "[##cms.form.supplier##]",
-          "userid": "[##db.checkrkey.userid|(0)##]",
-          "fromdate": "[##cms.form.fdate##]",
-          "todate": "[##cms.form.tdate##]",
-          "dmnid": "[##cms.cms.domainid##]",
-          "trackingNo": "[##cms.cookie.trackingid##]",
-          "unit": "10",
-          "lid": "1"
-        }
-      ]
-    }
-     ' />
+            ]
+        }'
+      />
     </basis>
-    <basis core="external.fly.ws" source="cmsDbService[##cms.form.sid|(2)##]" procedurename="dbsource" name="db">
+    <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
         <member name="passenger-form" method="site" query='{
             "name": "db",
             "mid": "20",
@@ -282,13 +48,15 @@
                 "type": "list",
                 "name": "q",
                 "request": "form",
-                "schemaid": "251",
-                "ws": "[##cms.form.provider##]",
+                "schemaid": "290251",
+                "wsflight": "[##cms.form.fprovider##]",
+                "wshotel": "[##cms.form.provider##]",
                 "adult": "0",
                 "child": "0",
                 "infant": "0",
                 "json": [##cms.json.header|cms.form.rooms##],
-                "ticketid": "[##cms.form.idvalue##]"
+                "trackingNo":"[##cms.cookie.trackingid##]" + "FL",
+                "ticketid":"[##cms.form.idvalue##]"
               }
             ]
           }
@@ -302,7 +70,7 @@
             <member name="error" format="json" postsql="select value from [db.error] where field = 'description'">
                 {"root":[##db.showdetail.result##]} </member>
             <member name="error-code" format="json" postsql="select value from [db.error-code] where field = 'code'">
-                    {"root":[##db.showdetail.result##]} </member>
+                {"root":[##db.showdetail.result##]} </member>
             <member name="passenger-form-Tree" format="json"
                 postsql="select  Id , ParentId , case when trim(Field) is null  then  (select field from [db.passenger-form-Tree] where id = a.parentid ) else field end as field, value , type , path  from [db.passenger-form-Tree] as a">
                 {"root":[##db.passenger-form.result##]}</member>
@@ -317,7 +85,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>رزرو هتل</title>
+        <title>رزرو پرواز + هتل</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="robots" content="index, nofollow" />
@@ -334,16 +102,16 @@
         <link href="https://cdn.basiscore.net/basisfly.com/css/reservation_tem_style_view.css" type="text/css"
             rel="stylesheet" />
         <link href="[##cms.cms.cdn##]/css/style_tem.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" sizes="80x80" href="[##cms.cms.cdn##]/images/shortcut-icon.png" />
+
 
             <!-- added jami -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-        <!-- <link href="[##cms.cms.cdn##]/css/flatpickr.min.css" type="text/css" rel="stylesheet" /> -->
 
 
-<link rel="shortcut icon" sizes="80x80" href="[##cms.cms.cdn##]/images/shortcut-icon.png" />
     </head>
     <body onload="onloadFunc();">
-    <main class="dir-rtl main-container contain-currency-show" data-dmnid="[##cms.cms.domainid##]" data-schemaid="251">
+    <main class="dir-rtl main-container contain-currency-show" data-dmnid="[##cms.cms.domainid##]" data-schemaid="290251">
         <input type="hidden" value="[##cms.cms.date##]" id="cms-date"/>
         <basis core="call" lid="1" file="header.inc"/>
         <section class="content">
@@ -388,12 +156,17 @@
                 <button class="background-color_2 color_white font_16 border-radius cursor-pointer"
                     onclick="window.location='[##cms.Host.FA_redirect|(/)##]'">صفحه اصلی</button>
                 <form method="post" action="" class="reSearch-form" data-tem="[##cms.form.checkpreurl##]">
-                    <input type="hidden" name="cityid" value="[##cms.form.cityid##]" />
-                    <input type="hidden" name="fdate" value="[##cms.form.fdate##]" />
-                    <input type="hidden" name="tdate" value="[##cms.form.tdate##]" />
-                    <input type="hidden" name="nights" value="[##cms.form.nightLink##]" />
-                    <input type="hidden" name="coHotel" value="[##cms.form.coHotel##]" />
+                    <input type="hidden" name="from" value="[##cms.form.from##]" />
+                    <input type="hidden" name="to" value="[##cms.form.to##]" />
+                    <input type="hidden" name="fdate" value="[##cms.form.fdate##]" class="departure_date_flight"/>
+                    <input type="hidden" name="tdate" value="[##cms.form.tdate##]" class="return_date_flight"/>
+                    <input type="hidden" name="checkin" value="[##cms.form.checkin##]" />
+                    <input type="hidden" name="checkout" value="[##cms.form.checkout##]" />
                     <input type="hidden" name="roomSearch" value='[##cms.form.roomSearch##]' />
+                    <input type="hidden" name="DepartureCity" value="[##cms.form.DepartureCity##]"  />
+                    <input type="hidden" name="DestinationCity" value="[##cms.form.DestinationCity##]" />
+                    <input type="hidden" name="Hotel-Date" value="[##cms.form.Hotel-Date##]"  />
+                    <input type="hidden" name="FlightClass" value="[##cms.form.FlightClass##]"  />
                     <button class="background-color_1 color_white font_16 border-radius cursor-pointer"
                         type="submit">جستجوی مجدد</button>
                 </form>
@@ -410,6 +183,9 @@
                         <li class="step-item step-item-unvisible" data-step="service"><i class="fa fa-suitcase-rolling icon"></i>
                             <div class="title">خدمات و گشت</div>
                         </li>
+                        <li class="step-item" data-step="insurance"><i class="fa fa-shield-alt icon"></i>
+                            <div class="title">بیمه</div>
+                        </li>
                         <li class="step-item" data-step="summary"><i class="fa fa-credit-card icon"></i>
                             <div class="title">پرداخت و صدور</div>
                         </li>
@@ -421,21 +197,314 @@
                     <aside class="width_30 float-right aside-container">
                         <div class="aside-content">
                             <form method="post" action="/Client_Commission_ver.2.bc?lid=1" class="check-commission">
-                                <input type="hidden" value="3" name="type"/>
+                                <input type="hidden" value="6" name="type"/>
                                 <input type="hidden" value="1" name="lid"/>
-                                <input type="hidden" value="[##cms.form.sid|(2)##]" name="sid" />
+                                <input type="hidden" value="[##cms.form.hsupplier##]" name="hsupplier" />
+                                <input type="hidden" value="[##cms.form.fsupplier##]" name="fsupplier" />
+                                <input type="hidden" value="[##cms.form.productid##]"  name="productid" />
                                 <input type="hidden" value="[##cms.form.provider##]" name="provider" />
                                 <input type="hidden" value='[##cms.form.mainprovider|("")##]' name="mainprovider" />
-                                <input type="hidden" value="[##cms.form.productid##]" name="productid" />
-                                <input type="hidden" value="[##cms.form.nightLink##]" name="nightLink" />
                                 <input type="hidden" value="[##cms.form.optionId##]" name="optionId" />
-                                <input type="hidden" value='[##cms.json.header|cms.form.rooms##]' name="rooms"  />
-                                <input type="hidden" value="[##cms.form.supplier##]" name="supplier" />
+                                <input type="hidden" value="[##cms.form.idnows##]" name="idnows" />
+                                <input type="hidden" value='[##cms.form.idws|("")##]' name="idws" />
+                                <input type="hidden" value="[##cms.form.nights##]" name="nights" />
+                                <input type="hidden" value='[##cms.json.header|cms.form.rooms##]' name="rooms" />
                                 <input type="hidden" value="[##db.checkrkey.userid|(0)##]" name="userid" class="userid" />
                                 <div class="check-commission-response"></div>
                             </form>
                             <div class="brief-container box-content width_100">
+                                <div class="box-content-title">اطلاعات پرواز</div>
+                                <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid"
+                                    nullvalue="null">
+                                    <layout>
+                                        <div class="flight-brief-content">
+                                            @child
+                                        </div>
+                                    </layout>
+                                    <face filter="field in ('HeaderPartFlightDep')">
+                                        <div class="flight-brief-info departureinfo">
+                                            @child
+                                            <div class="clr"></div>
+                                        </div>
+                                    </face>
+                                    <face filter="field in ('HeaderPartFlightDes')">
+                                        <div class="flight-brief-info returninfo">
+                                            @child
+                                            <div class="clr"></div>
+                                        </div>
+                                    </face>
+                                    <face filter="field in ('FlightAirlineImgDep','FlightAirlineImgDes')">
+                                        <div class="img-content float-right"><img src="@value" </face> <face filter="field in ('FlightAirlineNameDep','FlightAirlineNameDes')">
+                                        alt="@value" width="50" height="20" /></div>
+                                    </face>
+                                    <face filter="field in ('StartCityDep','StartCityDes')">
+                                        <div class="d-flex text-center width_80 float-left"><div class="info-item">
+                                            <div class="city-item font_13">@value</div>
+                                            <div class="startTime time-item font_13 font-weight"></div>
+                                        </div>
+                                        <div class="duration-item width_100 p-relative">
+                                            <div class="duration-line">
+                                                <svg class="svg-icon" width="20" height="20"
+                                                    viewBox="0 0 28.284 28.284">
+                                                    <g>
+                                                        <path
+                                                            d="M19.435.565a1.929 1.929 0 0 0-2.756.028l-4.1 4.269-10-3.309-2.1 2.1 8.339 5.131L4.6 13.179l-2.7-.444L0 14.632l3.976 1.393L5.368 20l1.9-1.9-.444-2.7 4.394-4.217 5.131 8.334 2.1-2.1-3.309-10 4.269-4.1a1.929 1.929 0 0 0 .026-2.752z"
+                                                            transform="rotate(-135 12.929 11.213)"></path>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </face>
+                                    <face filter="field in ('EndCityDep','EndCityDes')">
+                                        <div class="info-item">
+                                            <div class="city-item font_13">@value</div>
+                                            <div class="endTime time-item font_13 font-weight"></div>
+                                        </div>
+                                      </div>
+                                    </face>
+                                    <face filter="field in ('FlightExit_timeDes') and type in('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.FlightPart.HeaderPartFlight.HeaderPartFlightDes.FlightExit_timeDes[0]')">
+                                        <input type="hidden" value="@value" class="flight-time-des"/>
+                                    </face>
+                                    <face filter="field in ('FlightExit_timeDes') and type in('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.FlightPart.HeaderPartFlight.HeaderPartFlightDes.FlightExit_timeDes')">
+                                        <input type="hidden" value="@value" class="flight-time-des"/>
+                                    </face>
+                                    <face filter="field in ('FlightExit_timeDep') and type in('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.FlightPart.HeaderPartFlight.HeaderPartFlightDep.FlightExit_timeDep[0]')">
+                                        <input type="hidden" value="@value" class="flight-time-dep"/>
+                                    </face>
+                                    <face filter="field in ('FlightExit_timeDep') and type in('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.FlightPart.HeaderPartFlight.HeaderPartFlightDep.FlightExit_timeDep')">
+                                        <input type="hidden" value="@value" class="flight-time-dep"/>
+                                    </face>
+                                    <face filter="field in ('FlightMstringDep')">
+                                        <input type="hidden" value="@value" class="flight-mstring-dep"/>
+                                    </face>
+                                    <face filter="field in ('FlightMstringDes')">
+                                        <input type="hidden" value="@value" class="flight-mstring-des"/>
+                                    </face>
+                                    <face filter="field='AirportEndDepId'">
+                                        <input type="hidden" value="@value" class="airport-id" />
+                                    </face>
+                                    <face filter="field='AirportEndDep'">
+                                        <input type="hidden" value="@value" class="airport-name" />
+                                    </face>
+                                    <face filter="type in ('object','array')">@child</face>
+                                 </basis>
+                                 <div class="color_gray more-info"><span class="font_13">جزییات پرواز</span><i
+                                    class="fa fa-angle-down"></i></div>
+                                    <div class="details-container">
+                                        <ul class="nav-details flex-justify font_13">
+                                            <li class="nav-li active"
+                                                onclick="toggle_details_content(this,'section-detail')">
+                                                جزییات</li>
+                                            <li class="nav-li" onclick="toggle_details_content(this,'section-bar')" data-type-description="[##cms.form.type-description##]">
+                                                قوانین
+                                                بار
+                                            </li>
+                                            <li class="nav-li" onclick="toggle_details_content(this,'section-rule')" data-type-description="[##cms.form.type-description##]">قوانین
+                                                پرواز</li>
+                                        </ul>
+                                        <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid" nullvalue="null">
+                                            <face filter="field in ('coupon_data')"></face>
+                                            <face filter="field in ('FlightWrapperDetails')">
+                                                <div id="section-detail" class="section-content">
+                                                    @child
+                                                </div>
+                                            </face>
+                                            <face filter="field in ('FlightDep') and type in ('Array')">
+                                                <div class="departureRoutesInfo">
+                                                    @child
+                                                </div>
+                                            </face>
+                                            <face filter="field in ('FlightDes') and type in ('Array')">
+                                                <div class="returninfoRoutesInfo">
+                                                    @child
+                                                </div>
+                                            </face>
+                                            <face filter="field in ('FlightDep','FlightDes') and type in ('Object')">
+                                                <div class="details-item" style="padding-bottom: 1em;">
+                                                    <div class="details-item-title font_13"><span><span class="route-title"></span> (<span class="startCityDetail"></span><span>-</span><span class="endCityDetail"></span>)</span></div>
+                                                    @child
+                                                </div>
+                                            </face>
+                                            <face filter="field in ('WrapperAirlineImageDep','WrapperAirlineImageDes')">
+                                                <div class="logo-details float-right">@child</div>
+                                                <div class="class-details color_gray float-right font_11 d-flex"><span class="classNameDetail">@value</span><span>-</span><span class="routeCodeDetail"></span>  </div>
+                                                <div class="clr"></div>
+                                            </face>
+                                            <face filter="field in ('AirlineImageDep','AirlineImageDes')">
+                                                <img src="@value" </face> <face filter="field in
+                                                ('AirlineImageAltDep','AirlineImageAltDes')">
+                                                alt="@value" width="50" height="20"/>
+                                            </face>
+                                            <face filter="field in ('ClassNameDep','ClassNameDes')">
+                                                <span class="ClassName unvisible">@value</span>
+                                            </face>
+                                            <face filter="field in ('CityStartDep','CityStartDes')">
+                                                <span class="CityStart unvisible">@value</span>
+                                            </face>
+                                            <face filter="field in ('CityEndDep','CityEndDes')">
+                                                <span class="CityEnd unvisible">@value</span>
+                                            </face>
+                                            <face filter="field in ('RouteCodeDep')">
+                                                <span class="RouteCode unvisible">@value</span>
+                                                <input type="hidden" value="@value" class="flight-routCode-dep"/>
+                                            </face>
+                                            <face filter="field in ('RouteCodeDes')">
+                                                <span class="RouteCode unvisible">@value</span>
+                                                <input type="hidden" value="@value" class="flight-routCode-des"/>
+                                            </face>
+                                            <face filter="field in ('AirportStartDep')">
+                                                <div class="rout-details p-relative font_12">
+                                                    <input type="hidden" value="@value" class="flight-airline-dep"/>
+                                                    <div class="rout-details-part" style="width:100%">
+                                                        <div class="airport-details startAirportDetail" style="float: right;width: 33.3%;">@value</div>
+                                                
+                                            </face>
+                                            <face filter="field in ('AirportStartDes')">
+                                                <div class="rout-details p-relative font_12">
+                                                    <input type="hidden" value="@value" class="flight-airline-des"/>
+                                                    <div class="rout-details-part" style="width:100%">
+                                                        <div class="airport-details startAirportDetail" style="float: right;width: 33.3%;">@value</div>
+                                                
+                                            </face>
+                                            <face filter="field in ('ExitTimeDep','ExitTimeDes')">
+                                                <div class="time-details exitTime" style="width: 33.3%;position: absolute;right: 0;">@value</div>
+                                            </face>
+                                            <face filter="field in ('StartDepSstringDep','StartDepSstringDes') and type in ('Scalar.String')">
+                                                <div class="date-details" style="display: none;">
+                                                    @value
+                                             </face>
+                                             <face filter="field in ('StartDepMstringDep','StartDepMstringDes') and type in ('Scalar.String')">
+                                                <span class="EnNum">(@value)</span></div></div>
+                                                <span class="duration-details" style="float: left;"></span>
+                                             </face>
+                                             <face filter="field in ('AirportEndDep','AirportEndDes')">
+                                                <div class="rout-details-part" style="float: left;">
+                                                    <div class="airport-details endAirportDetail">@value</div>
+                                            </face>
+                                            <face filter="field in ('ArrivalTimeDep','ArrivalTimeDes')">
+                                                <div class="time-details arrivalTime" style="width: 33.3%;position: absolute;left: 0;bottom: -20px;">@value</div>
+                                            </face>
+                                            <face filter="field in ('EndDepSstringDep','EndDepSstringDes') and type in ('Scalar.String')">
+                                                <div class="date-details" style="float: right;width: 33.3%;display: none;">
+                                                    @value
+                                             </face>
+                                             <face filter="field in ('EndDepMstringDep','EndDepMstringDes') and type in ('Scalar.String')">
+                                                <span class="EnNum">(@value)</span> <input type="hidden" class="EnNum_date_flight" value="@value"/></div></div>
+                                                <div class="clr"></div>
+                                                </div>
+                                             </face>
+                                            <face filter="type in ('object','array')">@child</face>
+                                        </basis>
+  
+                                        <basis core="tree" datamembername="db.showdetail-Tree" idcol="id"
+                                        parentidcol="parentid" nullvalue="null">
+                                        <layout>
+                                            <div id="section-bar" class="unvisible section-content" data-description-dep='[##cms.form.description-dep##]' data-description-des='[##cms.form.description-des##]'>
+                                                @child
+                                            </div>
+                                        </layout>
+                                        <face filter="field in ('BarDep')">
+                                            <div class="section-item font_13">
+                                                <div class="text-dep text-justify max-height">@child</div> 
+                                                <div class="loading-container unvisible">
+                                                    <div id="ballsWaveG">
+                                                        <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </face>
+                                        <face filter="field in ('BarDes')">
+                                            <div class="section-item font_13">
+                                                <div class="text-des text-justify max-height">@child</div> 
+                                                <div class="loading-container unvisible">
+                                                    <div id="ballsWaveG">
+                                                        <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </face>
+                                        <face filter="field in ('BarDepcabin','BarDescabin')">
+                                            <span class="bar-info"><span class="inner-title color_font">بار
+                                                    کابین:
+                                                </span><span>@value</span></span>
+                                        </face>
+                                        <face filter="field in ('BarDepperm','BarDesperm')">
+                                            <span class="bar-info"><span class="inner-title color_font">بار
+                                                    مجاز:
+                                                </span><span>@value</span></span>
+                                        </face>
+                                        <face filter="type in ('object','array')">@child</face>
+                                    </basis>
+                                    <basis core="tree" datamembername="db.showdetail-Tree" idcol="id"
+                                        parentidcol="parentid" nullvalue="null">
+                                        <layout>
+                                            <div id="section-rule" class="unvisible section-content">
+                                                @child
+                                            </div>
+                                        </layout>
+                                        <face filter="field in ('DescriptionDep')">
+                                            <div class="section-item font_13">
+                                                <div class="text-dep text-justify max-height">@value</div>
+                                                <div class="loading-container unvisible">
+                                                    <div id="ballsWaveG">
+                                                        <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </face>
+                                        <face filter="field in ('DescriptionDes')">
+                                            <div class="section-item font_13">
+                                                <div class="text-des text-justify max-height">@value</div>
+                                                <div class="loading-container unvisible">
+                                                    <div id="ballsWaveG">
+                                                        <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                                        <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </face>
+                                        <face filter="type in ('object','array')">@child</face>
+                                    </basis>
+                                </div>
+                            </div>
+                            <div class="brief-container box-content width_100">
                                 <div class="box-content-title">اطلاعات هتل</div>
+                                <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid" nullvalue="null">
+                                    <face filter="Field = 'transfer_to'">
+                                        <input type="hidden" value='@value' class="hotel_extra_service_transfer_to"/>
+                                    </face>
+                                    <face filter="Field = 'transfer_from'">
+                                        <input type="hidden" value='@value' class="hotel_extra_service_transfer_from"/>
+                                    </face>
+                                    <face filter="type in ('object','array')">@child</face>
+                                </basis>
                                 <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid" nullvalue="null">
                                     <layout>
                                         <div class="brief-content">
@@ -443,7 +512,7 @@
                                         </div>
                                     </layout>
                                     <face filter="field in ('coupon_data')"></face>
-                                    <face filter="field in ('mainInfo')">
+                                    <face filter="field in ('HotelPart')">
                                         <div class="hotel-brief-info d-flex">
                                             @child
                                         </div>
@@ -451,122 +520,105 @@
                                     <face filter="Field = 'extra_service'">
                                         <input type="hidden" value='@value' class="hotel_extra_service"/>
                                     </face>
-                                    <face filter="Field = 'transfer_to'">
-                                        <input type="hidden" value='@value' class="hotel_extra_service_transfer_to"/>
-                                    </face>
-                                    <face filter="Field = 'transfer_from'">
-                                        <input type="hidden" value='@value' class="hotel_extra_service_transfer_from"/>
-                                    </face>
-
                                     <face filter="Field = 'transfer_type'">
                                         <!-- added jami -->
                                         <input type="hidden" value='@value' class="hotel_transfer_type"/>
-                                        <input type="hidden" value='Hotel' class="hotel_transfer_moduletype"/>
+                                        <input type="hidden" value='FlightHotel' class="hotel_transfer_moduletype"/>
                                     </face>
-
-
-                                    <face filter="field in ('hotelImage')">
-                                        <div class="img-content">@child</div>
-                                    </face>
-                                    <face filter="field in ('image') and path in ('.root[0].mainInfo.hotelImage.rooms[0].image')">
-                                        <img src="@value" </face> <face filter="field in ('name') and path in ('.root[0].mainInfo.hotelImage.rooms[0].name')">
-                                        alt="@value" width="50" height="50" />
-                                    </face>
-                                    <face filter="field in ('hotelInfo')">
-                                        <div class="hotel-info">@child</div>
-                                    </face>
-                                    <face filter="field in ('realname') and path in ('.root[0].mainInfo.hotelInfo.rooms[0].realname')">
-                                        <h1 class="realname">@value</h1>
-                                    </face>
-                                    <face filter="field in ('star') and path in ('.root[0].mainInfo.hotelInfo.rooms[0].star')">
-                                        <img src="https://cdn.basiscore.net/basisfly.com/images/@value-rate.png" width="80" height="16" alt="rate" /><i
-                                            class="fa fa-map-marked"></i>
-                                    </face>
-
                                     <face filter="Field = 'hotel_ws_id'">
                                         <!-- added jami -->
                                         <input type="hidden" value='@value' class="hotelid_transfer_type"/>
                                     </face>
-
-                                    <face filter="field in ('cityname')">
-                                        <span>@value</span><span class="space">-</span>
+                                    <face filter="field in ('HotelImage') and type in ('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.HotelPart.HeaderPartHotel.HotelImage[0]')">
+                                        <div class="img-content"> <img src="@value" alt="" width="50" height="50" /></div>
                                     </face>
-                                    <face filter="field in ('countryname')">
-                                        <span>@value</span>
+                                    <face filter="field in ('HotelImage') and type in ('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.HotelPart.HeaderPartHotel.HotelImage')">
+                                        <div class="img-content"> <img src="@value" alt="" width="50" height="50" /></div>
+                                    </face>
+                                    <face filter="field in ('HotelRealName') and type in ('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.HotelPart.HeaderPartHotel.HotelRealName[0]')">
+                                        <div class="hotel-info"><h1 class="realname">@value</h1>
+                                    </face>
+                                    <face filter="field in ('HotelRealName') and type in ('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.HotelPart.HeaderPartHotel.HotelRealName')">
+                                        <div class="hotel-info"><h1 class="realname">@value</h1>
+                                    </face>
+                                    <face filter="field in ('HotelCityName')">
+                                        <span>@value<i
+                                            class="fa fa-map-marked"></i></span>
+                                    </face>
+                                    <face filter="field in ('HotelStar') and type in ('Scalar.Numeric') and path in ('.root[0].WrapperContent.FirstPart.HotelPart.HeaderPartHotel.HotelStar[0]')">
+                                        <img src="https://cdn.basiscore.net/basisfly.com/images/@value-rate.png" width="80" height="16" alt="rate" /></div>
+                                    </face>
+                                    <face filter="field in ('HotelStar') and type in ('Scalar.Numeric') and path in ('.root[0].WrapperContent.FirstPart.HotelPart.HeaderPartHotel.HotelStar')">
+                                        <img src="https://cdn.basiscore.net/basisfly.com/images/@value-rate.png" width="80" height="16" alt="rate" /></div>
                                     </face>
                                     <face filter="type in ('object','array')">@child</face>
                                 </basis>
                                 <div class="color_gray more-info"><span class="font_13">جزییات هتل</span><i
                                         class="fa fa-angle-down"></i></div>
-
+                            
                                 <div class="details-container">
                                     <ul class="nav-details d-flex font_13">
                                         <li class="nav-li active"
-                                            onclick="toggle_details_content(this,'section-detail')">
+                                            onclick="toggle_details_content(this,'section-detail-hotel')">
                                             جزییات</li>
-                                        <li class="nav-li" onclick="toggle_details_content(this,'section-rule')">
+                                        <li class="nav-li" onclick="toggle_details_content(this,'section-rule-hotel')">
                                             قوانین
                                             اتاق
                                         </li>
                                     </ul>
                                     <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid" nullvalue="null">
                                         <face filter="field in ('coupon_data')"></face>
-                                        <face filter="field in ('detailsInfo')">
-                                            <div id="section-detail" class="section-content">
+                                        <face filter="field in ('WrapperHotel')">
+                                            <div id="section-detail-hotel" class="section-content">
                                                 @child
                                             </div>
                                         </face>
-                                    
-                                        <face filter="field in ('rooms') and type in ('Object')">
+                                        <face filter="field in ('RoomsHotel') and type in ('Object')">
                                             <div class="details-item">
                                                 @child
                                             </div>
                                         </face>
-                                        <face filter="field in ('title')">
-                                            <div class="details-item-title font_13"><span class="route-title">@child<span></div>
+                                        <face filter="field in ('Index')">
+                                            <div class="details-item-title font_13"><span class="route-title"> @value .
                                         </face>
-                                        <face filter="field in ('index')">
-                                            @value .
+                                        <face filter="field in ('RoomName')">
+                                            @value<span></div>
                                         </face>
-                                        <face filter="field in ('roomname')">
-                                            @value
-                                        </face>
-                                        <face filter="field in ('services')">
+                                        <face filter="field in ('Service')">
                                             <span class="font_12 color_gray">سرویس :</span><span class="space font_12">@value</span>
                                         </face>
-                                        <face filter="field in ('passengers')">
+                                        <face filter="field in ('Passcount')">
                                             <span class="space">@child</span>
                                         </face>
-                                        <face filter="field in ('adults') and value not in ('0')">
+                                        <face filter="field in ('Adults') and value not in ('0')">
                                             <span class="font_12 color_gray">بزرگسال :</span><span class="space font_12">@value</span>
                                         </face>
-                                        <face filter="field in ('childswithbed') and value not in ('0')">
-                                            <span class="font_12 color_gray">کودک :</span><span class="space font_12">@value</span><span class="with-bed"></span>
+                                        <face filter="field in ('Childswithbed') and value not in ('0')">
+                                            <span class="font_12 color_gray">کودک با تخت :</span><span class="space font_12">@value</span>
                                         </face>
-                                        <face filter="field in ('childswithoutbed') and value not in ('0')">
-                                            <span class="font_12 color_gray">کودک :</span><span class="space font_12">@value</span><span class="without-bed"></span>
+                                        <face filter="field in ('Childswithoutbed') and value not in ('0')">
+                                            <span class="font_12 color_gray">کودک بدون تخت :</span><span class="space font_12">@value</span>
                                         </face>
-                                        <face filter="field in ('infant') and value not in ('0')">
-                                            <span class="font_12 color_gray">نوزاد :</span><span class="space  font_12">@value</span><span class="is-infant"></span>
+                                        <face filter="field in ('Infant') and value not in ('0')">
+                                            <span class="font_12 color_gray">نوزاد :</span><span class="space  font_12">@value</span>
                                         </face>
-                                        <face filter="field in ('dateinfo')"><div>@child</div></face>
-                                        <face filter="field in ('start')">
-                                            <div> <span class="font_12 color_gray">تاریخ ورود :</span><span class="space">@child</span></div>
+                                        <face filter="field in ('StartDateHotel')">
+                                            <div><span class="font_12 color_gray">تاریخ ورود :</span><span class="space">@child</span></div>
                                         </face>
-                                        <face filter="field in ('end')">
-                                            <div> <span class="font_12 color_gray">تاریخ خروج :</span><span class="space">@child</span></div>
+                                        <face filter="field in ('EndDateHotel')">
+                                            <div><span class="font_12 color_gray">تاریخ خروج :</span><span class="space">@child</span></div>
                                         </face>
-                                        <face filter="field in ('sstring')">
+                                        <face filter="field in ('StartDateHotelSstring','EndDateHotelSstring')">
                                             <span class="space font_12">@value</span>
                                         </face>
-                                        <face filter="field in ('mstring')">
+                                        <face filter="field in ('StartDateHotelMstring','EndDateHotelMstring')">
                                             <span class="EnNum font_12">(@value)</span>
                                         </face>
                                         <face filter="type in ('object','array')">@child</face>
                                     </basis>
-                                    <div id="section-rule" class="unvisible section-content">
+                                    <div id="section-rule-hotel" class="unvisible section-content">
                                         <div class="section-item font_13">
-                                            <div class="title">جهت مشاهده قوانین اتاق<span class="clicked font-weight cursor-pointer" onclick="show_rule_room(this)" >
+                                            <div class="title">جهت مشاهده قوانین اتاق<span class="clicked font-weight cursor-pointer" onclick="show_rule_room(this,'FH')" >
                                                 کلیک </span>کنید.</div>
                                         <div dir="auto" class="response text-justify max-height"></div>
                                         <div class="room-loading unvisible">
@@ -581,7 +633,7 @@
                                                 <div id="ballsWaveG_8" class="ballsWaveG"></div>
                                             </div>
                                         </div>
-                                                                    </div>
+                                       </div>
                                     </div>
                                 </div>
                             </div>
@@ -591,13 +643,13 @@
                                     <div class="width_100">
                                         <div class="cost-box-header background-color_1 color_white text-center">
                                             قیمت
-                                            هتل</div>
+                                            پکیج</div>
                                         <div class="box-content cost-content color_gray">
                                             @child
                                         </div>
                                     </div>
                                 </layout>
-                                <face filter="field in ('commission')">
+                                <face filter="field in ('Commissioncost')">
                                     <div class="cost-row flex-justify commission-section" data-output="@value">
                                         <div class="font_14 title">کمیسیون</div>
                                         <div>
@@ -606,9 +658,9 @@
                                         </div>
                                     </div>
                                 </face>
-                                <face filter="field in ('totalcom')"><div class="cost-row flex-justify totalcom-section" data-output="@value" data-price="@value"></div></face>
-                                <face filter="field in ('total')"><div class="view-service-price fa-view-service-price"></div><div class="cost-row flex-justify total-section" data-output="@value"></div></face>
-                                <face filter="field in ('firstpay')">
+                                <face filter="field in ('Totalcom')"><div class="cost-row flex-justify totalcom-section" data-output="@value" data-price="@value"></div></face>
+                                <face filter="field in ('Total')"><div class="view-service-price fa-view-service-price width_100"></div><div class="cost-row flex-justify total-section width_100" data-output="@value"></div></face>
+                                <face filter="field in ('Firstpay')">
                                     <div class="cost-row flex-justify firstpay-section width_100" data-output="@value" data-price="@value">
                                         <div class="font_14 title">مبلغ قابل پرداخت</div>
                                         <div>
@@ -616,7 +668,7 @@
                                             <span class="unit-content"></span></div>
                                     </div>
                                 </face>
-                                <face filter="field in ('moneytype')">
+                                <face filter="field in ('Moneytype')">
                                     <div class="moneytype-value" data-output="@value"></div>
                                 </face>
                                 <face filter="type in ('object','array')">@child</face>
@@ -650,7 +702,7 @@
                                             </g>
                                         </svg> </i>
                                     <div class="line-one font_20 font-weight text-right">
-                                        خطایی رخ داده ، هتل قابل رزرو نیست
+                                        خطایی رخ داده ، پکیج قابل رزرو نیست
                                     </div>
                                     <div class="line-two text-right">
                                         برای دریافت نتیجه لطفا تاریخ و یا مسیر خود را تغییر دهید
@@ -674,7 +726,7 @@
                                             </g>
                                         </svg> </i>
                                     <div class="line-one font_20 font-weight text-right">
-                                       هتل انتخاب شده شما قابل رزرو نیست.(کد خطا 105)
+                                        پکیج انتخاب شده شما قابل رزرو نیست.(کد خطا 105)
                                     </div>
                                     <div class="line-two text-right">
                                         لطفا با تیم پشتیبانی سایت تماس ([##db.phone-company.Answer##]) بگیرید.
@@ -698,7 +750,7 @@
                                             </g>
                                         </svg> </i>
                                     <div class="line-one font_20 font-weight text-right">
-                                        هتل قابل رزرو نیست ، [##db.error.value##].
+                                        پکیج قابل رزرو نیست ، [##db.error.value##].
                                     </div>
                                     <div class="line-two text-right">
                                         برای دریافت نتیجه لطفا تاریخ و یا مسیر خود را تغییر دهید
@@ -716,31 +768,39 @@
                             </face>
                             <face filter="type in ('object','array')">@child</face>
                         </basis>
-                        <form method="post" action="/Client_Final_Hotel.bc?lid=1" class="invoice-form">
-                            <input type="hidden" value="[##cms.form.sid|(2)##]" name="sid" />
-                            <input type="hidden" value="Client_Show_Hotel_ver.2.bc?lid=1" name="ViewUrl" />
+                        <form method="post" action="/Client_Final_FH.bc?lid=1" class="invoice-form">
+                            <input type="hidden" value="Client_Show_FH_ver.2.bc?lid=1" name="ViewUrl" />
+                            <input type="hidden" value="[##cms.form.inscountry##]" name="inscountry"/>
+                            <input type="hidden" value="[##cms.form.productid_f##]" name="productid_f" />
+                            <input type="hidden" value="[##cms.form.fsupplier##]" name="fsupplier" />
+                            <input type="hidden" value="[##cms.form.hsupplier##]" name="hsupplier" />
+                            <input type="hidden" value="[##cms.form.idnows##]" name="idnows" />
+                            <input type="hidden" value='[##cms.form.idws|("")##]' name="idws" />
                             <input type="hidden" value='[##cms.form.mainprovider##]' name="mainprovider" class="mainprovider" />
-                            <input type="hidden" value="[##cms.form.nightLink##]" name="nightLink" />
-                            <input type="hidden" value='[##cms.form.roomSearch##]' name="roomSearch" />
-                            <input type="hidden" value='[##cms.json.header|cms.form.rooms##]' name="rooms" />
+                            <input type="hidden" value="[##cms.form.provider##]" name="provider" class="provider" />
                             <input type="hidden" value="[##cms.form.productid##]" name="productid" />
                             <input type="hidden" value="[##cms.form.supplier##]" name="supplier" />
-                            <input type="hidden" value="[##cms.form.share##]" name="share" />
-                            <input type="hidden" value="[##cms.form.provider##]" name="provider" class="provider" />
+                            <input type="hidden" value="[##cms.form.share|(0)##]" name="share" />
                             <input type="hidden" value="[##cms.form.optionId##]" name="optionId" class="optionId"/>
+                            <input type="hidden" value='[##cms.form.fprovider##]' name="fprovider" />
+                            <input type="hidden" value='[##cms.form.fmainprovider##]' name="fmainprovider" />
+                            <input type="hidden" value="[##cms.form.nights##]" name="nights" />
+                            <input type="hidden" value='[##cms.form.roomSearch##]' name="roomSearch" />
+                            <input type="hidden" value='[##cms.json.header|cms.form.rooms##]' name="rooms" />
                             <input type="hidden" value="[##cms.form.hotelid##]" name="hotelid" />
-                            <input type="hidden" value="0" name="adultcount" />
-                            <input type="hidden" value="0" name="childcount" />
-                            <input type="hidden" value="0" name="infantscount" />
                             <input type="hidden" value="[##db.checkrkey.userid|(0)##]" name="userid"
                             class="main-userid" /> <!-- updated login -->
                             <input type="hidden" value="[##db.checkrkey.rkey##]" class="main-rkey" />
                             <!-- updated login -->
                             <input type="hidden" value="[##cms.form.fdate##]" name="fdate" />
                             <input type="hidden" value="[##cms.form.tdate##]" name="tdate" />
-                            <input type="hidden" value="[##cms.form.cityid##]" name="cityid" />
-                            <input type="hidden" value="[##cms.form.coHotel##]" name="coHotel" />
-                            <input type="hidden" value="[##cms.form.coHotel##]" name="source" />
+                            <input type="hidden" value="[##cms.form.checkin##]" name="checkin" />
+                            <input type="hidden" value="[##cms.form.checkout##]" name="checkout" />
+                            <input type="hidden" value="[##cms.form.from##]" name="from"  />
+                            <input type="hidden" value="[##cms.form.to##]" name="to"  />
+                            <input type="hidden" value="[##cms.form.DepartureCity##]" name="DepartureCity" />
+                            <input type="hidden" value="[##cms.form.DestinationCity##]" name="DestinationCity" />
+                            <input type="hidden" value="[##cms.form.Hotel-Date##]" name="Hotel-Date" />
                             <input type="hidden" value='0' name="has_products" class="has_products" />
                             <input type="hidden" value="[##cms.form.rate-unit##]" name="currency_request" class="rate-unit" />
                             <input type="hidden" value="[##cms.form.rate-cost##]" class="rate-cost" />
@@ -756,11 +816,26 @@
                             <input type="hidden" value="0" name="club_discount"/>
                             <basis core="tree" datamembername="db.showdetail-Tree" idcol="id" parentidcol="parentid"
                                 nullvalue="null">
-                                <face filter="field = 'moneytype'">
+                                <face filter="field = 'AdultCount'">
+                                    <input type="hidden" value="@value" name="adultcount" />
+                                </face>
+                                <face filter="field = 'ChildCount'">
+                                    <input type="hidden" value="@value" name="childcount" />
+                                </face>
+                                <face filter="field = 'InfantCount'">
+                                    <input type="hidden" value="@value" name="infantcount" />
+                                </face>
+                                <face filter="field ='cityid' and path ='.root[0].WrapperContent.SecondPart.coupon_data.city.end.cityid' ">
+                                    <input type="hidden" value="@value" class='cityid' />
+                                </face>
+                                <face filter="field = 'Moneytype'">
                                     <input type="hidden" value="@value" name="moneytype" />
                                 </face>
-                                <face filter="field in ('mstring') and type in ('Scalar.String') and path in ('.root[0].detailsInfo.rooms[0].dateinfo.start.mstring')">
+                                <face filter="field in ('StartDepMstringDep') and type in ('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.FlightPart.FlightWrapper.FlightWrapperDetails.FlightDep[0].WrapperTimesStartDep.StartDepMstringDep')">
                                     <input type="hidden" value="@value" class="exitDateMs" />
+                                </face>
+                                <face filter="field in('EndDepMstringDep') and type in ('Scalar.String') and path in ('.root[0].WrapperContent.FirstPart.FlightPart.FlightWrapper.FlightWrapperDetails.FlightDep[0].WrapperTimesEndDep.EndDepMstringDep')">
+                                    <input type="hidden" value="@value" class="mdate" />
                                 </face>
                                 <face filter="field='Credit_payment'">
                                     <input type="hidden" value="@value" class="Credit_payment" />
@@ -777,28 +852,32 @@
                                 <face filter="field='unit'">
                                     <input type="hidden" value="@value" class="currency-unit" />
                                 </face>
-                                <face filter="field='internal' and value in ('1')">
+                                <face filter="field='internal'">
                                     <input type="hidden" value="@value" class="internal" />
-                                    <input type="hidden" value="hotel" name="service_type" />
-                                    <input type="hidden" value="Internal " name="travel_type" />
-                                </face>
-                                <face filter="field='internal' and value in ('0')">
-                                    <input type="hidden" value="@value" class="internal" />
-                                    <input type="hidden" value="hotel" name="service_type" />
-                                    <input type="hidden" value="External" name="travel_type" />
                                 </face>
                                 <face filter="type in ('object','array')">@child</face>
                             </basis>
-                            <div class="passengers-info-content"></div>
-                            
-                            <div class="passengers-extraServices-content unvisible">
-                                <div class="box-content">
-                                    <div class="title font_14 font-weight"><span>ترنسفر هتل</span></div>
-                                    <div class="extraService-info-items"></div>
-                                </div>
+                        <div class="passengers-info-content"></div>
+                         <!-- updated login -->
+                         <div class="buyers-info-content unvisible" data-load="0">
+                            <div id="ballsWaveG">
+                                <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_8" class="ballsWaveG"></div>
                             </div>
-                             <!-- updated login -->
-                             <div class="buyers-info-content unvisible" data-load="0">
+
+                            <basis core="call" lid="1" run="AtClient" file="/Client_Shopper_ver.2.bc?lid=1" triggers="db.runBuyer"
+                                if="{##db.runBuyer.run|(false)##}" method="post"
+                                userid="{##db.runBuyer.userid##}" provider="{##db.runBuyer.provider##}"></basis>
+
+                        </div>
+                        <!-- updated login -->
+                            <div class="services-info-content unvisible" data-load="0">
                                 <div id="ballsWaveG">
                                     <div id="ballsWaveG_1" class="ballsWaveG"></div>
                                     <div id="ballsWaveG_2" class="ballsWaveG"></div>
@@ -809,14 +888,8 @@
                                     <div id="ballsWaveG_7" class="ballsWaveG"></div>
                                     <div id="ballsWaveG_8" class="ballsWaveG"></div>
                                 </div>
-
-                                <basis core="call" run="AtClient" file="/Client_Shopper_ver.2.bc?lid=1" triggers="db.runBuyer"
-                                    if="{##db.runBuyer.run|(false)##}" method="post"
-                                    userid="{##db.runBuyer.userid##}" provider="{##db.runBuyer.provider##}"></basis>
-
                             </div>
-                            <!-- updated login -->
-                            <div class="services-info-content unvisible" data-load="0">
+                            <div class="insurances-info-content unvisible" data-load="0">
                                 <div id="ballsWaveG">
                                     <div id="ballsWaveG_1" class="ballsWaveG"></div>
                                     <div id="ballsWaveG_2" class="ballsWaveG"></div>
@@ -949,11 +1022,11 @@
             </section>
         <section id="app"></section>  
         </section>
-        <!----------------JS FILE---------------->
-        <script src="[##cms.cms.cdn##]/_js/jquery/jquery-3.6.3.min.js" type="text/javascript"></script>
-        <basis core="call" lid="1" file="footer.inc"/>
+      <!----------------JS FILE---------------->
+      <script src="[##cms.cms.cdn##]/_js/jquery/jquery-3.6.3.min.js" type="text/javascript"></script>
+    <basis core="call" lid="1" file="footer.inc"></basis>
     </main>
-    <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_tem_js_view.js" type="text/javascript"></script>
+  <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_tem_js_view.js" type="text/javascript"></script>
     <script defer src="https://cdn.basiscore.net/basisfly.com/js/reservation_react.production.min.js" ></script>
     <script defer src="https://cdn.basiscore.net/basisfly.com/js/reservation_react_dom.production.min.js"></script>
     <script defer src="https://cdn.basiscore.net/basisfly.com/js/reservation_babel.min.js"></script>
@@ -961,15 +1034,10 @@
     <!----------------JS ClOCK---------------->
     <script defer src="https://www.basisfly.com/js/reservation_moment-with-locales.js" type="text/javascript" ></script>
     <script defer src="https://www.basisfly.com/js/reservation_bootstrap-clockpicker.min.js" type="text/javascript" ></script>
-
-
-
-
-    <!-- added jami -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <!-- <script defer src="[##cms.cms.cdn##]/js/flatpickr.js" type="text/javascript" ></script> -->
-
-
+    
+        <!-- added jami -->
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
     <script type="text/babel">
     function load_passengersList(dmnid, userid, internal, index, index_room) {
     class App extends React.Component {
@@ -1119,6 +1187,18 @@
 
                     } else if (document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").getAttribute("name").indexOf('NationalCode') > -1 || document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").getAttribute("name").indexOf('nationalcode') > -1) {
                         document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").value = data_nationalcode;
+                        if (parseInt(data_issuecountry) !== 1002236){
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector(".inner-item").classList.add("invalid");
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").classList.remove("necessary");
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").classList.add("not-active");
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").setAttribute("readonly", true);
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").value = '-';
+                        }else {
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector(".inner-item").classList.remove("invalid");
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").classList.add("necessary");
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").classList.remove("not-active");
+                            document.getElementsByClassName("passenger-info-content")[data_index_room].getElementsByClassName("passenger")[data_index].getElementsByClassName("package-info-item")[i].querySelector("input[type=text]").removeAttribute("readonly");
+                        }
                     }
                 }
 
@@ -1311,3 +1391,4 @@
 </html>
 </basis>
 </basis>
+                            
