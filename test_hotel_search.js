@@ -7185,7 +7185,9 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
 
                                 // added jami
                                 const transferTypeElement = document.querySelector(".hotel_transfer_type");
-                                if (transferTypeElement && transferTypeElement.value === "1") {
+
+                                console.log("transfer data:::::::" , transferTypeElement , check_provider );
+                                if ((transferTypeElement && transferTypeElement.value === "1") && check_provider == 29) {
                                     const transferTypeModule = document.querySelector(".hotel_transfer_moduletype");
                                     const hotelIdInput = document.querySelector(".hotelid_transfer_type");
                                     const providerIDHotel = document.querySelector('.invoice-form input[name="provider"]');
@@ -7239,8 +7241,7 @@ ${e.dataset.id ? `"id":${e.dataset.id},` : ``}
                                             console.error("Error loading transfer info:", error);
                                         });
                                     }
-                                } else if (transferTypeElement && transferTypeElement.value === "2"){
-                                if (check_provider == 82 || check_provider == 114) {
+                                } else if (check_provider == 82 || check_provider == 114) {
                                     $(".view-service-price").empty()
                                     var finalprice = $(".firstpay-section").attr("data-price")
                                     $(".firstpay-price").each(function () {
